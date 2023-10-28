@@ -31,7 +31,7 @@
 
       <!-- Testimonials -->
 
-      <div class="space-y-3 mt-10 bg-white/30">
+     <!-- <div class="space-y-3 mt-10 bg-white/30">
         <div class="border-l-4 border-header-dark-overlay px-5">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorum officia, tenetur accusamus quas culpa numquam ullam at deleniti ratione perspiciatis possimus esse odio eligendi ex, soluta beatae? Possimus quod dignissimos magni repellendus autem impedit.
@@ -46,7 +46,53 @@
             <span class="block">Executive Director</span>
           </p>
         </div>
-      </div>
+      </div>  -->
+
+
+        <div class="owl-carousel owl-theme">
+              <!-- carousel items -->
+              <div class=" ">
+
+                                     <div class="space-y-3 mt-10 bg-white/30">
+                                          <div class="border-l-4 border-header-dark-overlay px-5">
+                                            <p>
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorum officia, tenetur accusamus quas culpa numquam ullam at deleniti ratione perspiciatis possimus esse odio eligendi ex, soluta beatae? Possimus quod dignissimos magni repellendus autem impedit.
+                                            </p>
+                                          </div>
+
+                                          <div class="flex flex-col md:flex-row items-center md:justify-start justify-center md:items-start">
+                                            <div class="max-w-full rounded-full mb-2 md:mr-2" style="width: 60px; height: 60px; background: #ccc;"></div>
+
+                                            <p class="text-center md:text-left">
+                                              <span class="block font-bold">John Doe</span>
+                                              <span class="block">Executive Director</span>
+                                            </p>
+                                          </div>
+                                        </div> 
+
+              </div>
+              <div class=" ">
+
+                                     <div class="space-y-3 mt-10 bg-white/30">
+                                          <div class="border-l-4 border-header-dark-overlay px-5">
+                                            <p>
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorum officia, tenetur accusamus quas culpa numquam ullam at deleniti ratione perspiciatis possimus esse odio eligendi ex, soluta beatae? Possimus quod dignissimos magni repellendus autem impedit.
+                                            </p>
+                                          </div>
+
+                                          <div class="flex flex-col md:flex-row items-center md:justify-start justify-center md:items-start">
+                                            <div class="max-w-full rounded-full mb-2 md:mr-2" style="width: 60px; height: 60px; background: #ccc;"></div>
+
+                                            <p class="text-center md:text-left">
+                                              <span class="block font-bold">John Doe</span>
+                                              <span class="block">Executive Director</span>
+                                            </p>
+                                          </div>
+                                        </div> 
+
+              </div>
+          </div>
+  
     </div>
     <div class="flex flex-col justify-center items-center">
       <div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div>
@@ -570,4 +616,103 @@
       </div>
     </div>
   </div>
-</section
+</section>
+
+
+
+
+<section class="px-6 lg:px-10 bg-header-dark-overlay text-white">
+    <div class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
+    <div class="py-8 w-full flex flex-col justify-center items-center">
+      <div>
+        <img
+          src="author-image.jpg"
+          width={100}
+          height={100}
+          alt=""
+          class="max-w-full rounded-full mb-2 md:mr-2"
+        />
+      </div>
+
+      <div class="space-y-3 py-5">
+        <h3 class="text-lg lg:text-3xl font-bold font-Sohne-Bold">
+          About The Author
+        </h3>
+        <p class="text-base lg:text-lg">
+          This book landing page template is made by product designer Xiaoying Riley for developers. You can use this template to self-publish and promote your book/ebook. You can easily use platforms such as Gumroad to handle your book payment and delivery. This template is 100% FREE as long as you keep the footer attribution link. You do not have the rights to resell, sublicense, or redistribute (even for free) the template on its own or as a separate attachment from any of your work. If you'd like to use this template without the footer attribution link, you can buy the commercial license.
+        </p>
+
+        <div class="py-2.5 flex flex-row gap-6 justify-center items-center">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

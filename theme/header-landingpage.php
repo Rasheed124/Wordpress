@@ -22,6 +22,8 @@
 
 <!-- Antonio - Libre+Baskerville Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 </head>
