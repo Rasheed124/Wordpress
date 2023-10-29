@@ -7,281 +7,661 @@
  * @package themeduro
  */
 
-get_header();
+ get_header("landingpage");
 ?>
-<!-- ---------------------
-// NEW TEMPLATE
------------------------->
+
+	<section id="primary">
+		<main id="main">
+
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
+				get_template_part( 'template-parts/content/content', 'single' );
+
+				if ( is_singular( 'post' ) ) {
+					// Previous/next post navigation.
+					the_post_navigation(
+						array(
+							'next_text' => '<span aria-hidden="true">' . __( 'Next Post', 'themeduro' ) . '</span> ' .
+								'<span class="sr-only">' . __( 'Next post:', 'themeduro' ) . '</span> <br/>' .
+								'<span>%title</span>',
+							'prev_text' => '<span aria-hidden="true">' . __( 'Previous Post', 'themeduro' ) . '</span> ' .
+								'<span class="sr-only">' . __( 'Previous post:', 'themeduro' ) . '</span> <br/>' .
+								'<span>%title</span>',
+						)
+					);
+				}
+
+				// If comments are open, or we have at least one comment, load
+				// the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+
+				// End the loop.
+			endwhile;
+			?>
+
+		</main><!-- #main -->
+	</section><!-- #primary -->
+
 <?php
-// Check if this is page index one or two
-$page_index = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+get_footer();
 
-// If this is page index one, show both sections
-if ( $page_index == 1 ) {
-?>
-	<div class="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-		<?php 
-			$args = array(
-				'posts_per_page' => 1,
-				'orderby' => 'rand',
-				'category_name' => 'featured'
-			);
-			$query = new WP_Query($args);
-		?>
-		<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-		<div class="flex flex-col items-center justify-between lg:flex-row">
 
-			<div class="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
-				<div class="max-w-xl mb-6">
-				
-					<h2 class="max-w-lg mb-6 font-libre-baskerville text-3xl font-bold tracking-tight text-black sm:text-4xl sm:leading-[43px]">
-						<?php the_title(); ?>
-					</h2>
-					<p class="text-base md:text-lg">
-						<?php echo wp_trim_words(get_the_excerpt(), 20); ?>
-					</p>
-				</div>
-				<div class="flex flex-col items-start md:flex-row">
-					<a
-					href="<?php the_permalink(); ?>"
-					class="button"
-					>
-				
-              <button className="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-black text-xs sm:text-base block whitespace-nowrap font-medium ">
-                Read more
+<section id="about" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
+  <div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold font-migra-light lg:text-4xl">
+        What Will You Get From This Book?
+      </h2>
+      <p class="py-2 text-lg lg:text-xl">
+        Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat. Orci varius natoque penatibus et magnis.
+      </p>
+    </div>
+    <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="space-y-3 flex flex-col justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+          <path d="M7 20h10"></path>
+          <path d="M9 16v4"></path>
+          <path d="M15 16v4"></path>
+        </svg>
+        <h4 class="font-medium">
+          Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
+        </h4>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
+        </p>
+      </div>
+    
+      <div class="space-y-3 flex flex-col justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+          <path d="M7 20h10"></path>
+          <path d="M9 16v4"></path>
+          <path d="M15 16v4"></path>
+        </svg>
+        <h4 class="font-medium">
+          Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
+        </h4>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
+        </p>
+      </div>
+    
+      <div class="space-y-3 flex flex-col justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+          <path d="M7 20h10"></path>
+          <path d="M9 16v4"></path>
+          <path d="M15 16v4"></path>
+        </svg>
+        <h4 class="font-medium">
+          Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
+        </h4>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
+        </p>
+      </div>
+    
+      <div class="space-y-3 flex flex-col justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+          <path d="M7 20h10"></path>
+          <path d="M9 16v4"></path>
+          <path d="M15 16v4"></path>
+        </svg>
+        <h4 class="font-medium">
+          Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
+        </h4>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
+        </p>
+      </div>
+    
+      <div class="space-y-3 flex flex-col justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+          <path d="M7 20h10"></path>
+          <path d="M9 16v4"></path>
+          <path d="M15 16v4"></path>
+        </svg>
+        <h4 class="font-medium">
+          Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
+        </h4>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
+        </p>
+      </div>
+    
+      <div class="space-y-3 flex flex-col justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
+          <path d="M7 20h10"></path>
+          <path d="M9 16v4"></path>
+          <path d="M15 16v4"></path>
+        </svg>
+        <h4 class="font-medium">
+          Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
+        </h4>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
+        </p>
+      </div>
+    
+    </div>
+  </div>
+</section>
+
+
+<section id="solution" class="px-6 lg:px-10">
+  <div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold font-migra-light lg:text-4xl">
+        What's Included
+      </h2>
+      <p class="py-2 text-lg lg:text-xl">
+        Section intro goes here. Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Integer blandit consequat consequat. Orci varius
+        natoque penatibus et magnis.
+      </p>
+    </div>
+    <div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[400px] lg:h-[500px] relative">
+          <img src="solutionbg.jpg" alt="" class="max-w-full absolute self-center" />
+        </div>
+        <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-start">
+          <h4 class="text-lg flex items-center">
+            <span class="">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
+              </svg>
+            </span>
+            <span class="font-medium whitespace-nowrap">
+              List your book's content here.
+            </span>
+          </h4>
+          <h4 class="text-lg flex items-center">
+            <span class="">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
+              </svg>
+            </span>
+            <span class="font-medium whitespace-nowrap">
+              List your book's content here.
+            </span>
+          </h4>
+          <h4 class="text-lg flex items-center">
+            <span class="">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
+              </svg>
+            </span>
+            <span class="font-medium whitespace-nowrap">
+              List your book's content here.
+            </span>
+          </h4>
+   
+          <div>
+            <a href="#">
+              <button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
+                I want this book
               </button>
-       
-					</a>
-				</div>
-			</div>
-			<div class="relative lg:w-1/2">
-				<?php if(has_post_thumbnail()):?>
-					<img class="object-cover w-full h-56 shadow-lg sm:h-96 lg:h-[448px]" src="<?php the_post_thumbnail_url();?>" alt="" />
-				<?php endif; ?>
-			</div>
-            
-		</div>
-		<?php endwhile; endif; ?>
-	</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="reviews" class="px-6 lg:px-10 bg-gray-100">
+  <div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold font-migra-light lg:text-4xl">
+        Who This Book Is For
+      </h2>
+      <p class="py-2 text-lg lg:text-xl">
+        List your target readers in this section and back up with reviews.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales
+        sit amet neque sit amet molestie. Vivamus hendrerit nisi condimentum
+        erat tempus, vitae accumsan odio euismod.
+      </p>
+    </div>
+    <div class="py-8 max-w-5xl flex justify-center items-center">
+      <div class="space-y-5 w-full max-w-md mx-auto flex flex-col justify-center items-center">
+        <div class="flex self-center gap-3 lg:max-w-lg mx-auto">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
+              <path d="M15 19l2 2l4 -4"></path>
+            </svg>
+          </div>
+
+          <div class="text-left">
+            <h5 class="text-lg lg:text-xl font-bold pb-2">
+              Target Audience 1
+            </h5>
+            <span class="font-medium block text-base lg:text-lg">
+              Describe your first target audience here.
+            </span>
+          </div>
+        </div>
+        <div class="flex self-center gap-3 lg:max-w-lg mx-auto">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
+              <path d="M15 19l2 2l4 -4"></path>
+            </svg>
+          </div>
+
+          <div class="text-left">
+            <h5 class="text-lg lg:text-xl font-bold pb-2">
+              Target Audience 2
+            </h5>
+            <span class="font-medium block text-base lg:text-lg">
+              Describe your second target audience here.
+            </span>
+          </div>
+        </div>
+        <div class="flex self-center gap-3 lg:max-w-lg mx-auto">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
+              <path d="M15 19l2 2l4 -4"></path>
+            </svg>
+          </div>
+
+          <div class="text-left">
+            <h5 class="text-lg lg:text-xl font-bold pb-2">
+              Target Audience 3
+            </h5>
+            <span class="font-medium block text-base lg:text-lg">
+              Describe your third target audience here.
+            </span>
+          </div>
+        </div>
+        <div class="flex self-center gap-3 lg:max-w-lg mx-auto">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
+              <path d="M15 19l2 2l4 -4"></path>
+            </svg>
+          </div>
+
+          <div class="text-left">
+            <h5 class="text-lg lg:text-xl font-bold pb-2">
+              Target Audience 4
+            </h5>
+            <span class="font-medium block text-base lg:text-lg">
+              Describe your fourth target audience here.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solution" class="px-6 lg:px-10">
+  <div class="text-center lg:max-w-6xl mx-auto max-w-lg xl:pb-10 py-14 lg:py-20 xl:py-28">
+    <div class="bg-gray-200 p-10 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold font-migra-light lg:text-4xl">
+        Get A Free Preview
+      </h2>
+      <p class="py-2 text-lg lg:text-xl lg:px-5">
+        Sign up to get a free preview of the book. You can offer visitors free
+        book previews to generate leads.
+      </p>
+
+      <form action="" class="">
+        <div class="flex md:max-w-xl mx-auto flex-col md:flex-row justify-center items-center gap-3">
+          <label for="email" class="w-full md:flex-[50%]">
+            <input
+              title="Email"
+              type="text"
+              placeholder="Your Email"
+              class="border-1 w-full outline-none focus:shadow-md focus:border-header-dark-overlay transition duration-500 p-2.5 rounded-md"
+            />
+          </label>
+          <a href="#">
+            <button class="py-2.5 text-lg hover:border-header-dark-overlay duration-500 transition px-8 border rounded-md border-transparent bg-header-dark-overlay sm:text-base block whitespace-nowrap font-medium">
+              Send
+            </button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="solution" class="px-6 lg:px-10">
+  <div class="text-center lg:max-w-6xl mx-auto py-14 lg:py-20 xl:py-28">
+    <div class="mx-auto pb-10 max-w-lg">
+      <h2 class="text-2xl font-bold font-migra-light lg:text-4xl">
+        Book Reviews
+      </h2>
+      <p class="py-2 text-lg lg:text-xl">
+        See what our readers are saying.
+      </p>
+    </div>
+    <div class="py-8 w-full flex justify-center items-center">
+      <div class="lg:max-w-6xl grid grid-cols-1 space-y-8 gap-10">
+        <!-- cols - 1  -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div class="flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start">
+            <div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-quote text-white"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+              </svg>
+            </div>
+            <blockquote class="text-left italic text-base">
+              '"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
+            </blockquote>
+            <div class="flex flex-col md:flex-row items-start justify-center bg-gray-100 md:items-start">
+              <img
+                src={BannerProfile}
+                width={60}
+                height={60}
+                alt=""
+                class="max-w-full rounded-full mb-2 md:mr-2"
+              />
+              <p class="text-center md:text-left">
+                <span class="block text-sm font-bold">John Doe</span>
+                <span class="block text-sm">Executive Director</span>
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start">
+            <div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-quote text-white"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+              </svg>
+            </div>
+            <blockquote class="text-left italic text-base">
+              '"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
+            </blockquote>
+            <div class="flex flex-col md:flex-row items-start justify-center bg-gray-100 md:items-start">
+              <img
+                src={BannerProfile}
+                width={60}
+                height={60}
+                alt=""
+                class="max-w-full rounded-full mb-2 md:mr-2"
+              />
+              <p class="text-center md:text-left">
+                <span class="block text-sm font-bold">John Doe</span>
+                <span class="block text-sm">Executive Director</span>
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start">
+            <div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-quote text-white"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+              </svg>
+            </div>
+            <blockquote class="text-left italic text-base">
+              '"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
+            </blockquote>
+            <div class="flex flex-col md:flex-row items-start justify-center bg-gray-100 md:items-start">
+              <img
+                src={BannerProfile}
+                width={60}
+                height={60}
+                alt=""
+                class="max-w-full rounded-full mb-2 md:mr-2"
+              />
+              <p class="text-center md:text-left">
+                <span class="block text-sm font-bold">John Doe</span>
+                <span class="block text-sm">Executive Director</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- cols - 2  -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 w-full xl:flex gap-10">
+          <div class="xl:self-center flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start">
+            <div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-quote text-white"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+              </svg>
+            </div>
+            <blockquote class="text-left italic text-base">
+              '"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
+            </blockquote>
+            <div class="flex flex-col md:flex-row items-start justify-center bg-gray-100 md:items-start">
+              <img
+                src={BannerProfile}
+                width={60}
+                height={60}
+                alt=""
+                class="max-w-full rounded-full mb-2 md:mr-2"
+              />
+              <p class="text-center md:text-left">
+                <span class="block text-sm font-bold">John Doe</span>
+                <span class="block text-sm">Executive Director</span>
+              </p>
+            </div>
+          </div>
+          <div class="xl:self-center flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start">
+            <div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-quote text-white"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+                <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+              </svg>
+            </div>
+            <blockquote class="text-left italic text-base">
+              '"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
+            </blockquote>
+            <div class="flex flex-col md:flex-row items-start justify-center bg-gray-100 md:items-start">
+              <img
+                src={BannerProfile}
+                width={60}
+                height={60}
+                alt=""
+                class="max-w-full rounded-full mb-2 md:mr-2"
+              />
+              <p class="text-center md:text-left">
+                <span class="block text-sm font-bold">John Doe</span>
+                <span class="block text-sm">Executive Director</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+     
+
+        <a href="#" class="flex   place-self-center justify-center items-center ">
+          <button class="py-3 sm:text-base lg:text-lg hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs block whitespace-nowrap font-medium">
+            Get your own today
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
-	<!-- Sidebar Template Part post -->
-	<section class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-		<div class="">
-			<div class="">
-				<div class="mt-10">
-					
-						<?php
-						$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1; // get the current page number
-						$args = array(
-							'post_type' => 'post',
-							'paged' => $paged // set the current page number
-						);
-						$query = new WP_Query( $args );
-						?>
-						
-						<?php if ( $query->have_posts() ) : ?>
 
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-10 ">
-						<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-							<article class="grid grid-cols-1 ">
+<section class="px-6 lg:px-10 bg-header-dark-overlay text-white">
+    <div class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
+    <div class="py-8 w-full flex flex-col justify-center items-center">
+      <div>
+        <img
+          src="author-image.jpg"
+          width={100}
+          height={100}
+          alt=""
+          class="max-w-full rounded-full mb-2 md:mr-2"
+        />
+      </div>
 
-                            	<div class="">
-									<?php if(has_post_thumbnail()):?> 
-										<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="object-cover w-full h-40" alt="" />
-									<?php endif;?>
-								</div>
-								<div class="">
-									<h3 class="mb-3 text-xl font-bold leading-7 capitalize transition-all duration-200 text-black hover:underline">
-										<a href="<?php the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 10 ); ?></a>
-									</h3>
-									<p class="text-sm leading-relaxed text-gray-500 line-clamp-3 mb-2">
-										<?php echo wp_trim_words(get_the_excerpt(), 16); ?>
-									</p>
-									<p class="mt-3 text-xs font-semibold tracking-wide uppercase">
-										<?php
-											$categories = get_the_category();
-											if ( !empty( $categories ) ):
-											foreach($categories as $cat): 
-										?>
-											<a href="<?php echo get_tag_link($cat->term_id);?>"><?php echo $cat->name;?></a>
-										<?php endforeach; endif;?>
-										<span class="text-gray-600">— <?php echo get_the_date('jS F, Y');?></span>
-									</p>
-								</div>
-							
-							</article>
-						<?php endwhile; ?>
-						</div>
-						<!-- PAGINATION -->
-						<div class="flex justify-center items-center mt-6 border-t border-gray">
-							<div class="flex justify-center">
-								<?php
-									global $wp_query;
+      <div class="space-y-3 py-5">
+        <h3 class="text-lg lg:text-3xl font-bold font-Sohne-Bold">
+          About The Author
+        </h3>
+        <p class="text-base lg:text-lg">
+          This book landing page template is made by product designer Xiaoying Riley for developers. You can use this template to self-publish and promote your book/ebook. You can easily use platforms such as Gumroad to handle your book payment and delivery. This template is 100% FREE as long as you keep the footer attribution link. You do not have the rights to resell, sublicense, or redistribute (even for free) the template on its own or as a separate attachment from any of your work. If you'd like to use this template without the footer attribution link, you can buy the commercial license.
+        </p>
 
-									$big = 999999999; // need an unlikely integer
-
-									$pages = paginate_links( array(
-										'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-										'format'    => '?paged=%#%',
-										'current'   => max( 1, get_query_var('paged') ),
-										'total'     => $wp_query->max_num_pages,
-										'type'      => 'array',
-										'prev_text' => __('«'),
-										'next_text' => __('»'),
-									) );
-
-									if ( $pages ) {
-										echo '<ul class="flex pt-2">';
-										$current_page = max( 1, get_query_var('paged') );
-
-										// Add First button
-										if ( $current_page !== 1 ) {
-											echo '<li class="px-5 py-3 "><a class="page-link" href="'.esc_url( get_pagenum_link( 1 ) ).'">First</a></li>';
-										}
-
-										foreach ( $pages as $page ) {
-											$class = (strpos($page, 'current') !== false) ? 'border-b border-red-600 ' : '';
-											echo '<li class="px-5 py-3 '.$class.'">'.$page.'</li>';
-										}
-
-										// Add Last button
-										if ( $current_page !== $wp_query->max_num_pages ) {
-											echo '<li class="px-5 py-3 "><a class="page-link" href="'.esc_url( get_pagenum_link( $wp_query->max_num_pages ) ).'">Last</a></li>';
-										}
-
-										echo '</ul>';
-									}
-								?>
-							</div>
-						</div>
-						<?php wp_reset_postdata(); ?>
-						<?php else : ?>
-							<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
-		
-		</div>
-	</section>
-    <!-- Sidebar Template Part post -->
-
-<?php
-}
-// If this is page index two, show only section 2
-else {
-?>
-	<!-- Sidebar Template blog post -->
-	<section class="cont py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-		<div class="grid grid-cols-1 gap-x-6 gap-y-6 md:gap-y-4">
-			<div class="col-span-12 md:col-span-8">
-				<div class="mt-10">
-					<div class="mx-4 mb-8">
-					
-
-						<?php
-						$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1; // get the current page number
-						$args = array(
-							'post_type' => 'post',
-							'paged' => $paged // set the current page number
-						);
-						$query = new WP_Query( $args );
-						?>
-						
-						<?php if ( $query->have_posts() ) : ?>
-
-						<div class="flex flex-col gap-y-6">
-						<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-							<article class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
-								<div class="col-span-4">
-									<h3 class="mb-3 text-xl font-bold leading-7 capitalize transition-all duration-200 text-black hover:underline">
-										<a href="<?php the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 10 ); ?></a>
-									</h3>
-									<p class="text-sm leading-relaxed text-gray-500 line-clamp-3 mb-2">
-										<?php echo wp_trim_words(get_the_excerpt(), 16); ?>
-									</p>
-									<p class="mt-3 text-xs font-semibold tracking-wide uppercase">
-										<?php
-											$categories = get_the_category();
-											if ( !empty( $categories ) ):
-											foreach($categories as $cat): 
-										?>
-											<a href="<?php echo get_tag_link($cat->term_id);?>"><?php echo $cat->name;?></a>
-										<?php endforeach; endif;?>
-										<span class="text-gray-600">— <?php echo get_the_date('jS F, Y');?></span>
-									</p>
-								</div>
-								<div class="col-span-2">
-									<?php if(has_post_thumbnail()):?> 
-										<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="object-cover w-full h-40" alt="" />
-									<?php endif;?>
-								</div>
-							</article>
-						<?php endwhile; ?>
-						</div>
-						<!-- PAGINATION -->
-						<div class="flex justify-center items-center mt-6 border-t border-gray">
-							<div class="flex justify-center">
-								<?php
-									global $wp_query;
-
-									$big = 999999999; // need an unlikely integer
-
-									$pages = paginate_links( array(
-										'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-										'format'    => '?paged=%#%',
-										'current'   => max( 1, get_query_var('paged') ),
-										'total'     => $wp_query->max_num_pages,
-										'type'      => 'array',
-										'prev_text' => __('«'),
-										'next_text' => __('»'),
-									) );
-
-									if ( $pages ) {
-										echo '<ul class="flex flex-wrap pt-2">';
-										$current_page = max( 1, get_query_var('paged') );
-
-										// Add First button
-										if ( $current_page !== 1 ) {
-											echo '<li class="px-5 py-3 "><a class="page-link" href="'.esc_url( get_pagenum_link( 1 ) ).'">First</a></li>';
-										}
-
-										foreach ( $pages as $page ) {
-											$class = (strpos($page, 'current') !== false) ? 'border-b border-red-600 ' : '';
-											echo '<li class="px-5 py-3 '.$class.'">'.$page.'</li>';
-										}
-
-										// Add Last button
-										if ( $current_page !== $wp_query->max_num_pages ) {
-											echo '<li class="px-5 py-3 "><a class="page-link" href="'.esc_url( get_pagenum_link( $wp_query->max_num_pages ) ).'">Last</a></li>';
-										}
-
-										echo '</ul>';
-									}
-								?>
-							</div>
-						</div>
-						<?php wp_reset_postdata(); ?>
-						<?php else : ?>
-							<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
-						<?php endif; ?>
-					</div>
-				</div>
-			</div>
-		
-		</div>
-	</section>
-	<!-- Sidebar Template blog post -->
-<?php
-}
-
-// Reset the post data
-wp_reset_postdata();
-?>
-
-<!-- ---------------------
-// NEW TEMPLATE
------------------------->
-<?php get_footer();?>
+        <div class="py-2.5 flex flex-row gap-6 justify-center items-center">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-facebook"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
