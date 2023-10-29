@@ -279,3 +279,35 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+/** Custom Post Types */
+function single_post_testimonials() {
+    $labels = array(
+        'name'                  => _x( 'Testimonials', 'Post type general name', 'testimonial' ),
+        'singular_name'         => _x( 'Testimonial', 'Post type singular name', 'testimonial' ),
+        'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'testimonial' ),
+        'name_admin_bar'        => _x( 'Testimonial', 'Add New on Toolbar', 'testimonial' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Recipe custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'testimonials' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-products',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Testimonials', $args );
+}
+add_action( 'init', 'single_post_testimonials' );

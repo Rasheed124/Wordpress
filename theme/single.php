@@ -8,6 +8,13 @@
  */
 
  get_header("landingpage");
+
+
+ /** ACF FIELDS*/
+
+  /** Testimonial Postion*/
+ 
+
 ?>
 
 	<section id="primary">
@@ -41,24 +48,42 @@
 
 					<!-- Testimonials -->
 
-					<div class="space-y-3 mt-10 bg-white/30">
-							<div class="border-l-4 border-header-dark-overlay px-5">
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorum officia, tenetur accusamus quas culpa numquam ullam at deleniti ratione perspiciatis possimus esse odio eligendi ex, soluta beatae? Possimus quod dignissimos magni repellendus autem impedit.
-							</p>
-							</div>
+					<?php 
+						$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
+						$the_query = new WP_Query( $args ); 
+						?>
+						<?php if ( $the_query->have_posts() ) : ?>
 
-							<div class="flex flex-col md:flex-row items-center md:justify-start justify-center md:items-start">
-							<div class="max-w-full rounded-full mb-2 md:mr-2" style="width: 60px; height: 60px; background: #ccc;"></div>
+							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+								<div class="space-y-3 mt-10 bg-white/30">
+									<div class="border-l-4 border-header-dark-overlay px-5">
+									<p>
+										<?php the_content(); ?> 
+									</p>
+									</div>
 
-							<p class="text-center md:text-left">
-								<span class="block font-bold">John Doe</span>
-								<span class="block">Executive Director</span>
-							</p>
-							</div>
-					</div> 
+									<div class="flex flex-col md:flex-row items-center md:justify-start justify-center md:items-start">
+												
+										<?php if(has_post_thumbnail()):?>
+											<img src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="max-w-full rounded-full mb-2 md:mr-2 w-10 h-10">
+										<?php endif;?>
 
-			
+									<p class="text-center md:text-left">
+										<span class="block font-bold"><?php  the_title(); ?></span>
+
+									<?php 
+										$testmonial_pos = get_field('testimonial');
+										if($testmonial_pos):
+									 ?><span class="block"><?php echo $testmonial_pos;?></span>
+										<?php endif; ?>
+									</p>
+									</div>
+				             	</div> 
+							<?php endwhile;
+							wp_reset_postdata(); ?>
+						<?php else:  ?>
+							<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+					<?php endif; ?>
 				</div>
 
 				<div class="flex flex-col justify-center items-center">
