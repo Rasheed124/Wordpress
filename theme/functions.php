@@ -190,24 +190,27 @@ function themeduro_widgets_init() {
 }
 add_action( 'widgets_init', 'themeduro_widgets_init' );
 
+
+
+
+
+
 /**
- * Enqueue scripts and styles.
+ * Enqueue scripts .
  array(), true, 'all'
  */
+
+
 function themeduro_scripts() {
-	wp_enqueue_style( 'themeduro-style', get_stylesheet_uri(), array(), THEMEDURO_VERSION );
-		wp_enqueue_style( 'themeduro-custom-style', get_template_directory_uri() . '/css/style.css', array(), false, 'all');
-	wp_enqueue_script( 'themeduro-script', get_template_directory_uri() . '/js/script.min.js', array(), THEMEDURO_VERSION, true );
-
-
+		wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css', array(), false, 'all');
+     	wp_enqueue_style( 'themeduro-style', get_stylesheet_uri(), array(), THEMEDURO_VERSION );
 		wp_enqueue_style( 'owl-carousel-style-one', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), false, 'all' );
 		wp_enqueue_style( 'owl-carousel-style-two', get_template_directory_uri() . '/css/owl.theme.default.min.css', array(), false, 'all' );
-	
 
-	
-			wp_enqueue_script( 'owl-carousel-script-one', get_template_directory_uri() . '/js/owl.carousel.js', array(), THEMEDURO_VERSION, true );
+     	wp_enqueue_script( 'themeduro-script', get_template_directory_uri() . '/js/jquery.min.js', array(), THEMEDURO_VERSION, true );
+	wp_enqueue_script( 'owl-carousel-script-one', get_template_directory_uri() . '/js/owl.carousel.js', array(), THEMEDURO_VERSION, true );
 	wp_enqueue_script( 'themeduro-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
-	  wp_enqueue_script( 'jquery' );
+	
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -215,6 +218,10 @@ function themeduro_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'themeduro_scripts' );
+
+
+
+
 
 
 
@@ -282,6 +289,8 @@ require get_template_directory() . '/inc/template-functions.php';
 
 
 /** Custom Post Types */
+
+/** Testimonials */
 function single_post_testimonials() {
     $labels = array(
         'name'                  => _x( 'Testimonials', 'Post type general name', 'testimonial' ),
@@ -292,7 +301,7 @@ function single_post_testimonials() {
     );     
     $args = array(
         'labels'             => $labels,
-        'description'        => 'Recipe custom post type.',
+        'description'        => 'Testimonial custom post type.',
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
@@ -311,3 +320,35 @@ function single_post_testimonials() {
     register_post_type( 'Testimonials', $args );
 }
 add_action( 'init', 'single_post_testimonials' );
+
+
+/** Reveiews */
+function single_post_reveiews() {
+    $labels = array(
+        'name'                  => _x( 'Reveiews', 'Post type general name', 'reveiew' ),
+        'singular_name'         => _x( 'Reveiew', 'Post type singular name', 'reveiew' ),
+        'menu_name'             => _x( 'Reveiews', 'Admin Menu text', 'reveiew' ),
+        'name_admin_bar'        => _x( 'Reveiew', 'Add New on Toolbar', 'reveiew' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Reveiew custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'Reveiew' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-products',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Reveiews', $args );
+}
+add_action( 'init', 'single_post_reveiews' );

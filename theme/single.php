@@ -20,77 +20,104 @@
 	<section id="primary">
 		<main id="main">
 
-		<!-- SECTION ONE -  BANNER -->
-		<section id="home" class="overflow-x-hidden max-w-6xl mx-auto">
-			<div class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20 xl:py-28 px-6 lg:px-10">
-				<!-- COLUMNS -->
-				<!--  -->
-				<div class="sm:max-w-md md:max-w-lg mx-auto flex flex-col justify-center items-center md:justify-start">
-						<h3 class="font-bold pb-5 text-3xl lg:text-4xl pr-8 text-black">
-							Free Book & eBook Landing Page Template
-						</h3>
-						<p class="pb-5 font-semibold">
-							A free Bootstrap 4 template for developers and programmers who want to self-publish books. Download now and start selling your book right away!
-						</p>
 
-						<div class="flex gap-5 self-start">
-							<a href="#">
-							<button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
-								Buy for $20
-							</button>
-							</a>
-							<a href="/contact">
-							<button class="py-3 border-header-dark-overlay duration-500 transition bg-transparent px-8 border rounded-full text-xs sm:text-base whitespace-nowrap font-medium">
-								Learn More
-							</button>
-							</a>
-						</div>
 
-					<!-- Testimonials -->
+						<!-- SECTION ONE -  BANNER -->
+				<section id="home" class="overflow-x-hidden max-w-6xl mx-auto">
+					<div class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20 xl:py-28 px-6 lg:px-10">
+						<!-- COLUMNS -->
+						<!--  -->
 
-					<?php 
-						$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
-						$the_query = new WP_Query( $args ); 
+						<?php if( have_rows('content-side') ): ?>
+						<?php while( have_rows('content-side') ): the_row(); 
+							// Get sub field values.
+							$heading = get_sub_field('heading');
+							$desc = get_sub_field('description');
 						?>
-						<?php if ( $the_query->have_posts() ) : ?>
-
-							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-								<div class="space-y-3 mt-10 bg-white/30">
-									<div class="border-l-4 border-header-dark-overlay px-5">
-									<p>
-										<?php the_content(); ?> 
+							<div class="sm:max-w-md md:max-w-lg mx-auto flex flex-col justify-center items-center md:justify-start">
+									<h3 class="font-bold pb-5 text-3xl lg:text-4xl pr-8 text-black">
+										<?php echo $heading ?>
+									</h3>
+									<p class="pb-5 font-semibold">
+										<?php echo $desc ?>
 									</p>
+
+									<div class="flex gap-5 self-start">
+										<a href="#">
+										<button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
+											Buy for $20
+										</button>
+										</a>
+										<a href="/contact">
+										<button class="py-3 border-header-dark-overlay duration-500 transition bg-transparent px-8 border rounded-full text-xs sm:text-base whitespace-nowrap font-medium">
+											Learn More
+										</button>
+										</a>
 									</div>
 
-									<div class="flex flex-col md:flex-row items-center md:justify-start justify-center md:items-start">
+								<!-- Testimonials -->
+
+								<?php 
+									$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
+									$the_query = new WP_Query( $args ); 
+									?>
+									<?php if ( $the_query->have_posts() ) : ?>
+										<div id="testimonial-carousel" class="owl-carousel  owl-theme">
+
+										<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+								
+											<div class="space-y-3 mt-10 bg-white/30 item ">
+												<div class="border-l-4 border-header-dark-overlay px-5">
+												<p>
+													<?php the_content(); ?> 
+												</p>
+												</div>
+
+												<div class="flex flex-col md:flex-row items-center md:justify-start justify-center  md:items-start">
+
+												<div class="relative w-[70px] h-[70px] mr-2">
+														<?php if(has_post_thumbnail()):?>
+														<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="absolute top-0 left-0 object-cover object-center rounded-full">
+													<?php endif;?>
+												</div>
+															
 												
-										<?php if(has_post_thumbnail()):?>
-											<img src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="max-w-full rounded-full mb-2 md:mr-2 w-10 h-10">
-										<?php endif;?>
 
-									<p class="text-center md:text-left">
-										<span class="block font-bold"><?php  the_title(); ?></span>
+												<p class="text-center md:text-left">
+													<span class="block font-bold"><?php  the_title(); ?></span>
 
-									<?php 
-										$testmonial_pos = get_field('testimonial');
-										if($testmonial_pos):
-									 ?><span class="block"><?php echo $testmonial_pos;?></span>
-										<?php endif; ?>
-									</p>
+												<?php 
+													$testmonial_pos = get_field('testimonial');
+													if($testmonial_pos):
+												?><span class="block"><?php echo $testmonial_pos;?></span>
+													<?php endif; ?>
+												</p>
+												</div>
+											</div> 
+										<?php endwhile;
+										wp_reset_postdata(); ?>
+
 									</div>
-				             	</div> 
-							<?php endwhile;
-							wp_reset_postdata(); ?>
-						<?php else:  ?>
-							<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-					<?php endif; ?>
-				</div>
+									<?php else:  ?>
+										<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+								<?php endif; ?>
+							</div>
 
-				<div class="flex flex-col justify-center items-center">
-			    	<div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div>
-				</div>
-			</div>
-    	</section>
+						<?php endwhile; ?>
+			           <?php endif; ?>
+
+		
+						<div class="flex flex-col justify-center items-center">
+							<div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div>
+						</div>
+					</div>
+				</section>
+
+		
+    
+
+
 
 		<!-- SECTION TWO - CONTENT -->
 		<section id="about" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">

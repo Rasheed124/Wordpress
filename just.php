@@ -665,3 +665,67 @@ get_footer();
     </div>
   </div>
 </section>
+
+
+		   <?php if( have_rows('image_side') ): ?>
+						<?php while( have_rows('image_side') ): the_row(); 
+							// Get sub field values.
+							$image = get_sub_field('image');
+							$picture = $image['sizes']['large']
+						?>
+						<div class="flex flex-col justify-center items-center">
+							  <img src="<?php echo $picture; ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+							<!-- <div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div> -->
+						</div>
+
+					<?php endwhile; ?>
+			           <?php endif; ?>
+
+
+
+
+
+
+
+                 
+								<?php 
+									$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
+									$the_query = new WP_Query( $args ); 
+									?>
+									<?php if ( $the_query->have_posts() ) : ?>
+										<div id="#testimonial-carousel" class="owl-carousel  owl-theme">
+
+										<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+								
+											<div class="space-y-3 mt-10 bg-white/30 item ">
+												<div class="border-l-4 border-header-dark-overlay px-5">
+												<p>
+													<?php the_content(); ?> 
+												</p>
+												</div>
+
+												<div class="flex flex-col md:flex-row items-center md:justify-start justify-center md:items-start">
+															
+													<?php if(has_post_thumbnail()):?>
+														<img src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="max-w-full rounded-full mb-2 md:mr-2 w-10 h-10">
+													<?php endif;?>
+
+												<p class="text-center md:text-left">
+													<span class="block font-bold"><?php  the_title(); ?></span>
+
+												<?php 
+													$testmonial_pos = get_field('testimonial');
+													if($testmonial_pos):
+												?><span class="block"><?php echo $testmonial_pos;?></span>
+													<?php endif; ?>
+												</p>
+												</div>
+											</div> 
+										<?php endwhile;
+										wp_reset_postdata(); ?>
+
+									</div>
+									<?php else:  ?>
+										<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+								<?php endif; ?>
