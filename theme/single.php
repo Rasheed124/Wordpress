@@ -22,102 +22,100 @@
 
 
 
-						<!-- SECTION ONE -  BANNER -->
-				<section id="home" class="overflow-x-hidden max-w-6xl mx-auto">
-					<div class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20 xl:py-28 px-6 lg:px-10">
-						<!-- COLUMNS -->
-						<!--  -->
+		<!-- SECTION ONE -  BANNER -->
+		<section id="home" class="overflow-x-hidden max-w-6xl mx-auto">
+			<div class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20 xl:py-28 px-6 lg:px-10">
+				<!-- COLUMNS -->
+				<!--  -->
 
-						<?php if( have_rows('content-side') ): ?>
-						<?php while( have_rows('content-side') ): the_row(); 
-							// Get sub field values.
-							$heading = get_sub_field('heading');
-							$desc = get_sub_field('description');
-						?>
-							<div class="sm:max-w-md md:max-w-lg mx-auto flex flex-col justify-center items-center md:justify-start">
-									<h3 class="font-bold pb-5 text-3xl lg:text-4xl pr-8 text-black">
-										<?php echo $heading ?>
-									</h3>
-									<p class="pb-5 font-semibold">
-										<?php echo $desc ?>
-									</p>
+				<?php if( have_rows('content-side') ): ?>
+				<?php while( have_rows('content-side') ): the_row(); 
+					// Get sub field values.
+					$heading = get_sub_field('heading');
+					$desc = get_sub_field('description');
+				?>
+					<div class=" flex flex-col justify-center items-center md:justify-start">
+						<div class="max-w-md mx-auto">
+	                        <h3 class="font-bold pb-5 text-3xl  lg:text-4xl  text-black">
+								<?php echo $heading ?>
+							</h3>
+							<p class="pb-5 font-semibold ">
+								<?php echo $desc ?>
+							</p>
 
-									<div class="flex gap-5 self-start">
-										<a href="#">
-										<button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
-											Buy for $20
-										</button>
-										</a>
-										<a href="/contact">
-										<button class="py-3 border-header-dark-overlay duration-500 transition bg-transparent px-8 border rounded-full text-xs sm:text-base whitespace-nowrap font-medium">
-											Learn More
-										</button>
-										</a>
-									</div>
-
-								<!-- Testimonials -->
-
-								<?php 
-									$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
-									$the_query = new WP_Query( $args ); 
-									?>
-									<?php if ( $the_query->have_posts() ) : ?>
-										<div id="testimonial-carousel" class="owl-carousel  owl-theme">
-
-										<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-								
-											<div class="space-y-3 mt-10 bg-white/30 item ">
-												<div class="border-l-4 border-header-dark-overlay px-5">
-												<p>
-													<?php the_content(); ?> 
-												</p>
-												</div>
-
-												<div class="flex flex-col md:flex-row items-center md:justify-start justify-center  md:items-start">
-
-												<div class="relative w-[70px] h-[70px] mr-2">
-														<?php if(has_post_thumbnail()):?>
-														<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="absolute top-0 left-0 object-cover object-center rounded-full">
-													<?php endif;?>
-												</div>
-															
-												
-
-												<p class="text-center md:text-left">
-													<span class="block font-bold"><?php  the_title(); ?></span>
-
-												<?php 
-													$testmonial_pos = get_field('testimonial');
-													if($testmonial_pos):
-												?><span class="block"><?php echo $testmonial_pos;?></span>
-													<?php endif; ?>
-												</p>
-												</div>
-											</div> 
-										<?php endwhile;
-										wp_reset_postdata(); ?>
-
-									</div>
-									<?php else:  ?>
-										<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-								<?php endif; ?>
+							<div class="flex gap-5 self-start pb-5">
+								<a href="#">
+								<button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
+									Buy for $20
+								</button>
+								</a>
+								<a href="/contact">
+								<button class="py-3 border-header-dark-overlay duration-500 transition bg-transparent px-8 border rounded-full text-xs sm:text-base whitespace-nowrap font-medium">
+									Learn More
+								</button>
+								</a>
 							</div>
-
-						<?php endwhile; ?>
-			           <?php endif; ?>
-
-		
-						<div class="flex flex-col justify-center items-center">
-							<div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div>
 						</div>
+						
+
+						<!-- Testimonials -->
+
+						<?php 
+							$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
+							$the_query = new WP_Query( $args ); 
+							?>
+							<?php if ( $the_query->have_posts() ) : ?>
+								<div id="testimonial-carousel" class="owl-carousel max-w-md mx-auto owl-theme  grid grid-cols-1 place-content-center place-items-center">
+
+								<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+								<div class="item">
+									<div class="space-y-3 mt-10 bg-white/30  ">
+										<div class="border-l-4 border-header-dark-overlay px-5">
+											<p>
+												<?php the_content(); ?> 
+											</p>
+										</div>
+
+										<div class="flex flex-col md:flex-row items-center md:justify-start justify-center  md:items-start">
+
+										<div class="relative w-[70px] h-[70px] mr-2">
+												<?php if(has_post_thumbnail()):?>
+												<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="absolute top-0 left-0 object-cover object-center rounded-full">
+											<?php endif;?>
+										</div>
+													
+										<p class="text-center md:text-left">
+											<span class="block font-bold"><?php  the_title(); ?></span>
+
+										<?php 
+											$testmonial_pos = get_field('testimonial');
+											if($testmonial_pos):
+										?><span class="block"><?php echo $testmonial_pos;?></span>
+											<?php endif; ?>
+										</p>
+										</div>
+									</div> 
+								</div>
+									
+								<?php endwhile;
+								wp_reset_postdata(); ?>
+
+							</div>
+							<?php else:  ?>
+								<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+						<?php endif; ?>
 					</div>
-				</section>
 
-		
-    
+				<?php endwhile; ?>
+				<?php endif; ?>
 
 
+				<div class="flex flex-col justify-center items-center">
+					<div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div>
+				</div>
+			</div>
+		</section>
 
 		<!-- SECTION TWO - CONTENT -->
 		<section id="about" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
@@ -132,57 +130,37 @@
 					</p>
 				</div>
 				<!-- Columns -->
+
+				<?php 
+					$args = array( 'post_type' => 'Cards', 'posts_per_page' => 4 );
+					$the_query = new WP_Query( $args ); 
+					?>
+					<?php if ( $the_query->have_posts() ) : ?>
 				<div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
 					<!-- Col -->
-					<div class="space-y-3 flex flex-col justify-center items-center">
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
-						<path d="M7 20h10"></path>
-						<path d="M9 16v4"></path>
-						<path d="M15 16v4"></path>
-						</svg>
-						<h4 class="font-medium">
-						Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
-						</h4>
-						<p class="text-base">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
-						</p>
-					</div>
-					
-					<div class="space-y-3 flex flex-col justify-center items-center">
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
-						<path d="M7 20h10"></path>
-						<path d="M9 16v4"></path>
-						<path d="M15 16v4"></path>
-						</svg>
-						<h4 class="font-medium">
-						Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
-						</h4>
-						<p class="text-base">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
-						</p>
-					</div>
-					
-					<div class="space-y-3 flex flex-col justify-center items-center">
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-desktop text-header-dark-overlay" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-						<path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
-						<path d="M7 20h10"></path>
-						<path d="M9 16v4"></path>
-						<path d="M15 16v4"></path>
-						</svg>
-						<h4 class="font-medium">
-						Build Lorem Ipsum lobortis nec mauris habitant morbi List one of your book's benefits here.
-						</h4>
-						<p class="text-base">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat.
-						</p>
-					</div>
+							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+						<div class="space-y-3 flex flex-col justify-center items-center">
+									<div class="relative w-[70px] h-[70px] mr-2">
+												<?php if(has_post_thumbnail()):?>
+												<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="absolute top-0 left-0 object-cover object-center rounded-full">
+											<?php endif;?>
+										</div>
+													
+							<h4 class="font-medium">
+								<?php  the_title(); ?>
+							</h4>
+							<p class="text-base">
+								<?php the_content(); ?> 
+							</p>
+						</div>
+						
+						<?php endwhile;
+						wp_reset_postdata(); ?>
 				
 				</div>
+					<?php else:  ?>
+					<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+					<?php endif; ?>
 			</div>
 		</section>
 
@@ -350,123 +328,68 @@
 				<div class="py-8 w-full flex justify-center items-center">
 					<div class="lg:max-w-6xl grid grid-cols-1 space-y-8 gap-10">
 						<!-- cols - 1  -->
-						<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-							<div class="flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start bg-gray-200">
-								<div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										class="icon icon-tabler icon-tabler-quote text-white"
-										width="44"
-										height="44"
-										viewBox="0 0 24 24"
-										stroke-width="2"
-										stroke="currentColor"
-										fill="none"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-										<path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-										<path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-									</svg>
-								</div>
-								<blockquote class="text-left italic text-base">
-									'"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
-								</blockquote>
-								<div class="flex flex-col md:flex-row items-start justify-center  md:items-start">
-									<img
-										src={BannerProfile}
-										width={60}
-										height={60}
-										alt=""
-										class="max-w-full rounded-full mb-2 md:mr-2"
-									/>
-									<p class="text-center md:text-left">
-										<span class="block text-sm font-bold">John Doe</span>
-										<span class="block text-sm">Executive Director</span>
-									</p>
-								</div>
-							</div>
-							<div class="flex flex-col relative items-start justify-center p-3 space-y-5  md:items-start bg-gray-200">
-								<div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										class="icon icon-tabler icon-tabler-quote text-white"
-										width="44"
-										height="44"
-										viewBox="0 0 24 24"
-										stroke-width="2"
-										stroke="currentColor"
-										fill="none"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-										<path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-										<path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-									</svg>
-								</div>
-								<blockquote class="text-left italic text-base">
-									'"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
-								</blockquote>
-								<div class="flex flex-col md:flex-row items-start justify-center  md:items-start">
-									<img
-										src={BannerProfile}
-										width={60}
-										height={60}
-										alt=""
-										class="max-w-full rounded-full mb-2 md:mr-2"
-									/>
-									<p class="text-center md:text-left">
-										<span class="block text-sm font-bold">John Doe</span>
-										<span class="block text-sm">Executive Director</span>
-									</p>
-								</div>
-							</div>
-							<div class="flex flex-col relative items-start justify-center p-3 space-y-5 bg-gray-100 md:items-start bg-gray-200">
-								<div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										class="icon icon-tabler icon-tabler-quote text-white"
-										width="44"
-										height="44"
-										viewBox="0 0 24 24"
-										stroke-width="2"
-										stroke="currentColor"
-										fill="none"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									>
-										<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-										<path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-										<path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
-									</svg>
-								</div>
-								<blockquote class="text-left italic text-base">
-									'"Excellent Book! Add your book review here consectetur adipiscing elit. Aliquam euismod nunc porta urna facilisis tempor."'
-								</blockquote>
-								<div class="flex flex-col md:flex-row items-start justify-center  md:items-start">
-									<img
-										src={BannerProfile}
-										width={60}
-										height={60}
-										alt=""
-										class="max-w-full rounded-full mb-2 md:mr-2"
-									/>
-									<p class="text-center md:text-left">
-										<span class="block text-sm font-bold">John Doe</span>
-										<span class="block text-sm">Executive Director</span>
-									</p>
-								</div>
-							</div>
-					     </div>
+							<?php 
+								$args = array( 'post_type' => 'Reviews', 'posts_per_page' => 3 );
+								$the_query = new WP_Query( $args ); 
+								?>
+								<?php if ( $the_query->have_posts() ) : ?>
+						           <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
+										<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+											<div class="flex flex-col relative items-center xl:items-start justify-center p-3 space-y-5   bg-gray-200">
+												<div class="absolute self-center top-[-35px] flex justify-center items-center p-2.5 rounded-full bg-header-dark-overlay text-white">
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														class="icon icon-tabler icon-tabler-quote text-white"
+														width="44"
+														height="44"
+														viewBox="0 0 24 24"
+														stroke-width="2"
+														stroke="currentColor"
+														fill="none"
+														stroke-linecap="round"
+														stroke-linejoin="round"
+													>
+														<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+														<path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+														<path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+													</svg>
+												</div>
+												<blockquote class="text-center xl:text-left italic text-base">
+													<?php the_content(); ?> 
+												</blockquote>
+												<div class="flex flex-col lg:flex-row  ">
+														<div class="relative w-[70px] h-[70px] mr-2 ">
+																		<?php if(has_post_thumbnail()):?>
+																		<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="max-w-full absolute top-0 left-0 object-cover object-center rounded-full">
+																	<?php endif;?>
+																</div>
+																		
+													<p class="text-center md:text-left pt-3">
+														<span class="block text-sm font-bold"><?php  the_title(); ?></span>
+																<?php 
+																	$review_pos = get_field('reviews_label');
+																	if($review_pos):
+																?><span class="block text-sm"><?php echo $review_pos;?></span>
+																	<?php endif; ?>
+													</p>
+												</div>
+											</div>
+					
+										<?php endwhile;
+										wp_reset_postdata(); ?>
+
+					              </div>
+	                    		<?php else:  ?>
+								<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+								<?php endif; ?>
 						
-						<a href="#" class="flex   place-self-center justify-center items-center ">
-						<button class="py-3 sm:text-base lg:text-lg hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs block whitespace-nowrap font-medium">
-							Get your own today
-						</button>
-						</a>
+								<a href="#" class="flex   place-self-center justify-center items-center ">
+									<button class="py-3 sm:text-base lg:text-lg hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs block whitespace-nowrap font-medium">
+										Get your own today
+									</button>
+								</a>
 						
 				</div>
 			</div>

@@ -41,34 +41,30 @@
 
                 <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#about" onClick={handleScroll}>
                   <li>
-                    <span class="text-textGreen">01.</span>
+              
                     About
                   </li>
                 </a>
                 <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#experience">
                   <li>
-                    <span class="text-textGreen">02.</span>
+              
                     Experience
                   </li>
                 </a>
                 <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#project">
                   <li>
-                    <span class="text-textGreen">03.</span>
+              
                     Project
                   </li>
                 </a>
                 <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#contact">
                   <li>
-                    <span class="text-textGreen">04.</span>
+              
                     Contact
                   </li>
                 </a>
               </ul>
-              <a href="/assets/noor_resume.pdf" target="_blank">
-                <button class="px-4 py-2 rounded-md text-textGreen text-[13px] border border-textGreen hover:bg-hoverColor duration-300">
-                  Resume
-                </button>
-              </a>
+        
             </div>
 
 

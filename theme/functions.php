@@ -312,7 +312,7 @@ function single_post_testimonials() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-products',
+		'menu_icon'   => 'dashicons-testimonial',
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
         'show_in_rest'       => true
     );
@@ -323,32 +323,65 @@ add_action( 'init', 'single_post_testimonials' );
 
 
 /** Reveiews */
-function single_post_reveiews() {
+function single_post_reviews() {
+
     $labels = array(
-        'name'                  => _x( 'Reveiews', 'Post type general name', 'reveiew' ),
-        'singular_name'         => _x( 'Reveiew', 'Post type singular name', 'reveiew' ),
-        'menu_name'             => _x( 'Reveiews', 'Admin Menu text', 'reveiew' ),
-        'name_admin_bar'        => _x( 'Reveiew', 'Add New on Toolbar', 'reveiew' ),
+        'name'                  => _x( 'Reviews', 'Post type general name', 'review' ),
+        'singular_name'         => _x( 'Review', 'Post type singular name', 'review' ),
+        'menu_name'             => _x( 'Reviews', 'Admin Menu text', 'review' ),
+        'name_admin_bar'        => _x( 'Review', 'Add New on Toolbar', 'review' ),
        
     );     
     $args = array(
         'labels'             => $labels,
-        'description'        => 'Reveiew custom post type.',
+        'description'        => 'Review custom post type.',
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'Reveiew' ),
+        'rewrite'            => array( 'slug' => 'review' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-products',
+		'menu_icon'   => 'dashicons-businessperson',
         'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
         'show_in_rest'       => true
     );
      
-    register_post_type( 'Reveiews', $args );
+    register_post_type( 'Reviews', $args );
 }
-add_action( 'init', 'single_post_reveiews' );
+add_action( 'init', 'single_post_reviews' );
+
+/** Card */
+function single_post_cards() {
+
+    $labels = array(
+        'name'                  => _x( 'Cards', 'Post type general name', 'card' ),
+        'singular_name'         => _x( 'Card', 'Post type singular name', 'card' ),
+        'menu_name'             => _x( 'Cards', 'Admin Menu text', 'card' ),
+        'name_admin_bar'        => _x( 'Card', 'Add New on Toolbar', 'card' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Card custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'card' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-index-card',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Cards', $args );
+}
+add_action( 'init', 'single_post_cards' );
