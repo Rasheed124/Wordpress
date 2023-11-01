@@ -286,7 +286,70 @@ require get_template_directory() . '/inc/template-functions.php';
 
 
 /** Custom Post Types */
+/** Books */
+function single_post_books() {
+    $labels = array(
+        'name'                  => _x( 'Books', 'Post type general name', 'book' ),
+        'singular_name'         => _x( 'Book', 'Post type singular name', 'book' ),
+        'menu_name'             => _x( 'Books', 'Admin Menu text', 'book' ),
+        'name_admin_bar'        => _x( 'Book', 'Add New on Toolbar', 'book' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Book custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'books' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-book',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Books', $args );
+}
+add_action( 'init', 'single_post_books' );
 
+
+
+
+/** Books */
+function single_post_audience() {
+    $labels = array(
+        'name'                  => _x( 'Audiences', 'Post type general name', 'audience' ),
+        'singular_name'         => _x( 'Audience', 'Post type singular name', 'audience' ),
+        'menu_name'             => _x( 'Audiences', 'Admin Menu text', 'audience' ),
+        'name_admin_bar'        => _x( 'Audience', 'Add New on Toolbar', 'audience' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Audience custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'audiences' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-buddicons-buddypress-logo',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Audiences', $args );
+}
+add_action( 'init', 'single_post_audience' );
 
 
 /** Reveiews */

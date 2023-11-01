@@ -17,8 +17,8 @@
 
 ?>
 
-	<section id="primary">
-		<main id="main">
+
+	<main id="main">
 
 
 
@@ -121,18 +121,17 @@
 				
 
 				<div class="flex flex-col justify-center items-center">
-			          <div className="w-[400px]  h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative">
+			          <div className="">
+			          <!-- <div className="w-[400px]  h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative"> -->
 							<img
 							src="<?php echo $image_sec_1Pic ?>"
 						
 							alt=""
-							className="max-w-full absolute  self-center"
+							className="max-w-full  h-autp"
 							>
 
 				     </div>
 				</div>
-
-				
 				<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
@@ -222,41 +221,56 @@
 				<!-- Columns -->
 				<div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
 
-			
-			<?php if( have_rows('image_side_sec_three') ): ?>
-				<?php while( have_rows('image_side_sec_three') ): the_row(); 
-					// Get sub field values.
-					$content_list_three = get_sub_field('content_list_three');
-
-					$image_sec_three = get_sub_field('image');
-					$image_sec_3Pic = $image_sec_three['sizes']['large']
-
-				?>
+		
 					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-						<!-- Image -->
-						<div class="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[400px] lg:h-[500px] relative">
 
+						<?php if( have_rows('image_side_sec_three') ): ?>
+						<?php while( have_rows('image_side_sec_three') ): the_row(); 
+							$image_sec_three = get_sub_field('image');
+							$image_sec_3Pic = $image_sec_three['sizes']['large']
+
+						?>
+						<!-- Image -->
+						<div class="mb-10 lg:mb-0">
 						   <img
 								src="<?php echo $image_sec_3Pic ?>"
 								alt=""
-								className="max-w-full absolute  self-center"
+								className="max-w-full h-[60vh] mx-auto "
 							>
-							<!-- <img src="solutionbg.jpg" alt="" class="max-w-full absolute self-center" /> -->
 						</div>
+
+			      	 <?php endwhile; ?>
+				     <?php endif; ?>
 						<!-- Content -->
-					   <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-start">
-						   	<h4 class="text-lg flex items-center">
-								<span class="">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
-								</svg>
-								</span>
-								<span class="font-medium whitespace-nowrap">
-								List your book's content here.
-								</span>
-							</h4>
+					   <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-start ">
 						
+					<?php 
+					$args = array( 'post_type' => 'Books', 'posts_per_page' => 6 );
+					$the_query = new WP_Query( $args ); 
+					?>
+					<?php if ( $the_query->have_posts() ) : ?>
+							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+					      <div class="flex items-center gap-3">
+						
+									<span class="text-white bg-header-dark-overlay rounded-full p-1">
+													<?php if(has_post_thumbnail()):?>
+												<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="w-5 h-5">
+											<?php endif;?>
+										</span>
+									<span class="font-medium text-left ">
+									<?php  the_title(); ?> 
+
+									</span>
+					         	
+						
+						  </div>
+   
+				     	<?php endwhile;
+						wp_reset_postdata(); ?>
+						  		<?php else:  ?>
+					<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+					<?php endif; ?>
+
 							<div>
 								<a href="#">
 								<button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
@@ -269,8 +283,7 @@
 					</div>
 
 
-			   <?php endwhile; ?>
-				<?php endif; ?>
+	
 				</div>
 			</div>
 		</section>
@@ -518,8 +531,8 @@
 		</section>
 
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	</main><!-- #main -->
+<!-- #primary -->
 
 
 

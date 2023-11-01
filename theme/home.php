@@ -78,14 +78,14 @@ if ( $page_index == 1 ) {
 						?>
 						
 						<?php if ( $query->have_posts() ) : ?>
-               <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+               <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 ">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
                 <div>
                   <div class="sm:relative sm:h-[20vh]  w-full ">
 
 				  <?php if(has_post_thumbnail()):?> 
-										<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="max-w-full sm:w-full sm:absolute sm:object-cover sm:object-center top-0 left-0 sm:h-full" alt="" />
-									<?php endif;?>
+							<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="max-w-full sm:w-full sm:absolute sm:object-cover sm:object-center top-0 left-0 sm:h-full" alt="" />
+					<?php endif;?>
                   </div>
                    <div class="space-y-2.5">
 					<h3>
@@ -181,8 +181,7 @@ else {
 ?>
 
 
-
-       <section class="" id="home">
+       <section class="" >
 
 	
 
@@ -199,14 +198,14 @@ else {
 						?>
 						
 						<?php if ( $query->have_posts() ) : ?>
-               <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+               <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 ">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
                 <div>
                   <div class="sm:relative sm:h-[20vh]  w-full ">
 
 				  <?php if(has_post_thumbnail()):?> 
-										<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="max-w-full sm:w-full sm:absolute sm:object-cover sm:object-center top-0 left-0 sm:h-full" alt="" />
-									<?php endif;?>
+							<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="max-w-full sm:w-full sm:absolute sm:object-cover sm:object-center top-0 left-0 sm:h-full" alt="" />
+					<?php endif;?>
                   </div>
                    <div class="space-y-2.5">
 					<h3>
@@ -270,7 +269,7 @@ else {
 
 										// Add First button
 										if ( $current_page !== 1 ) {
-											echo '<li class="px-5 py-3 "><a class="page-link class="p-2.5 hover:shadow-md transition duration-300 bg-black/80 text-sm text-white rounded-md"" href="'.esc_url( get_pagenum_link( 1 ) ).'">First</a></li>';
+											echo '<li class="px-5 py-3 "><a class="page-link" href="'.esc_url( get_pagenum_link( 1 ) ).'">First</a></li>';
 										}
 
 										foreach ( $pages as $page ) {
@@ -280,7 +279,7 @@ else {
 
 										// Add Last button
 										if ( $current_page !== $wp_query->max_num_pages ) {
-											echo '<li class="px-5 py-3 "><a class="page-link class="p-2.5 hover:shadow-md transition duration-300 bg-black/80 text-sm text-white rounded-md" " href="'.esc_url( get_pagenum_link( $wp_query->max_num_pages ) ).'">Last</a></li>';
+											echo '<li class="px-5 py-3 "><a class="page-link" href="'.esc_url( get_pagenum_link( $wp_query->max_num_pages ) ).'">Last</a></li>';
 										}
 
 										echo '</ul>';
@@ -294,6 +293,7 @@ else {
 						<?php endif; ?>
           </div>
       </section>
+
 
 <?php
 }
