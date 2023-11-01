@@ -570,6 +570,39 @@ get_footer();
 
 
 
+
+/** Testimonials */
+function single_post_testimonials() {
+    $labels = array(
+        'name'                  => _x( 'Testimonials', 'Post type general name', 'testimonial' ),
+        'singular_name'         => _x( 'Testimonial', 'Post type singular name', 'testimonial' ),
+        'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'testimonial' ),
+        'name_admin_bar'        => _x( 'Testimonial', 'Add New on Toolbar', 'testimonial' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Testimonial custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'testimonials' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-testimonial',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Testimonials', $args );
+}
+add_action( 'init', 'single_post_testimonials' );
+
+
 <section class="px-6 lg:px-10 bg-header-dark-overlay text-white">
     <div class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
     <div class="py-8 w-full flex flex-col justify-center items-center">

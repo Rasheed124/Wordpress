@@ -208,7 +208,7 @@ function themeduro_scripts() {
 		wp_enqueue_style( 'owl-carousel-style-two', get_template_directory_uri() . '/css/owl.theme.default.min.css', array(), false, 'all' );
 
      	wp_enqueue_script( 'themeduro-script', get_template_directory_uri() . '/js/jquery.min.js', array(), THEMEDURO_VERSION, true );
-	wp_enqueue_script( 'owl-carousel-script-one', get_template_directory_uri() . '/js/owl.carousel.js', array(), THEMEDURO_VERSION, true );
+	wp_enqueue_script( 'owl-carousel-script-one', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), THEMEDURO_VERSION, true );
 	wp_enqueue_script( 'themeduro-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
 	
 
@@ -218,9 +218,6 @@ function themeduro_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'themeduro_scripts' );
-
-
-
 
 
 
@@ -290,36 +287,6 @@ require get_template_directory() . '/inc/template-functions.php';
 
 /** Custom Post Types */
 
-/** Testimonials */
-function single_post_testimonials() {
-    $labels = array(
-        'name'                  => _x( 'Testimonials', 'Post type general name', 'testimonial' ),
-        'singular_name'         => _x( 'Testimonial', 'Post type singular name', 'testimonial' ),
-        'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'testimonial' ),
-        'name_admin_bar'        => _x( 'Testimonial', 'Add New on Toolbar', 'testimonial' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Testimonial custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'testimonials' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-testimonial',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'Testimonials', $args );
-}
-add_action( 'init', 'single_post_testimonials' );
 
 
 /** Reveiews */

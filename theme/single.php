@@ -28,8 +28,8 @@
 				<!-- COLUMNS -->
 				<!--  -->
 
-				<?php if( have_rows('content-side') ): ?>
-				<?php while( have_rows('content-side') ): the_row(); 
+				<?php if( have_rows('content-side-sec-one') ): ?>
+				<?php while( have_rows('content-side-sec-one') ): the_row(); 
 					// Get sub field values.
 					$heading = get_sub_field('heading');
 					$desc = get_sub_field('description');
@@ -61,7 +61,7 @@
 						<!-- Testimonials -->
 
 						<?php 
-							$args = array( 'post_type' => 'Testimonials', 'posts_per_page' => 3 );
+							$args = array( 'post_type' => 'Reviews', 'posts_per_page' => 3 );
 							$the_query = new WP_Query( $args ); 
 							?>
 							<?php if ( $the_query->have_posts() ) : ?>
@@ -111,9 +111,30 @@
 				<?php endif; ?>
 
 
+			<?php if( have_rows('image_side_sec_one') ): ?>
+				<?php while( have_rows('image_side_sec_one') ): the_row(); 
+					// Get sub field values.
+					$image_side_sec_one = get_sub_field('image');
+					$image_sec_1Pic = $image_side_sec_one['sizes']['large']
+				
+				?>
+				
+
 				<div class="flex flex-col justify-center items-center">
-					<div class="w-[400px] h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative" style="background: #ccc;"></div>
+			          <div className="w-[400px]  h-screen lg:w-[500px] lg:h-[600px] overflow-hidden relative">
+							<img
+							src="<?php echo $image_sec_1Pic ?>"
+						
+							alt=""
+							className="max-w-full absolute  self-center"
+							>
+
+				     </div>
 				</div>
+
+				
+				<?php endwhile; ?>
+				<?php endif; ?>
 			</div>
 		</section>
 
@@ -121,14 +142,26 @@
 		<section id="about" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
 			<div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
 				<!-- Title -->
+
+				
+				<?php if( have_rows('content_side_sec_two') ): ?>
+				<?php while( have_rows('content_side_sec_two') ): the_row(); 
+					// Get sub field values.
+					$title_sec_two = get_sub_field('title');
+					$desc_sec_two = get_sub_field('description');
+				?>
 				<div class="max-w-4xl mx-auto">
 					<h2 class="text-2xl font-bold  lg:text-3xl">
-						What Will You Get From This Book?
+						
+							<?php echo $title_sec_two ?>
 					</h2>
 					<p class="py-2 md:text-lg ">
-						Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit consequat consequat. Orci varius natoque penatibus et magnis.
+							<?php echo $desc_sec_two ?>
+						
 					</p>
 				</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
 				<!-- Columns -->
 
 				<?php 
@@ -168,26 +201,51 @@
 		<section id="solution" class="px-6 lg:px-10">
 			<div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
 				<!-- Content -->
+
+			<?php if( have_rows('content_side_sec_two') ): ?>
+				<?php while( have_rows('content_side_sec_two') ): the_row(); 
+					// Get sub field values.
+					$title_sec_three = get_sub_field('title');
+					$desc_sec_three = get_sub_field('description');
+				?>
 				<div class="max-w-4xl mx-auto">
 					<h2 class="text-2xl font-bold  lg:text-3xl">
-						What's Included
+						<?php echo $title_sec_three ?>
 					</h2>
 					<p class="py-2 md:text-lg ">
-						Section intro goes here. Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit. Integer blandit consequat consequat. Orci varius
-						natoque penatibus et magnis.
+						<?php echo $desc_sec_three ?>
+						
 					</p>
 				</div>
+				<?php endwhile; ?>
+				<?php endif; ?>
 				<!-- Columns -->
 				<div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
+
+			
+			<?php if( have_rows('image_side_sec_three') ): ?>
+				<?php while( have_rows('image_side_sec_three') ): the_row(); 
+					// Get sub field values.
+					$content_list_three = get_sub_field('content_list_three');
+
+					$image_sec_three = get_sub_field('image');
+					$image_sec_3Pic = $image_sec_three['sizes']['large']
+
+				?>
 					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 						<!-- Image -->
 						<div class="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[400px] lg:h-[500px] relative">
-							<img src="solutionbg.jpg" alt="" class="max-w-full absolute self-center" />
+
+						   <img
+								src="<?php echo $image_sec_3Pic ?>"
+								alt=""
+								className="max-w-full absolute  self-center"
+							>
+							<!-- <img src="solutionbg.jpg" alt="" class="max-w-full absolute self-center" /> -->
 						</div>
 						<!-- Content -->
-						<div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-start">
-							<h4 class="text-lg flex items-center">
+					   <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-start">
+						   	<h4 class="text-lg flex items-center">
 								<span class="">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -198,29 +256,7 @@
 								List your book's content here.
 								</span>
 							</h4>
-							<h4 class="text-lg flex items-center">
-								<span class="">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
-								</svg>
-								</span>
-								<span class="font-medium whitespace-nowrap">
-								List your book's content here.
-								</span>
-							</h4>
-							<h4 class="text-lg flex items-center">
-								<span class="">
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check-filled text-header-dark-overlay" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-									<path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" stroke-width="0" fill="currentColor"></path>
-								</svg>
-								</span>
-								<span class="font-medium whitespace-nowrap">
-								List your book's content here.
-								</span>
-							</h4>
-				
+						
 							<div>
 								<a href="#">
 								<button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
@@ -229,7 +265,12 @@
 								</a>
 							</div>
 						</div>
+				        
 					</div>
+
+
+			   <?php endwhile; ?>
+				<?php endif; ?>
 				</div>
 			</div>
 		</section>
