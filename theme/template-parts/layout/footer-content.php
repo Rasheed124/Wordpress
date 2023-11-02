@@ -12,7 +12,7 @@
 
 
 
-<footer class="py-14 bg-contact-dark-overlay text-deep-black relative">
+<footer class="py-14  text-deep-black relative bg-gray-200">
   <div class="flex flex-col justify-center items-center w-full">
    
        <a href="<?php $uploads = wp_upload_dir();?>" class=" font-Antonio text-3xl lg:text-5xl font-bold mb-2 uppercase" >
@@ -30,7 +30,7 @@
       </a>
 
        <h2>
-           <span class=" text-sm sm:text-center ">© 2023 <a href="https://durodolaabdulhad.com.ng/" class="hover:underline">Durodola</a>. All Rights Reserved.</span>
+           <span class=" text-sm sm:text-center ">© 2023 <a href="https://durodolaabdulhad.com.ng/" class="hover:underline hover:text-header-dark-overlay">Durodola</a>. All Rights Reserved.</span>
        </h2>
 
   </div>
