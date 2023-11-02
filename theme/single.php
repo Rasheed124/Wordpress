@@ -14,13 +14,8 @@
 
   /** Testimonial Postion*/
  
-
 ?>
-
-
 	<main id="main">
-
-
 
 		<!-- SECTION ONE -  BANNER -->
 		<section id="home" class="overflow-x-hidden max-w-6xl mx-auto">
@@ -235,7 +230,7 @@
 						   <img
 								src="<?php echo $image_sec_3Pic ?>"
 								alt=""
-								className="max-w-full h-[60vh] mx-auto "
+								className="max-w-full xl:h-[20vh] mx-auto "
 							>
 						</div>
 
@@ -254,7 +249,7 @@
 						
 									<span class="text-white bg-header-dark-overlay rounded-full p-1">
 													<?php if(has_post_thumbnail()):?>
-												<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="w-5 h-5">
+												<img  src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="w-4  h-4">
 											<?php endif;?>
 										</span>
 									<span class="font-medium text-left ">
