@@ -80,8 +80,8 @@ if ( ! function_exists( 'durotheme_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'durotheme' ),
-				'menu-2' => __( 'Footer Menu', 'durotheme' ),
+				   'top-menu' => 'Top menu location',
+				   'menu-2' => __( 'Footer Menu', 'durotheme' ),
 			)
 		);
 
@@ -105,6 +105,8 @@ if ( ! function_exists( 'durotheme_setup' ) ) :
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
+		//Menus
+		add_theme_support('menus');
 
 		// Add Custom header 
 		add_theme_support( 'custom-header' );
@@ -268,3 +270,27 @@ function single_post_reviews() {
     register_post_type( 'Reviews', $args );
 }
 add_action( 'init', 'single_post_reviews' );
+
+
+
+// Add links to each li and link tags
+
+function add_additional_class_on_li($classes, $item, $args_menu)
+{
+    if (isset($args_menu->add_li_class)) {
+        $classes[] = $args_menu->add_li_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+
+
+function add_menu_link_class($atts, $item, $args_menu)
+{
+    if (property_exists($args_menu, 'link_class')) {
+        $atts['class'] = $args_menu->link_class;
+    }
+    return $atts;
+}
+add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);

@@ -11,8 +11,8 @@
 
 <!-- Single Post Header [Landing Page] -->
 <header>
-    <div class="fixed top-0 left-0 w-full h-2 bg-gray-300">
-      <div class="h-full bg-blue-500" id="readingProgress" style="width: 0;"></div>
+    <div class="fixed top-0 left-0 w-full h-2 bg-gray-300 z-50">
+      <div class="h-full bg-header-dark-overlay" id="readingProgress" style="width: 0;"></div>
   </div>
 
       <nav >
@@ -35,44 +35,30 @@
               </div>
             </a>
 
-             <div class="hidden md:inline-flex items-center gap-7">
-              <ul class="flex text-base gap-7">
-                <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#home">
-                  <li>
-                    Home
-                  </li>
-                </a>
+             <div class="hidden lg:inline-flex items-center gap-7">
+       
 
-                <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#about" onClick={handleScroll}>
-                  <li>
-              
-                    About
-                  </li>
-                </a>
-                <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#experience">
-                  <li>
-              
-                    Experience
-                  </li>
-                </a>
-                <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#project">
-                  <li>
-              
-                    Project
-                  </li>
-                </a>
-                <a class="flex items-center gap-1 font-medium text-textDark hover:text-textGreen cursor-pointer duration-300 nav-link" href="#contact">
-                  <li>
-              
-                    Contact
-                  </li>
-                </a>
-              </ul>
+                 <ul class="flex text-base gap-7">
+                    <?php
+
+                    $args_menu = array(
+                        'container'     => '',
+                        'theme_location' => 'top-menu',
+                        'depth'         => 1,
+                        'fallback_cb'   => false,
+                        'add_li_class'  => 'pr-6 nav_menu_link',
+                        'link_class' => 'text-black inline-block font-Antonio'
+
+                    );
+                    wp_nav_menu($args_menu);
+                    ?>
+                 
+                </ul>
         
             </div>
 
 
-            <div class="w-6 h-5 flex flex-col justify-between items-center md:hidden text-4xl text-white cursor-pointer overflow-hidden group">
+            <div class="w-6 h-5 flex flex-col justify-between items-center lg:hidden text-4xl text-white cursor-pointer overflow-hidden group">
               <span class="w-full h-[2px] bg-black inline-flex transform group-hover:translate-x-2 transition-all ease-in-out duration-300"></span>
               <span class="w-full h-[2px] bg-black inline-flex transform translate-x-3 group-hover:translate-x-0 transition-all ease-in-out duration-300"></span>
               <span class="w-full h-[2px] bg-black inline-flex transform translate-x-1 group-hover:translate-x-3 transition-all ease-in-out duration-300"></span>
