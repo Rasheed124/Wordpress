@@ -49,22 +49,3 @@ window.addEventListener("scroll", function() {
 
 
 
- 
-  /**
-   * Owl carousel
-   */
-
-	/*--/  Facilities owl /--*/
-   $('#testimonial-carousel').owlCarousel({
-    items: 1,
-		margin: 5,
-		autoplay: true,
-		autoplayTimeout: 3000,
-		autoplayHoverPause: true,
-    smartSpeed: 800,
-    loop: true,
-    nav:true,
- 
-	});
-  $( "#testimonial-carousel .owl-prev").html('<i class="fa fa-chevron-left"></i>');
-  $( "#testimonial-carousel .owl-next").html('<i class="fa fa-chevron-right"></i>');

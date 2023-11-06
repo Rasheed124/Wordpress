@@ -63,16 +63,15 @@
 
 
                 <!-- Testimonials -->
-
-                <div id="testimonial-carousel"
-                    class="owl-carousel max-w-md mx-auto owl-theme  grid grid-cols-1 place-content-center place-items-center">
-
-                    <?php foreach( $testimonials as $testimonial ): 
+                  <div class="  max-w-md mx-auto   grid grid-cols-1 place-content-center place-items-center">
+                         <div class="swiper">
+                    <div class="swiper-wrapper">
+                             <?php foreach( $testimonials as $testimonial ): 
                         $title = get_the_title( $testimonial->ID );
                             $role_field = get_field( 'reviews_role', $testimonial->ID );
                         ?>
                         
-                    <div class="item">
+                    <div class="swiper-slide">
                         <div class="space-y-3 mt-10 bg-white/30  ">
                             <div class="border-l-4 border-header-dark-overlay px-5">
                                    <blockquote class="text-center xl:text-left italic text-base">
@@ -103,10 +102,17 @@
                         </div>
                     </div>
 
-                  <?php endforeach; ?>
+                       <?php endforeach; ?>
+                   </div>
+                 <!-- If we need pagination -->
+               <div class="swiper-pagination"></div>
+
+               
                 </div>
              
             </div>
+                  </div>
+         
 
             <?php endwhile; ?>
             <?php endif; ?>
