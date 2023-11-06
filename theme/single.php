@@ -14,12 +14,15 @@
 <main id="main">
 
             <!-- SECTION ONE -  BANNER -->
-    <section id="home" class="overflow-x-hidden max-w-6xl mx-auto">
+    <section class="overflow-x-hidden max-w-6xl mx-auto">
        <?php if( have_rows('section_one') ): ?>
         <?php while( have_rows('section_one') ): the_row(); 
 
+					$id_sec_one = get_sub_field('id_section_one');
+
+
         ?>
-        <div
+        <div id="<?php echo $id_sec_one ?>"
             class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20 xl:py-28 px-6 lg:px-10">
             <!-- COLUMNS -->
             <!--  -->
@@ -139,12 +142,15 @@
     
 
         <!-- SECTION TWO - CONTENT -->
-    <section id="about" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
+    <section class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
 
         <?php if( have_rows('section_two') ): ?>
         <?php while( have_rows('section_two') ): the_row(); 
+
+					$id_sec_two = get_sub_field('id_section_two');
+
             ?>
-            <div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+            <div id="<?php echo $id_sec_two ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
                 <!-- Title -->
                 <?php if( have_rows('content_section_two') ): ?>
                 <?php while( have_rows('content_section_two') ): the_row(); 
@@ -207,7 +213,7 @@
 
 
             <!-- SECTION THREE - CONTENT -->
-    <section id="solution" class="px-6 lg:px-10">
+    <section class="px-6 lg:px-10">
 
         
             <?php if( have_rows('section_three') ): ?>
@@ -215,10 +221,12 @@
 
             	$heading_section_three = get_sub_field('heading_section_three');
             	$content_section_three = get_sub_field('content_section_three');
+				$id_sec_three = get_sub_field('id_section_three');
+
 				
 
             ?>
-        <div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+        <div id="<?php echo $id_sec_three ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
             <!-- Content -->
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-2xl font-bold  lg:text-3xl">
@@ -305,16 +313,17 @@
 
 
         <!-- SECTION FOUR - CONTENT -->
-    <section id="reviews" class="px-6 lg:px-10 bg-gray-100">
+    <section class="px-6 lg:px-10 bg-gray-100">
              <?php if( have_rows('section_four') ): ?>
             <?php while( have_rows('section_four') ): the_row(); 
 
             	$heading_section_four = get_sub_field('heading_section_four');
             	$paragraph_section_four = get_sub_field('paragraph_section_four');
+				$id_sec_four = get_sub_field('id_section_four');
 				
 
             ?>
-        <div class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+        <div id="<?php echo $id_sec_four ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
             <!-- Content -->
                  
             <div class="max-w-4xl mx-auto">
@@ -389,16 +398,18 @@
 
 
         <!-- SECTION FIVE - CONTENT -->
-    <section id="solution" class="px-6 lg:px-10">
+    <section class="px-6 lg:px-10">
            <?php if( have_rows('section_five') ): ?>
             <?php while( have_rows('section_five') ): the_row(); 
                     
             	$heading_section_five = get_sub_field('heading_section_five');
             	$paragraph_section_five = get_sub_field('paragraph_section_five');
             	$newsletter_section_five = get_sub_field('newsletter_section_five');
+				$id_sec_five = get_sub_field('id_section_five');
+
 
             ?>
-        <div class="text-center lg:max-w-6xl mx-auto max-w-lg xl:pb-10 py-14 lg:py-20 xl:py-28">
+        <div id="<?php echo $id_sec_five ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg xl:pb-10 py-14 lg:py-20 xl:py-28">
             <div class="bg-gray-200 p-10 max-w-4xl mx-auto">
 
 
@@ -440,7 +451,7 @@
 
     
     <!-- SECTION SIX	 - CONTENT -->
-    <section id="solution" class="px-6 lg:px-10 bg-gray-100">
+    <section class="px-6 lg:px-10 bg-gray-100">
                     <!-- Content -->
          <?php if( have_rows('section_six') ): ?>
             <?php while( have_rows('section_six') ): the_row(); 
@@ -449,9 +460,10 @@
 					$paragraph_sec_six= get_sub_field('paragraph_section_six');
 					$button_sec_six= get_sub_field('button_section_six');
 					$testimonials= get_sub_field('testimonial_section_six');
+				    $id_sec_six = get_sub_field('id_section_six');
 					
 				?>
-             <div class="text-center lg:max-w-6xl mx-auto py-14 lg:py-20 xl:py-28">
+             <div id="<?php echo $id_sec_six ?>"  class="text-center lg:max-w-6xl mx-auto py-14 lg:py-20 xl:py-28">
 
                     <div class="mx-auto pb-10 max-w-lg">
                         <h2 class="text-2xl font-bold  lg:text-3xl">
@@ -543,6 +555,8 @@
              <?php if( have_rows('section_seven') ): ?>
             <?php while( have_rows('section_seven') ): the_row(); 
 					// Get sub field values.
+				    $id_sec_seven = get_sub_field('id_section_seven');
+
 					$heading_sec_seven = get_sub_field('heading_section_seven');
 				
                     $image_sec_seven = get_sub_field('image_section_seven');
@@ -550,7 +564,7 @@
 
 
 				?>
-             <div class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
+             <div id="<?php echo $id_sec_seven ?>" class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
                 <div class="py-8 w-full flex flex-col justify-center items-center">
                     <div>
                         <img src="<?php echo $image_sec_7Pic ?>" alt="<?php echo $image_sec_seven['alt'] ?>" className="max-w-full w-24 h-24 rounded-full mb-2 md:mr-2">
