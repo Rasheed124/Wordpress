@@ -612,7 +612,7 @@
                                         
                                         ?>
 
-                                <div class=" ">
+                                <div class="flex flex-row gap-6 justify-center items-center">
                                
                                          <?php 
 
@@ -621,37 +621,37 @@
                                             if (strpos($item["url"], "facebook") !== false) {
                                                 // Display content for Facebook with anchor tag and classes
                                                 echo '<div class="flex items-center">';
-                                                echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3 rounded-full">';
+                                                echo '<a href="' . $item["url"] . '" class="bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-facebook-f"></i></a>';
                                                 echo '</div>';
                                             } elseif (strpos($item["url"], "twitter") !== false) {
                                                 // Display content for Twitter with anchor tag and classes
                                                 echo '<div class="flex items-center">';
-                                                echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3 rounded-full">';
+                                                echo '<a href="' . $item["url"] . '" class="bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-twitter"></i></a>';
                                                 echo '</div>';
                                             } elseif (strpos($item["url"], "youtube") !== false) {
                                                 // Display content for YouTube with anchor tag and classes
                                                 echo '<div class="flex items-center">';
-                                                echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
+                                                echo '<a href="' . $item["url"] . '" class="bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-youtube"></i></a>';
                                                 echo '</div>';
                                             } elseif (strpos($item["url"], "instagram") !== false) {
                                                 // Display content for Instagram with anchor tag and classes
                                                 echo '<div class="flex items-center">';
-                                                echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
+                                                echo '<a href="' . $item["url"] . '" class="bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-instagram"></i></a>';
                                                 echo '</div>';
                                             } elseif (strpos($item["url"], "linkedin") !== false) {
                                                 // Display content for LinkedIn with anchor tag and classes
                                                 echo '<div class="flex items-center">';
-                                                echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
+                                                echo '<a href="' . $item["url"] . '" class="bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-linkedin"></i></a>';
                                                 echo '</div>';
                                             } elseif (strpos($item["url"], "pinterest") !== false) {
                                                 // Display content for Pinterest with anchor tag and classes
                                                 echo '<div class="flex items-center">';
-                                                echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
+                                                echo '<a href="' . $item["url"] . '" class="bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-pinterest"></i></a>';
                                                 echo '</div>';
                                             } else {
