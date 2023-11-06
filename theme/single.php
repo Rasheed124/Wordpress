@@ -267,20 +267,15 @@
 
                     <?php while( have_rows('items') ): the_row(); 
 
-                    	$image_items_sec_three = get_sub_field('image');
-					    $image_items_3Pic = $image_items_sec_three['sizes']['large']
+                    
                     ?>
                       <div class="flex items-center gap-3">
 
-                            <span class="text-white bg-header-dark-overlay rounded-full p-1">
-                                    <img src="<?php echo $image_items_3Pic ?>" alt="<?php echo $image_items_sec_three['alt'] ?>"
-                                class="w-4 h-4">
-                    
-                                
+                            <span class="text-white text-base bg-header-dark-overlay rounded-full p-1">
+                                  <?php the_sub_field("icon") ?>
                             </span>
                             <span class="font-medium text-left ">
                               <?php the_sub_field("title") ?>
-                              
                             </span>
 
 
@@ -339,28 +334,27 @@
                <?php if( have_rows('content_section_four') ): ?>
              
             <!-- Columns -->
-            <div class="py-8 max-w-5xl flex justify-center items-center">
+            <div class="py-8 flex justify-center items-center">
                 <?php while( have_rows('content_section_four') ): the_row(); 
 
                 ?>
-                <div class="space-y-5 w-full max-w-md mx-auto flex flex-col justify-center items-center">
+                <div class="space-y-5 max-w-lg mx-auto  w-full flex flex-col justify-center items-center">
                     <!-- Cols -->
                     <?php if( have_rows('items') ): ?>
 
                         <?php while( have_rows('items') ): the_row(); 
-                            $items_image_section_four = get_sub_field('image');
-                            $items_image_sec_4Pic = $items_image_section_four['sizes']['large']
-                     
-
+                         
                             ?>
-                    <div class=" space-y-5 lg:max-w-md mx-auto">
+                    <div class=" space-y-5 ">
 
                        
                         <div class="flex items-start  gap-3 justify-center">
 
                          
-                        <img src="<?php echo $items_image_sec_4Pic ?>" alt="<?php echo $items_image_section_four['alt'] ?>"
-                        class="self-start max-w-full h-7">
+                          <span class="text-2xl text-header-dark-overlay ">
+                                    <?php the_sub_field("icon") ?>
+                             
+                          </span>
 
 
                             <div class="text-left ">
@@ -536,7 +530,7 @@
 
                             <a href="<?php echo esc_url( $button_sec_six['url'] ); ?>" class="flex   place-self-center justify-center items-center ">
                                 <button
-                                    class="py-3 sm:text-base lg:text-lg hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs block whitespace-nowrap font-medium">
+                                    class="py-3 sm:text-base  hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs block whitespace-nowrap font-medium">
                                         <?php echo esc_html( $button_sec_six['title'] ); ?>
                                 </button>
                             </a>
@@ -584,7 +578,7 @@
 
 		      	    	?>
 
-                        <p class="text-base lg:text-lg">
+                       <p class="py-2 md:text-lg ">
                             <?php echo $paragraph_sec_seven ?>
                         </p>
 
