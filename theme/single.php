@@ -358,13 +358,10 @@
                        
                         <div class="flex items-start  gap-3 justify-center">
 
-                            <div class="self-center">
-                               
+                         
+                        <img src="<?php echo $items_image_sec_4Pic ?>" alt="<?php echo $items_image_section_four['alt'] ?>"
+                        class="self-start max-w-full h-7">
 
-                                 <img src="<?php echo $items_image_sec_4Pic ?>" alt="<?php echo $items_image_section_four['alt'] ?>"
-                                    class="w-8 h-8">
-                              
-                            </div>
 
                             <div class="text-left ">
                                 <h5 class="text-lg xl:text-xl font-bold ">
@@ -417,12 +414,17 @@
                 <h2 class="text-2xl font-bold  lg:text-3xl">
                       <?php echo $heading_section_five ?>
                 </h2>
-                <p class="py-2 md:text-lg max-w-xl mx-auto ">
-                     <?php echo $paragraph_section_five ?>
-                </p>
+
+                <div class="py-2 md:text-lg max-w-lg xl:max-w-2xl  py-2 mx-auto ">
+
+                        <p>
+                            <?php echo $paragraph_section_five ?>
+
+                        </p>
+                 </div>
 
                 <!-- Form  -->
-                <div>
+                <div class="py-4">
                      <?php echo $newsletter_section_five?>
                 </div>
                 <!-- <form action="" class="">
@@ -593,7 +595,6 @@
                         <?php while( have_rows('links_section_seven') ): the_row(); 
                             // Get sub field values.
                             $link_title_sec_seven = get_sub_field('title');
-
                             ?>
 
                         <div class="py-2.5 ">
@@ -601,40 +602,42 @@
                                 <?php echo $link_title_sec_seven ?>
                              </h5>
 
-                             <div class="flex flex-row gap-6 justify-center items-center">
-                            <a href="#"
-                                class="bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3  rounded-full ">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
-                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3">
-                                    </path>
-                                </svg>
-                            </a>
-                            <a href="#"
-                                class="bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3  rounded-full ">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
-                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3">
-                                    </path>
-                                </svg>
-                            </a>
-                            <a href="#"
-                                class="bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3  rounded-full ">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
-                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3">
-                                    </path>
-                                </svg>
-                            </a>
-                             </div>
-                        
 
+                        
+                               <?php if( have_rows('social_link') ): ?>
+                                    <?php while( have_rows('social_link') ): the_row(); 
+                                        $links_sec_seven = get_sub_field('link');
+
+                                       $arrayItem = [$links_sec_seven]; 
+                                        
+                                        ?>
+
+                             <div class="flex flex-row gap-6 justify-center items-center">
+                                 
+
+                                   <?php foreach ($arrayItem as $item) {
+                                         if (strpos($item["url"], "facebook") !== false) {
+                                        // Display content for Facebook
+                                        echo "Platform: Facebook<br>";
+                                        } elseif (strpos($item["url"], "twitter") !== false) {
+                                            // Display content for Twitter
+                                            echo "Platform: Twitter<br>";
+                                        } elseif (strpos($item["url"], "youtube") !== false) {
+                                            // Display content for YouTube
+                                            echo "Platform: YouTube<br>";
+                                        } else {
+                                            // Display a default message for other URLs
+                                            echo "Platform: Other<br>";
+                                        }
+                                    }
+                                 ?>
+                                    
+                                  
+                             </div>
+                              <?php endwhile; ?>
+                            <?php endif; ?>
+                       
+                       
 
                         </div>
 
