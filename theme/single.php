@@ -511,15 +511,15 @@
                                     <blockquote class="text-center xl:text-left italic text-base">
                                         <?php echo $testimonial->post_content ;?>
                                     </blockquote>
-                                    <div class="flex flex-col lg:flex-row  ">
-                                        <div class="relative w-[70px] h-[70px] mr-2 ">
+                                    <div class="flex flex-col items-center lg:flex-row  ">
+                                        <div class="relative  w-[70px] h-[70px] mr-2 ">
                                           
                                             <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail') ;?>" alt="<?php echo $title ;?>"
                                           
                                             class="max-w-full absolute top-0 left-0 object-cover object-center rounded-full">
                                         </div>
 
-                                        <p class="text-center md:text-left pt-3">
+                                        <p class="text-center lg:text-left pt-3">
                                             <span class="block text-sm font-semibold"><?php echo $title ;?></span>
                                            <span class="block text-sm">
                                            
@@ -597,73 +597,66 @@
                             $link_title_sec_seven = get_sub_field('title');
                             ?>
 
-                        <div class="py-2.5 ">
+                      <div class="py-2.5 ">
                              <h5 class="mb-5 font-bold text-lg">
                                 <?php echo $link_title_sec_seven ?>
                              </h5>
 
-
-                        
+                            <div class="flex gap-5 justify-center items-center">
                                <?php if( have_rows('social_link') ): ?>
                                     <?php while( have_rows('social_link') ): the_row(); 
                                         $links_sec_seven = get_sub_field('link');
 
                                        $arrayItem = [$links_sec_seven]; 
-                                        
-                                        ?>
 
-                                <div class=" ">
-                               
-                                         <?php 
-
-                                  
                                         foreach ($arrayItem as $item) {
                                             if (strpos($item["url"], "facebook") !== false) {
                                                 // Display content for Facebook with anchor tag and classes
-                                                echo '<div class="flex items-center">';
+                                              
                                                 echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-facebook-f"></i></a>';
-                                                echo '</div>';
+                                             
                                             } elseif (strpos($item["url"], "twitter") !== false) {
                                                 // Display content for Twitter with anchor tag and classes
-                                                echo '<div class="flex items-center">';
+                                              
                                                 echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover:bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-twitter"></i></a>';
-                                                echo '</div>';
+                                             
                                             } elseif (strpos($item["url"], "youtube") !== false) {
                                                 // Display content for YouTube with anchor tag and classes
-                                                echo '<div class="flex items-center">';
+                                              
                                                 echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-youtube"></i></a>';
-                                                echo '</div>';
+                                             
                                             } elseif (strpos($item["url"], "instagram") !== false) {
                                                 // Display content for Instagram with anchor tag and classes
-                                                echo '<div class="flex items-center">';
+                                              
                                                 echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-instagram"></i></a>';
-                                                echo '</div>';
+                                             
                                             } elseif (strpos($item["url"], "linkedin") !== false) {
                                                 // Display content for LinkedIn with anchor tag and classes
-                                                echo '<div class="flex items-center">';
+                                              
                                                 echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-linkedin"></i></a>';
-                                                echo '</div>';
+                                             
                                             } elseif (strpos($item["url"], "pinterest") !== false) {
                                                 // Display content for Pinterest with anchor tag and classes
-                                                echo '<div class="flex items-center">';
+                                              
                                                 echo '<a href="' . $item["url"] . '" class="inline-flex bg-header-dark-overlay text-white transition duration-300 hover-bg-header-dark-overlay/70 p-3 rounded-full">';
                                                 echo '<i class="fa-brands fa-pinterest"></i></a>';
-                                                echo '</div>';
+                                             
                                             } else {
                                                 // Display a default message for other URLs
                                                 echo "Add Links";
                                             }
                                         }
                                                 ?>
-                                    </div>
+                                 
                               <?php endwhile; ?>
                             <?php endif; ?>
-                       
+
+                           </div>
                        
 
                         </div>

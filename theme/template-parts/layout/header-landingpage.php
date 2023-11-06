@@ -35,10 +35,10 @@
               </div>
             </a>
 
-             <div class="hidden lg:inline-flex items-center gap-7">
+             <div class=" ">
        
 
-                 <ul class="flex text-base gap-7">
+                 <ul class="menu   text-base gap-7 transform translate-y-[-1000px] transition-transform duration-500 absolute  w-full h-auto top-10 left-0  pt-6  px-6 lg:static lg:top-0 lg:py-0   lg:left-0 lg:flex lg:flex-row lg:justify-end  lg:-translate-y-0 lg:bg-transparent  bg-black shadow-lg lg:shadow-none  lg:space-y-0 text-white lg:text-black">
                     <?php
 
                     $args_menu = array(
@@ -46,8 +46,8 @@
                         'theme_location' => 'top-menu',
                         'depth'         => 1,
                         'fallback_cb'   => false,
-                        'add_li_class'  => 'pr-6 nav_menu_link',
-                        'link_class' => 'text-black inline-block font-Antonio'
+                        'add_li_class'  => 'pr-6 pb-6 lg:pb-0 nav_menu_link',
+                        'link_class' => ' lg:inline-block font-Antonio'
 
                     );
                     wp_nav_menu($args_menu);
@@ -58,7 +58,7 @@
             </div>
 
 
-            <div class="w-6 h-5 flex flex-col justify-between items-center lg:hidden text-4xl text-white cursor-pointer overflow-hidden group">
+            <div class="harmbuger w-6 h-5 flex flex-col justify-between items-center lg:hidden text-4xl text-white cursor-pointer overflow-hidden group">
               <span class="w-full h-[2px] bg-black inline-flex transform group-hover:translate-x-2 transition-all ease-in-out duration-300"></span>
               <span class="w-full h-[2px] bg-black inline-flex transform translate-x-3 group-hover:translate-x-0 transition-all ease-in-out duration-300"></span>
               <span class="w-full h-[2px] bg-black inline-flex transform translate-x-1 group-hover:translate-x-3 transition-all ease-in-out duration-300"></span>

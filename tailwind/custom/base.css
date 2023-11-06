@@ -14,3 +14,8 @@
 body {
 	@apply bg-background text-foreground font-Sohne-Bold;
 }
+
+
+.menu-active{    
+    @apply transform translate-y-4 transition-transform;
+}

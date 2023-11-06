@@ -1,4 +1,14 @@
 
+const navHarburger = document.querySelector(".harmbuger ");
+const navMenu =  document.querySelector(".menu");
+
+// Toggle Nav
+
+navHarburger.addEventListener("click", () => {
+    navMenu.classList.toggle("menu-active");
+
+  console.log("hello");
+});
 
 
 
@@ -40,22 +50,21 @@ window.addEventListener("scroll", function() {
 
 
  
-(function ($) {
-	'use strict';
+  /**
+   * Owl carousel
+   */
 
-	$(document).ready(function () {
-	   $('#testimonial-carousel').owlCarousel({
-			loop: true,
-            items: 1,
-			margin: 10,
-			responsiveClass: true,
-		
-			nav: true,
-			// navText: [
-			// 	'&amp;amp;lt;i class="fa fa-arrow-left fa-2x"&amp;amp;gt;&amp;amp;lt;/i&amp;amp;gt;',
-			// 	'&amp;amp;lt;i class="fa fa-arrow-right fa-2x"&amp;amp;gt;&amp;amp;lt;/i&amp;amp;gt;',
-			// ], //Note, if you are not using Font Awesome in your theme, you can change this to Previous &amp;amp;amp; Next
-		
-		});
+	/*--/  Facilities owl /--*/
+   $('#testimonial-carousel').owlCarousel({
+    items: 1,
+		margin: 5,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		autoplayHoverPause: true,
+    smartSpeed: 800,
+    loop: true,
+    nav:true,
+ 
 	});
-})(jQuery);
+  $( "#testimonial-carousel .owl-prev").html('<i class="fa fa-chevron-left"></i>');
+  $( "#testimonial-carousel .owl-next").html('<i class="fa fa-chevron-right"></i>');
