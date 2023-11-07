@@ -12,9 +12,12 @@
  * editor.
 */
 body {
-	@apply bg-background text-foreground font-Sohne-Bold;
+	@apply bg-background text-black font-Sohne-Bold;
 }
 
+p, blockquote{
+    @apply text-[#4c527d]
+}
 
 .menu-active{    
     @apply transform translate-y-4 transition-transform;

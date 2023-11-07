@@ -20,7 +20,7 @@
 
           <div class="px-4 max-w-7xl h-full mx-auto py-1  flex items-center justify-between ">
 
-            <a href="<?php echo get_home_url();?>" class="text-xl font-Antonio" >
+            <a href="<?php echo get_home_url();?>" class="text-2xl font-Antonio" >
               <div>
 
 					<?php
@@ -38,7 +38,7 @@
              <div class=" ">
        
 
-                 <ul class="menu   text-base gap-7 transform translate-y-[-1000px] transition-transform duration-500 absolute  w-full h-auto top-10 left-0  pt-6  px-6 lg:static lg:top-0 lg:py-0   lg:left-0 lg:flex lg:flex-row lg:justify-end  lg:-translate-y-0 lg:bg-transparent  bg-black shadow-lg lg:shadow-none  lg:space-y-0 text-white lg:text-black">
+                 <ul class="menu   text-base lg:text-lg gap-7 transform translate-y-[-1000px] transition-transform duration-500 absolute  w-full h-auto top-10 left-0  pt-6  px-6 lg:static lg:top-0 lg:py-0   lg:left-0 lg:flex lg:flex-row lg:justify-end  lg:-translate-y-0 lg:bg-transparent  bg-black shadow-lg lg:shadow-none  lg:space-y-0 text-white lg:text-black">
                     <?php
 
                     $args_menu = array(
@@ -58,11 +58,11 @@
             </div>
 
 
-            <div class="harmbuger w-6 h-5 flex flex-col justify-between items-center lg:hidden text-4xl text-white cursor-pointer overflow-hidden group">
+            <!-- <div class="harmbuger  w-6 h-5 flex flex-col justify-between items-center lg:hidden text-4xl text-white cursor-pointer overflow-hidden group">
               <span class="w-full h-[2px] bg-black inline-flex transform group-hover:translate-x-2 transition-all ease-in-out duration-300"></span>
               <span class="w-full h-[2px] bg-black inline-flex transform translate-x-3 group-hover:translate-x-0 transition-all ease-in-out duration-300"></span>
               <span class="w-full h-[2px] bg-black inline-flex transform translate-x-1 group-hover:translate-x-3 transition-all ease-in-out duration-300"></span>
-            </div>
+            </div> -->
 
       
 

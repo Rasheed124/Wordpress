@@ -14,7 +14,7 @@
 <main id="main">
 
             <!-- SECTION ONE -  BANNER -->
-    <section class="overflow-x-hidden max-w-6xl mx-auto">
+    <section class="overflow-x-hidden max-w-7xl mx-auto">
        <?php if( have_rows('section_one') ): ?>
         <?php while( have_rows('section_one') ): the_row(); 
 
@@ -23,7 +23,7 @@
 
         ?>
         <div id="<?php echo $id_sec_one ?>"
-            class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20  px-6 lg:px-10">
+            class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20  px-4 lg:px-10">
             <!-- COLUMNS -->
             <!--  -->
             <?php if( have_rows('content_section_one') ): ?>
@@ -37,10 +37,10 @@
 				?>
             <div class=" flex flex-col justify-center items-center md:justify-start">
                 <div class="max-w-md mx-auto lg:max-w-none">
-                    <h3 class="font-bold pb-5 text-3xl  lg:text-4xl  text-black">
+                    <h3 class="font-bold pb-3 text-xl  lg:text-4xl  text-black">
                         <?php echo $heading_sec_one ?>
                     </h3>
-                    <p class="pb-5 font-semibold ">
+                    <p class="pb-5 font-semibold lg:text-lg xl:text-xl">
                         <?php echo $paragraph_sec_one ?>
                     </p>
 
@@ -136,8 +136,8 @@
                   
                 </div>
             
-            <div class="rounded-full w-[100px] h-[100px] p-4 text-center text-black bg-header-dark-overlay absolute right-0 -top-3 flex justify-center items-center">
-                <span class="block text-lg font-bold">
+            <div class="rounded-full w-[90px] h-[90px] right-6 sm:right-0 xl:right-5 -top-3 p-4 text-center text-black bg-header-dark-overlay absolute  flex justify-center items-center">
+                <span class="block text-lg font-bold font-Antonio">
                     <?php echo $image_side_text_sec_one; ?>
                     
                 </span>
@@ -164,7 +164,7 @@
 					$id_sec_two = get_sub_field('id_section_two');
 
             ?>
-            <div id="<?php echo $id_sec_two ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 ">
+            <div id="<?php echo $id_sec_two ?>"  class="text-center lg:max-w-6xl mx-auto max-w-2xl py-14 lg:py-20 ">
                 <!-- Title -->
                 <?php if( have_rows('content_section_two') ): ?>
                 <?php while( have_rows('content_section_two') ): the_row(); 
@@ -178,7 +178,7 @@
 
                         <?php echo $heading_sec_two ?>
                     </h2>
-                    <p class="py-2 md:text-lg ">
+                    <p class="py-2 md:text-lg lg:text-xl ">
                         <?php echo $paragraph_sec_two ?>
 
                     </p>
@@ -204,7 +204,7 @@
                         
         
 
-                            <h4 class="font-medium">
+                            <h4 class="font-medium sm:text-lg">
                               <?php the_sub_field("title") ?>
                             </h4>
                             <p class="text-base">
@@ -240,7 +240,7 @@
 				
 
             ?>
-        <div id="<?php echo $id_sec_three ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+        <div id="<?php echo $id_sec_three ?>"  class="text-center lg:max-w-6xl mx-auto max-w-2xl  py-14 lg:py-20 xl:py-28">
             <!-- Content -->
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-2xl font-bold  lg:text-3xl">
@@ -261,18 +261,18 @@
                         $image_items_3Pic = $image_sec_three['sizes']['large']
                        
                     ?>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
               
                     <!-- Image -->
-                    <div class="mb-10 lg:mb-0">
+                    <div class="mb-10 lg:mb-0 max-w-md mx-auto">
                         <img src="<?php echo $image_items_3Pic ?>" alt="<?php echo $image_sec_three['alt'] ?>"
                         class="max-w-full xl:h-[60vh] h-min w-min">
                     </div>
 
                
                     <!-- Content -->
-                    <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-start ">
+                    <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-center ">
 
                        
               
@@ -283,12 +283,14 @@
 
                     
                     ?>
-                      <div class="flex items-center gap-3">
+                      <div class="flex items-start md:items-center justify-center  gap-3">
 
-                            <span class="text-white text-base bg-header-dark-overlay rounded-full p-1">
+                            <div class="text-white  self-start flex  justify-center items-center text-base bg-header-dark-overlay rounded-full w-8 h-8 ">
+                          
                                   <?php the_sub_field("icon") ?>
-                            </span>
-                            <span class="font-medium text-left ">
+
+                            </div>
+                            <span class="font-medium text-left block ">
                               <?php the_sub_field("title") ?>
                             </span>
 
@@ -298,7 +300,7 @@
                           <?php endwhile; ?>
                 <?php endif; ?>
 
-                        <div>
+                        <div class="">
                             <a href="<?php echo esc_url( $button_sec_three['url'] ); ?>">
                                 <button
                                     class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
@@ -340,7 +342,7 @@
                     <?php echo $heading_section_four ?>
                    
                 </h2>
-                <p class="py-2 md:text-lg">
+              <p class="py-2 md:text-lg lg:text-xl ">
                     <?php echo $paragraph_section_four ?>
                        
                 </p>
@@ -480,7 +482,7 @@
                             <?php echo $heading_section_six ?>
 
                         </h2>
-                        <p class="py-2 md:text-lg ">
+                       <p class="py-2 md:text-lg lg:text-xl ">
                             <?php echo $paragraph_sec_six ?>
 
                         </p>
@@ -592,7 +594,7 @@
 
 		      	    	?>
 
-                       <p class="py-2 md:text-lg ">
+                       <p class="py-2 md:text-lg lg:text-xl ">
                             <?php echo $paragraph_sec_seven ?>
                         </p>
 

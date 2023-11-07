@@ -160,7 +160,7 @@ function durotheme_scripts() {
 
 	  // Register Swiper.js library
     //wp_register_script('swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '11.0.3', );
- wp_enqueue_script( 'durotheme-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
+   wp_enqueue_script( 'durotheme-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
 
 
     // Enqueue Swiper.js library

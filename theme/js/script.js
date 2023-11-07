@@ -1,9 +1,7 @@
 
 
 
-
-
-
+// Navbar Meny Toggle
 const navHarburger = document.querySelector(".harmbuger ");
 const navMenu =  document.querySelector(".menu");
 
@@ -41,6 +39,7 @@ if (toTopBtn) {
 }
 
 
+// Reading Progres Bar
 window.addEventListener('scroll', function () {
 	var scrollY = window.pageYOffset || document.documentElement.scrollTop;
 	var winHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -55,12 +54,18 @@ window.addEventListener('scroll', function () {
 
 
 
-
+// Initialize Testimonial Slider [Single Post Template]
 var Swipes = new Swiper('.swiper', {
 	loop: true,
-	autoplay: 3500,
+    autoplay:{
+        delay: 1000,
+        disableOnInteraction: false,
+    },
+	
+    speed:5000,
 	grabCursor: true,
 	pagination: {
 		el: '.swiper-pagination',
+        clickable: 'true'
 	},
 });

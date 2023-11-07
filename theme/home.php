@@ -31,7 +31,7 @@ if ( $page_index == 1 ) {
 ?>
 
 
-          <div class="py-14 md:py-0 px-4 md:px-0 max-w-xl  md:max-w-2xl xl:max-w-6xl mx-auto bg-gray-200 ">
+          <div class="py-14 md:py-0 px-4 md:px-0 max-w-2xl  md:max-w-4xl xl:max-w-6xl mx-auto bg-gray-200 ">
             <?php 
 			$args = array(
 				'posts_per_page' => 1,
@@ -43,7 +43,7 @@ if ( $page_index == 1 ) {
 		<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
                <div class="grid grid-cols-1 md:grid-cols-2 ">
 
-                <div class="space-y-4 py-14 px-8 md:flex md:flex-col md:justify-center xl:max-w-lg">
+                <div class="space-y-4 py-14 px-4 lg:px-8 md:flex md:flex-col  md:justify-center xl:max-w-lg">
                   <h3 class="text-4xl font-bold xl:text-3xl "><?php the_title(); ?></h3>
 
                   <p class="text-base xl:text-base">	<?php echo wp_trim_words(get_the_excerpt(), 25); ?></p>
@@ -58,7 +58,7 @@ if ( $page_index == 1 ) {
                   </div>
                 </div>
 
-                <div class="md:relative hidden md:block md:h-[100vh] lg:h-[90vh] xl:h-[60vh] md:w-full ">
+                <div class="md:relative hidden md:block md:h-[60vh] lg:h-[90vh] xl:h-[60vh] md:w-full ">
 						<?php if(has_post_thumbnail()):?>
 					<img class="max-w-full md:w-full md:absolute md:object-cover md:object-center top-0 left-0 md:h-full" src="<?php the_post_thumbnail_url();?>" alt="" />
 				<?php endif; ?>
@@ -76,7 +76,7 @@ if ( $page_index == 1 ) {
 
 	
 
-          <div class="py-14 px-4 md:px-0 max-w-xl  md:max-w-2xl xl:max-w-6xl mx-auto  ">
+          <div class="py-14 px-4 md:px-0 max-w-xl  md:max-w-4xl xl:max-w-6xl mx-auto  ">
             
 
 		  		<?php
@@ -101,7 +101,7 @@ if ( $page_index == 1 ) {
                    <div class="space-y-2.5">
 					<h3>
 
-						<a href="<?php the_permalink(); ?>"  class="text-base md:text-lg font-bold pt-2.5 block  transition duration-300 hover:text-yellow-600"><?php echo wp_trim_words( get_the_title(), 10 ); ?></a>
+						<a href="<?php the_permalink(); ?>"  class="text-lg md:text-lg font-bold pt-2.5 block  transition duration-300 hover:text-yellow-600"><?php echo wp_trim_words( get_the_title(), 10 ); ?></a>
    
 					</h3>
                  
@@ -196,7 +196,7 @@ else {
 
 	
 
-          <div class="py-14 px-4 md:px-0 max-w-xl  md:max-w-2xl xl:max-w-6xl mx-auto  ">
+          <div class="py-14 px-4 md:px-0 max-w-xl  md:max-w-4xl xl:max-w-6xl mx-auto  ">
             
 
 		  		<?php

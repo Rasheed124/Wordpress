@@ -18,7 +18,7 @@
 
           <div class="px-4 max-w-7xl h-full mx-auto py-1  flex items-center justify-between ">
 
-            <a href="<?php echo get_home_url();?>" class="text-xl font-Antonio" >
+            <a href="<?php echo get_home_url();?>" class="text-2xl font-Antonio" >
               <div>
 
 					<?php
@@ -32,16 +32,6 @@
 						?>
               </div>
             </a>
-
-          
-
-            <div class="w-6 h-5 flex flex-col justify-between items-center md:hidden text-4xl text-white cursor-pointer overflow-hidden group">
-              <span class="w-full h-[2px] bg-black inline-flex transform group-hover:translate-x-2 transition-all ease-in-out duration-300"></span>
-              <span class="w-full h-[2px] bg-black inline-flex transform translate-x-3 group-hover:translate-x-0 transition-all ease-in-out duration-300"></span>
-              <span class="w-full h-[2px] bg-black inline-flex transform translate-x-1 group-hover:translate-x-3 transition-all ease-in-out duration-300"></span>
-            </div>
-
-      
 
 
           </div>
