@@ -23,7 +23,7 @@
 
         ?>
         <div id="<?php echo $id_sec_one ?>"
-            class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20 xl:py-28 px-6 lg:px-10">
+            class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20  px-6 lg:px-10">
             <!-- COLUMNS -->
             <!--  -->
             <?php if( have_rows('content_section_one') ): ?>
@@ -136,7 +136,14 @@
                   
                 </div>
             
-            
+            <div class="rounded-full w-[100px] h-[100px] p-4 text-center text-black bg-header-dark-overlay absolute right-0 -top-3 flex justify-center items-center">
+                <span class="block text-lg font-bold">
+                    <?php echo $image_side_text_sec_one; ?>
+                    
+                </span>
+            </div>
+
+
                    
             </div>
 
@@ -157,7 +164,7 @@
 					$id_sec_two = get_sub_field('id_section_two');
 
             ?>
-            <div id="<?php echo $id_sec_two ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 xl:py-28">
+            <div id="<?php echo $id_sec_two ?>"  class="text-center lg:max-w-6xl mx-auto max-w-lg py-14 lg:py-20 ">
                 <!-- Title -->
                 <?php if( have_rows('content_section_two') ): ?>
                 <?php while( have_rows('content_section_two') ): the_row(); 
