@@ -1326,3 +1326,37 @@
 
 <?php
 get_footer();
+
+
+
+
+
+
+
+
+
+
+	  <section>
+
+	  <?php
+	         if( have_rows('marketing_banner') ): ?>
+            <?php while( have_rows('marketing_banner') ): the_row(); 
+				
+				$marketing_banner_link= get_sub_field('link');
+
+				$marketing_banner = get_sub_field('image');
+				$marketing_bannerPic = $marketing_banner['marketing_banner']['large']
+
+			
+                   ?>
+					<a href="<?php echo esc_url( $marketing_banner_link['url'] ); ?>" class="w-full h-screen border-2 border-red-500 flex justify-center items-center flex-col" >
+                       
+
+				       <img src="<?php echo $marketing_bannerPic ?>" alt="<?php echo $marketing_banner['alt'] ?>" class="w-full h-full">
+                      
+			 </a>
+
+
+				       <?php endwhile; ?>
+                    <?php endif; ?>
+	  </section>

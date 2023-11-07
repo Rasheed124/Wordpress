@@ -108,10 +108,16 @@ if ( ! function_exists( 'durotheme_setup' ) ) :
 		//Menus
 		add_theme_support('menus');
 
+
+
 		// Add Custom header 
 		add_theme_support( 'custom-header' );
 
-		add_theme_support('post-thumbnails');
+		add_theme_support('post-thumbnails', array(
+		'post',
+		'blog',
+		'custom-post-type-name',
+		));
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
 
@@ -295,3 +301,39 @@ function add_menu_link_class($atts, $item, $args_menu)
     return $atts;
 }
 add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);
+
+
+
+
+
+
+
+function custom_theme_customize_register($wp_customize) {
+    $wp_customize->add_section('banner_section', array(
+        'title' => __('Main Page Banner', 'custom-theme'),
+        'priority' => 30,
+    ));
+
+    $wp_customize->add_setting('banner_image', array(
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_setting('banner_link', array(
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'banner_image', array(
+        'label' => __('Banner Image', 'custom-theme'),
+        'section' => 'banner_section',
+    ))); // <-- Add a closing parenthesis here
+
+    $wp_customize->add_control('banner_link', array(
+        'label' => __('Banner Link', 'custom-theme'),
+        'section' => 'banner_section',
+        'type' => 'text',
+    ));
+}
+
+add_action('customize_register', 'custom_theme_customize_register');
+
+

@@ -3,14 +3,16 @@
 
  */
 
+$display_banner = get_theme_mod('display_banner', 'yes');
+$banner_image = get_theme_mod('banner_image', ''); // Get the uploaded image
+$banner_link = get_theme_mod('banner_link', ''); // Get the uploaded link
 
-	 if(has_post_thumbnail()):?>
+if ($display_banner === 'yes' && $banner_image && $banner_link) {
+    echo '<a href="' . esc_url($banner_link) . '" class="w-full h-screen border-2 border-red-500 flex justify-center items-center flex-col">';
+    echo '<img src="' . esc_url($banner_image) . '" alt="Main Page Banner" class="w-full h-full">';
+    echo '</a>';
+}
 
-				<img src="<?php the_post_thumbnail_url('blog-small');?>" alt="<?php the_title();?>" class="">
-
-			<?php endif;?>
-
-<?php
 
 get_header();
 ?>
@@ -26,7 +28,6 @@ $page_index = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 if ( $page_index == 1 ) {
 ?>
 
-       <section class="" >
 
           <div class="py-14 md:py-0 px-4 md:px-0 max-w-xl  md:max-w-2xl xl:max-w-6xl mx-auto bg-gray-200 ">
             <?php 
@@ -66,6 +67,8 @@ if ( $page_index == 1 ) {
 			   	<?php endwhile; endif; ?>
           </div>
       </section>
+
+	  
 
        <section class="" >
 
