@@ -1329,13 +1329,6 @@ get_footer();
 
 
 
-
-
-
-
-
-
-
 	  <section>
 
 	  <?php

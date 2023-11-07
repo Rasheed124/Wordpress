@@ -8,10 +8,12 @@ $banner_image = get_theme_mod('banner_image', ''); // Get the uploaded image
 $banner_link = get_theme_mod('banner_link', ''); // Get the uploaded link
 
 if ($display_banner === 'yes' && $banner_image && $banner_link) {
-    echo '<a href="' . esc_url($banner_link) . '" class="w-full h-screen border-2 border-red-500 flex justify-center items-center flex-col">';
-    echo '<img src="' . esc_url($banner_image) . '" alt="Main Page Banner" class="w-full h-full">';
+    echo '<a href="' . esc_url($banner_link) . '" class="w-full h-[50vh] lg:h-auto flex justify-center items-center flex-col">';
+    echo '<img src="' . esc_url($banner_image) . '" alt="Main Page Banner" class="w-full h-full ">';
     echo '</a>';
 }
+
+
 
 
 get_header();
