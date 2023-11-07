@@ -74,7 +74,7 @@
                     <div class="swiper-slide">
                         <div class="space-y-3 mt-10 bg-white/30  ">
                             <div class="border-l-4 border-header-dark-overlay px-5">
-                                   <blockquote class="text-center xl:text-left italic text-base">
+                                   <blockquote class="text-center md:text-left italic text-base">
                                   <?php echo $testimonial->post_content ;?>
                                 </blockquote>
                             </div>

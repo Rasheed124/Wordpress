@@ -57,15 +57,17 @@ window.addEventListener('scroll', function () {
 // Initialize Testimonial Slider [Single Post Template]
 var Swipes = new Swiper('.swiper', {
 	loop: true,
-    autoplay:{
-        delay: 1000,
-        disableOnInteraction: false,
-    },
-	
-    speed:5000,
+	autoplay: {
+		delay: 3000,
+		disableOnInteraction: true,
+	},
+	effect: 'fade',
+	fadeEffect: { crossFade: true },
+
+	speed: 5000,
 	grabCursor: true,
 	pagination: {
 		el: '.swiper-pagination',
-        clickable: 'true'
+		clickable: 'true',
 	},
 });
