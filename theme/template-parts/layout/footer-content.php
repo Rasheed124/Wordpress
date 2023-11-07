@@ -41,7 +41,7 @@
     <span class="sr-only">Go to top</span>
 </button>
 
+<script src="https://kit.fontawesome.com/981b483fe4.js" crossorigin="anonymous"></script>
 
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.3/swiper-bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.3/swiper-bundle.min.js"></script>
 </footer>

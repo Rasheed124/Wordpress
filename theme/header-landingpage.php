@@ -21,7 +21,7 @@
 	<!-- Antonio - Libre+Baskerville Google Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 	<!-- Swiper -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/swiper@11.0.3/swiper-bundle.min.css" rel="stylesheet"> -->
+<link href="https://cdn.jsdelivr.net/npm/swiper@11.0.3/swiper-bundle.min.css" rel="stylesheet">
 
    
 	<?php wp_head(); ?>

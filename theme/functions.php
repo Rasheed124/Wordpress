@@ -153,7 +153,7 @@ add_action( 'widgets_init', 'durotheme_widgets_init' );
 function durotheme_scripts() {
 
 	  // Register Swiper.js library
-    wp_register_script('swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '11.0.3', );
+   // wp_register_script('swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '11.0.3', );
 
     // Enqueue Swiper.js library
     wp_enqueue_script('swiper');
@@ -161,7 +161,7 @@ function durotheme_scripts() {
     // Load Swiper CSS (optional)
   	wp_enqueue_style( 'durotheme-style', get_stylesheet_uri(), array(), DUROTHEME_VERSION );
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css', array(), false, 'all');
-    wp_enqueue_style('swiper-style', get_template_directory_uri() . '/css/swiper.min.css', array(), '11.0.3');
+    //wp_enqueue_style('swiper-style', get_template_directory_uri() . '/css/swiper.min.css', array(), '11.0.3');
 
 	
 

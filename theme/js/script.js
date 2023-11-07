@@ -1,17 +1,4 @@
 
-const navHarburger = document.querySelector(".harmbuger ");
-const navMenu =  document.querySelector(".menu");
-
-// Toggle Nav
-
-navHarburger.addEventListener("click", () => {
-    navMenu.classList.toggle("menu-active");
-
-  console.log("hello");
-});
-
-
-
 
 // Page back to top button
 const toTopBtn = document.getElementById("to-top-button");
@@ -47,5 +34,30 @@ window.addEventListener("scroll", function() {
 
 
 
+const navHarburger = document.querySelector('.harmbuger ');
+const navMenu = document.querySelector('.menu');
+
+// Toggle Nav
+
+navHarburger.addEventListener('click', () => {
+	navMenu.classList.toggle('menu-active');
+
+	console.log('hello');
+});
 
 
+
+
+
+
+
+var Swipes = new Swiper('.swiper', {
+	loop: true,
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
+	pagination: {
+		el: '.swiper-pagination',
+	},
+});
