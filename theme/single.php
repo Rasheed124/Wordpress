@@ -423,7 +423,7 @@
                       <?php echo $heading_section_five ?>
                 </h2>
 
-                <div class="py-2 md:text-lg max-w-lg xl:max-w-2xl  py-2 mx-auto ">
+                <div class="md:text-lg max-w-lg xl:max-w-2xl  py-2 mx-auto ">
 
                         <p>
                             <?php echo $paragraph_section_five ?>
