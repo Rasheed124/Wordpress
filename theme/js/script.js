@@ -1,5 +1,23 @@
 
 
+
+
+
+
+const navHarburger = document.querySelector(".harmbuger ");
+const navMenu =  document.querySelector(".menu");
+
+// Toggle Nav
+
+navHarburger.addEventListener("click", () => {
+    navMenu.classList.toggle("menu-active");
+
+  console.log("hello");
+});
+
+
+
+
 // Page back to top button
 const toTopBtn = document.getElementById("to-top-button");
 
@@ -23,28 +41,15 @@ if (toTopBtn) {
 }
 
 
-
-window.addEventListener("scroll", function() {
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    var winHeight = window.innerHeight || document.documentElement.clientHeight;
-    var docHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
-    var scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
-    document.querySelector("#readingProgress").style.width = scrollPercent + "%";
+window.addEventListener('scroll', function () {
+	var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+	var winHeight = window.innerHeight || document.documentElement.clientHeight;
+	var docHeight =
+		document.body.scrollHeight || document.documentElement.scrollHeight;
+	var scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
+	document.querySelector('#readingProgress').style.width =
+		scrollPercent + '%';
 });
-
-
-
-const navHarburger = document.querySelector('.harmbuger ');
-const navMenu = document.querySelector('.menu');
-
-// Toggle Nav
-
-navHarburger.addEventListener('click', () => {
-	navMenu.classList.toggle('menu-active');
-
-	console.log('hello');
-});
-
 
 
 
@@ -53,10 +58,8 @@ navHarburger.addEventListener('click', () => {
 
 var Swipes = new Swiper('.swiper', {
 	loop: true,
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	},
+	autoplay: 3500,
+	grabCursor: true,
 	pagination: {
 		el: '.swiper-pagination',
 	},

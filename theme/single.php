@@ -36,7 +36,7 @@
 					$testimonials = get_sub_field('testimonial');
 				?>
             <div class=" flex flex-col justify-center items-center md:justify-start">
-                <div class="max-w-md mx-auto">
+                <div class="max-w-md mx-auto lg:max-w-none">
                     <h3 class="font-bold pb-5 text-3xl  lg:text-4xl  text-black">
                         <?php echo $heading_sec_one ?>
                     </h3>
@@ -63,8 +63,8 @@
 
 
                 <!-- Testimonials -->
-                  <div class="  max-w-md mx-auto   grid grid-cols-1 place-content-center place-items-center">
-                         <div class="swiper">
+                  <div id="testimonials">
+                         <div class="swiper max-w-md mx-auto lg:max-w-none  grid grid-cols-1 place-content-center place-items-center">
                     <div class="swiper-wrapper">
                              <?php foreach( $testimonials as $testimonial ): 
                         $title = get_the_title( $testimonial->ID );
@@ -130,13 +130,14 @@
 				?>
 
 
-            <div class="flex flex-col justify-center items-center">
-                <div className="relative">
+            <div class="flex flex-col justify-center items-center relative">
+                <div className="">
                     <img src="<?php echo $image_sec_1Pic ?>" alt="" className="max-w-full  h-auto">
-                    <div class="p-5 w-10 h-10 absolute -top-10 text-2xl text-white bg-header-dark-overlay left-0 border border-red-600 ">
-                         <?php echo $image_side_text_sec_one ?>
-                    </div>
+                  
                 </div>
+            
+            
+                   
             </div>
 
             <?php endwhile; ?>
