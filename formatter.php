@@ -1,314 +1,169 @@
+    <!-- SECTION TWO - CONTENT -->
+    <section class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
 
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package themeduro
- */
+        <?php if( have_rows('section_two') ): ?>
+        <?php while( have_rows('section_two') ): the_row(); 
 
- get_header("landingpage");
- 
-?>
-<main id="main">
+					$id_sec_two = get_sub_field('id_section_two');
 
-            <!-- SECTION ONE -  BANNER -->
-    <section class="overflow-x-hidden max-w-7xl mx-auto">
-       <?php if( have_rows('section_one') ): ?>
-        <?php while( have_rows('section_one') ): the_row(); 
+            ?>
+            <div id="<?php echo $id_sec_two ?>"  class="text-center lg:max-w-6xl mx-auto max-w-2xl py-14 lg:py-20 ">
+                <!-- Title -->
+                <?php if( have_rows('content_section_two') ): ?>
+                <?php while( have_rows('content_section_two') ): the_row(); 
+                        // Get sub field values.
+                        $heading_sec_two = get_sub_field('heading');
+                        $paragraph_sec_two = get_sub_field('paragraph');
+                       
+                    ?>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-bold  lg:text-3xl">
 
-					$id_sec_one = get_sub_field('id_section_one');
+                        <?php echo $heading_sec_two ?>
+                    </h2>
+                    <p class="py-2 md:text-lg lg:text-xl ">
+                        <?php echo $paragraph_sec_two ?>
 
-
-        ?>
-        <div id="<?php echo $id_sec_one ?>"
-            class="grid grid-cols-1 gap-8 lg:gap-10 md:grid-cols-2 md:place-content-center md:items-center py-14 lg:py-20  px-4 lg:px-10">
-            <!-- COLUMNS -->
-            <!--  -->
-            <?php if( have_rows('content_section_one') ): ?>
-            <?php while( have_rows('content_section_one') ): the_row(); 
-					// Get sub field values.
-					$heading_sec_one = get_sub_field('heading');
-					$paragraph_sec_one = get_sub_field('paragraph');
-					$button_paid_sec_one = get_sub_field('button-paid');
-					$button_course_sec_one = get_sub_field('button-course');
-					$testimonials = get_sub_field('testimonial');
-				?>
-            <div class=" flex flex-col justify-center items-center md:justify-start">
-                <div class="max-w-md mx-auto lg:max-w-none">
-                    <h3 class="font-bold pb-3 text-2xl  lg:text-4xl  text-black">
-                        <?php echo $heading_sec_one ?>
-                    </h3>
-                    <p class="pb-5 font-semibold lg:text-lg xl:text-xl">
-                        <?php echo $paragraph_sec_one ?>
                     </p>
-
-                    <div class="flex gap-5 self-start py-5">
-                        <a href="<?php echo esc_url( $button_paid_sec_one['url'] ); ?>">
-                            <button
-                                class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
-                                <?php echo esc_html( $button_paid_sec_one['title'] ); ?>
-                            </button>
-                        </a>
-                        <a href="<?php echo esc_url( $button_course_sec_one['url'] ); ?>">
-                            <button
-                                class="py-3 border-header-dark-overlay duration-500 transition bg-transparent px-8 border rounded-full text-xs sm:text-base whitespace-nowrap font-medium">
-                                 <?php echo esc_html( $button_course_sec_one['title'] ); ?>
-
-                            </button>
-                        </a>
-                    </div>
                 </div>
-
-
-                <!-- Testimonials -->
-                  <div id="testimonials">
-                         <div class="swiper max-w-md mx-auto lg:max-w-none  grid grid-cols-1 place-content-center place-items-center">
-                    <div class="swiper-wrapper">
-                             <?php foreach( $testimonials as $testimonial ): 
-                        $title = get_the_title( $testimonial->ID );
-                            $role_field = get_field( 'reviews_role', $testimonial->ID );
-                        ?>
-                        
-                    <div class="swiper-slide">
-                        <div class="space-y-3 mt-10 bg-white/30  ">
-                            <div class="border-l-4 border-header-dark-overlay px-5">
-                                   <blockquote class="text-center md:text-left italic text-base">
-                                  <?php echo $testimonial->post_content ;?>
-                                </blockquote>
-                            </div>
-
-                            <div
-                                class="flex flex-col md:flex-row items-center md:justify-start justify-center  md:items-start">
-
-                                           <div class="relative w-[70px] h-[70px] mr-2 ">
-                                          
-                                            <img src="<?php echo get_the_post_thumbnail_url($testimonial->ID, 'thumbnail') ;?>" alt="<?php echo $title_sec_one ;?>"
-                                          
-                                            class="max-w-full absolute top-0 left-0 object-cover object-center rounded-full">
-                                        </div>
-
-
-                                <p class="text-center md:text-left">
-                                        <span class="block text-sm font-semibold"><?php echo $title ;?></span>
-                                           <span class="block text-sm">
-                                           
-												<?php echo esc_html( $role_field ); ?>
-                             
-                                        </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                       <?php endforeach; ?>
-                   </div>
-                 <!-- If we need pagination -->
-               <div class="swiper-pagination"></div>
-
-               
-                </div>
-             
-            </div>
-                  </div>
-         
-
-            <?php endwhile; ?>
-            <?php endif; ?>
-
-
-            <?php if( have_rows('image_section_one') ): ?>
-            <?php while( have_rows('image_section_one') ): the_row(); 
-					// Get sub field values.
-                    $image_side_text_sec_one = get_sub_field('image_text');
-					$image_side_sec_one = get_sub_field('image');
-					$image_sec_1Pic = $image_side_sec_one['sizes']['large']
-					
-
-				
-				?>
-
-
-            <div class="flex flex-col justify-center items-center   ">
-                <div class="max-w-md lg:max-w-lg mx-auto relative">
-                         <div className="">
-                            <img src="<?php echo $image_sec_1Pic ?>" alt="<?php echo $image_side_sec_one["alt"]; ?>" className="max-w-full ">
-                        
-                        </div>
             
-                    <div class="rounded-full w-[90px] h-[90px] right-6 sm:right-0 xl:right-5 -top-3 p-4 text-center text-black bg-header-dark-overlay absolute  flex justify-center items-center">
-                        <span class="block text-xl font-extrabold font-Antonio" id="banner-badge">
-                            <?php echo $image_side_text_sec_one; ?>
-                            
-                        </span>
-                    </div>
-                </div>   
-            </div>
+                <!-- Columns -->
 
-            <?php endwhile; ?>
-            <?php endif; ?>
-        </div>
-               <?php endwhile; ?>
+                <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Col -->
+                    <?php if( have_rows('card') ): ?>
+
+
+                    <?php while( have_rows('card') ): the_row(); 
+
+                    	$image_card_sec_two = get_sub_field('image');
+					    $image_card_2Pic = $image_card_sec_two['sizes']['large']
+                    ?>
+                        <div class="space-y-3 flex flex-col justify-center items-center">
+                    
+                
+                                <img src="<?php echo $image_card_2Pic ?>" alt="<?php echo $image_card_sec_two['alt'] ?>"
+                                    class="w-12 h-12">
+                        
+        
+
+                            <h4 class="font-medium sm:text-lg">
+                              <?php the_sub_field("title") ?>
+                            </h4>
+                            <p class="text-base">
+                              <?php the_sub_field("description") ?>
+                             
+                            </p>
+                        </div>
+
+                   <?php endwhile; ?>
+                <?php endif; ?>
+                </div>
+
+                <?php endwhile; ?>
+                <?php endif; ?>
+            
+            </div>
+             <?php endwhile; ?>
             <?php endif; ?>
     </section>
-    
-
-        <!-- SECTION TWO - CONTENT -->
-        <section class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
-            <?php if (have_rows('section_two')) : ?>
-                <?php while (have_rows('section_two')) : the_row();
-                    $id_sec_two = get_sub_field('id_section_two');
-                ?>
-                    <div id="<?php echo $id_sec_two ?>" class="text-center lg:max-w-6xl mx-auto max-w-2xl py-14 lg:py-20 ">
-                        <!-- Title -->
-                        <?php if (have_rows('content_section_two')) : ?>
-                            <?php while (have_rows('content_section_two')) : the_row();
-                                // Get sub field values.
-                                $heading_sec_two = get_sub_field('heading');
-                                $paragraph_sec_two = get_sub_field('paragraph');
-
-                                if ($heading_sec_two && $paragraph_sec_two) {
-                            ?>
-                                    <div class="max-w-4xl mx-auto">
-                                        <h2 class="text-2xl font-bold  lg:text-3xl">
-                                            <?php echo $heading_sec_two ?>
-                                        </h2>
-                                        <p class="py-2 md:text-lg lg:text-xl ">
-                                            <?php echo $paragraph_sec_two ?>
-                                        </p>
-                                    </div>
-
-                                    <!-- Columns -->
-                                    <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                                        <!-- Col -->
-                                        <?php render_cards('card'); ?>
-                                    </div>
-                            <?php
-                                }
-                            endwhile;
-                            ?>
-                        <?php endif; ?>
-                    </div>
-                <?php
-                endwhile;
-                ?>
-            <?php endif; ?>
-
-            <?php
-            function render_cards($acf_field)
-            {
-                if (have_rows($acf_field)) {
-                    while (have_rows($acf_field)) {
-                        the_row();
-                        $image_card_sec_two = get_sub_field('image');
-                        $image_card_2Pic = $image_card_sec_two ? $image_card_sec_two['sizes']['large'] : '';
-
-                        $title = get_sub_field("title");
-                        $description = get_sub_field("description");
-
-                        if ($image_card_2Pic && $title && $description) {
-                        ?>
-                            <div class="space-y-3 flex flex-col justify-start items-center ">
-                                <img src="<?php echo $image_card_2Pic; ?>" alt="<?php echo $image_card_sec_two['alt']; ?>" class="w-12 h-12">
-                                <h4 class="font-medium sm:text-lg">
-                                    <?php echo $title; ?>
-                                </h4>
-                                <p class="text-base ">
-                                    <?php echo $description; ?>
-                                </p>
-                            </div>
-            <?php
-                        }
-                    }
-                }
-            }
-            ?>
-        </section>
-
 
 
             <!-- SECTION THREE - CONTENT -->
-        <section class="px-6 lg:px-10">
-            <?php if (have_rows('section_three')) : ?>
-                <?php while (have_rows('section_three')) : the_row();
-                    $heading_section_three = get_sub_field('heading_section_three');
-                    $content_section_three = get_sub_field('content_section_three');
-                    $id_sec_three = get_sub_field('id_section_three');
-                ?>
-                    <div id="<?php echo $id_sec_three ?>" class="text-center lg:max-w-6xl mx-auto max-w-2xl  py-14 lg:py-20 xl:py-28">
-                        <!-- Content -->
-                        <div class="max-w-4xl mx-auto">
-                            <h2 class="text-2xl font-bold  lg:text-3xl">
-                                <?php echo $heading_section_three ?>
-                            </h2>
-                        </div>
+    <section class="px-6 lg:px-10">
 
-                        <div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
-                            <?php if (have_rows('content_section_three')) : ?>
-                                <?php while (have_rows('content_section_three')) : the_row();
-                                    // Get sub field values.
-                                    $image_sec_three = get_sub_field('image');
-                                    $button_sec_three = get_sub_field('button');
-                                    $image_items_3Pic = $image_sec_three ? $image_sec_three['sizes']['large'] : '';
+        
+            <?php if( have_rows('section_three') ): ?>
+            <?php while( have_rows('section_three') ): the_row(); 
 
-                                    if ($image_items_3Pic && $button_sec_three) {
-                                ?>
-                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                            <!-- Image -->
-                                            <div class="mb-10 lg:mb-0 max-w-md   mx-auto">
-                                                <img src="<?php echo $image_items_3Pic ?>" alt="<?php echo $image_sec_three['alt'] ?>" class="max-w-full ">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="flex flex-col gap-6   lg:justify-start lg:items-start">
-                                                <div class="  max-w-lg mx-auto lg:w-full  lg:max-w-none  space-y-3">
-                                                <?php render_items('items'); ?>
+            	$heading_section_three = get_sub_field('heading_section_three');
+            	$content_section_three = get_sub_field('content_section_three');
+				$id_sec_three = get_sub_field('id_section_three');
 
-                                                </div>
-                                                <div class="self-center lg:self-start">
-                                                    <a href="<?php echo esc_url($button_sec_three['url']); ?>">
-                                                        <button class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
-                                                            <?php echo esc_html($button_sec_three['title']); ?>
-                                                        </button>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                <?php
-                                    }
-                                endwhile;
-                                ?>
-                            <?php endif; ?>
+				
+
+            ?>
+        <div id="<?php echo $id_sec_three ?>"  class="text-center lg:max-w-6xl mx-auto max-w-2xl  py-14 lg:py-20 xl:py-28">
+            <!-- Content -->
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold  lg:text-3xl">
+                    <?php echo $heading_section_three ?>
+                </h2>
+              
+           
+            </div>
+
+                <div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
+
+
+                <?php if( have_rows('content_section_three') ): ?>
+                <?php while( have_rows('content_section_three') ): the_row(); 
+                        // Get sub field values.
+                        $image_sec_three = get_sub_field('image');
+                        $button_sec_three = get_sub_field('button');
+                        $image_items_3Pic = $image_sec_three['sizes']['large']
+                       
+                    ?>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+              
+                    <!-- Image -->
+                    <div class="mb-10 lg:mb-0 max-w-md mx-auto">
+                        <img src="<?php echo $image_items_3Pic ?>" alt="<?php echo $image_sec_three['alt'] ?>"
+                        class="max-w-full xl:h-[60vh] h-min w-min">
+                    </div>
+
+               
+                    <!-- Content -->
+                    <div class="flex flex-col gap-6 items-center justify-center lg:justify-start lg:items-center ">
+
+                       
+              
+                    <?php if( have_rows('items') ): ?>
+
+
+                    <?php while( have_rows('items') ): the_row(); 
+
+                    
+                    ?>
+                      <div class="flex items-start md:items-center justify-center  gap-3">
+
+                            <div class="text-white  self-start flex  justify-center items-center text-base bg-header-dark-overlay rounded-full w-8 h-8 ">
+                          
+                                  <?php the_sub_field("icon") ?>
+
+                            </div>
+                            <span class="font-medium text-left block ">
+                              <?php the_sub_field("title") ?>
+                            </span>
+
+
+                     </div>
+
+                          <?php endwhile; ?>
+                <?php endif; ?>
+
+                        <div class="">
+                            <a href="<?php echo esc_url( $button_sec_three['url'] ); ?>">
+                                <button
+                                    class="py-3 hover:border-header-dark-overlay duration-500 transition hover:bg-transparent px-8 border rounded-full border-transparent bg-header-dark-overlay text-xs sm:text-base block whitespace-nowrap font-medium">
+                                    <?php echo esc_html( $button_sec_three['title'] ); ?>
+                                </button>
+                            </a>
                         </div>
                     </div>
-            <?php
-                endwhile;
-                ?>
+
+                </div>
+              <?php endwhile; ?>
             <?php endif; ?>
 
-            <?php
-            function render_items($acf_field)
-            {
-                if (have_rows($acf_field)) {
-                    while (have_rows($acf_field)) {
-                        the_row();
-                        if (get_sub_field('icon') && get_sub_field('title')) {
-            ?>
-                            <div class="flex items-start  justify-start  gap-3">
-                                <div class="text-white self-start flex justify-center items-center text-base bg-header-dark-overlay rounded-full w-7 h-7 ">
-                                    <?php the_sub_field("icon"); ?>
-                                </div>
-                                <span class="font-medium text-left block ">
-                                    <?php the_sub_field("title"); ?>
-                                </span>
-                            </div>
-            <?php
-                        }
-                    }
-                }
-            }
-            ?>
-        </section>
+
+            </div>
+
+         </div>
+             <?php endwhile; ?>
+            <?php endif; ?>
+    </section>
 
 
         <!-- SECTION FOUR - CONTENT -->
@@ -669,7 +524,3 @@
              <?php endwhile; ?>
             <?php endif; ?>
     </section>
-</main>
-
-<?php
-get_footer();

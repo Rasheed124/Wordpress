@@ -38,7 +38,8 @@
              <div class=" ">
        
 
-                 <ul class="menu   text-base lg:text-lg gap-7 transform translate-y-[-1000px] transition-transform duration-500 absolute  w-full h-auto top-10 left-0  pt-6  px-6 lg:static lg:top-0 lg:py-0   lg:left-0 lg:flex lg:flex-row lg:justify-end  lg:-translate-y-0 lg:bg-transparent  bg-black shadow-lg lg:shadow-none  lg:space-y-0 text-white lg:text-black">
+                 <ul class="menu   text-lg text-black hidden lg:block">
+                 <!-- <ul class="menu   text-base lg:text-lg gap-7 transform translate-y-[-1000px] transition-transform duration-500 absolute  w-full h-auto top-10 left-0  pt-6  px-6 lg:static lg:top-0 lg:py-0   lg:left-0 lg:flex lg:flex-row lg:justify-end  lg:-translate-y-0 lg:bg-transparent  bg-black shadow-lg lg:shadow-none  lg:space-y-0 text-white lg:text-black"> -->
                     <?php
 
                     $args_menu = array(

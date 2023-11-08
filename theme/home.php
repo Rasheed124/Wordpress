@@ -8,8 +8,8 @@ $banner_image = get_theme_mod('banner_image', ''); // Get the uploaded image
 $banner_link = get_theme_mod('banner_link', ''); // Get the uploaded link
 
 if ($display_banner === 'yes' && $banner_image && $banner_link) {
-    echo '<a href="' . esc_url($banner_link) . '" class="w-full h-[50vh] lg:h-auto flex justify-center items-center flex-col">';
-    echo '<img src="' . esc_url($banner_image) . '" alt="Main Page Banner" class="w-full h-full ">';
+    echo '<a href="' . esc_url($banner_link) . '" class="w-full h-[50vh] lg:h-[90vh]  flex justify-center items-center flex-col">';
+    echo '<img src="' . esc_url($banner_image) . '" alt="Main Page Banner" class=" h-full    w-full ">';
     echo '</a>';
 }
 
@@ -76,7 +76,7 @@ if ( $page_index == 1 ) {
 
 	
 
-          <div class="py-14 px-4 md:px-0 max-w-xl  md:max-w-4xl xl:max-w-6xl mx-auto  ">
+          <div class="py-14 px-4 lg:px-0 max-w-xl  md:max-w-4xl xl:max-w-6xl mx-auto  ">
             
 
 		  		<?php
@@ -92,12 +92,12 @@ if ( $page_index == 1 ) {
                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 ">
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
                 <div>
-                  <div class="sm:relative sm:h-[20vh]  w-full ">
+              <div class="sm:relative sm:h-[20vh] w-full">
+					<?php if (has_post_thumbnail()) : ?>
+						<img alt="Guitar" src="<?php the_post_thumbnail_url(); ?>" class="max-w-full w-full h-auto sm:absolute sm:object-cover sm:object-center top-0 left-0 sm:h-full" alt="" />
+					<?php endif; ?>
+				</div>
 
-				  <?php if(has_post_thumbnail()):?> 
-							<img alt="Guitar" src="<?php the_post_thumbnail_url();?>" class="max-w-full sm:w-full sm:absolute sm:object-cover sm:object-center top-0 left-0 sm:h-full" alt="" />
-					<?php endif;?>
-                  </div>
                    <div class="space-y-2.5">
 					<h3>
 
