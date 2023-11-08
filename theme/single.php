@@ -227,9 +227,8 @@
         </section>
 
 
-
             <!-- SECTION THREE - CONTENT -->
-        <section class="px-6 lg:px-10">
+        <section class="px-6 lg:px-10 ">
             <?php if (have_rows('section_three')) : ?>
                 <?php while (have_rows('section_three')) : the_row();
                     $heading_section_three = get_sub_field('heading_section_three');
@@ -256,12 +255,12 @@
                                 ?>
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                                             <!-- Image -->
-                                            <div class="mb-10 lg:mb-0 max-w-md   mx-auto">
+                                            <div class="mb-10 lg:mb-0 max-w-md lg:max-w-sm   mx-auto">
                                                 <img src="<?php echo $image_items_3Pic ?>" alt="<?php echo $image_sec_three['alt'] ?>" class="max-w-full ">
                                             </div>
                                             <!-- Content -->
                                             <div class="flex flex-col gap-6   lg:justify-start lg:items-start">
-                                                <div class="  max-w-lg mx-auto lg:w-full  lg:max-w-none  space-y-3">
+                                                <div class="  max-w-lg mx-auto lg:w-full  lg:max-w-none  space-y-5">
                                                 <?php render_items('items'); ?>
 
                                                 </div>
@@ -311,8 +310,97 @@
         </section>
 
 
+        <!-- SECTION  - GUARANTEE -->
+         <section class="px-6 lg:px-10 bg-gray-100">
+          
+                <div id="" class="text-center lg:max-w-6xl mx-auto max-w-2xl  py-14 lg:py-20 xl:py-28">
+                        <!-- Content -->
+                        <div class="max-w-4xl mx-auto">
+                            <h2 class="text-2xl font-bold  lg:text-3xl">
+                              100% Money Back Guarantee
+                            </h2>
+                        </div>
+
+                      <div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 place-content-center place-items-center">
+                                <!-- Content -->
+                                <div class=" text-center space-y-4">
+                                 <p class=" md:text-lg lg:text-xl ">
+                                     
+                                    Insha Allah, this will be the best investment that you will ever make, but if for any reason this program did not work with you after trying, you have 30 Days to claim 100% of your money back. </p>
+
+                                    <a href="refunds@quranmemorizationguide.com" class="block">
+                                        Just Email Us At : <br> refunds@quranmemorizationguide.com
+                                    </a>
+                                    
+                                      <p class="  lg:text-lg ">
+                                         There is nothing to lose, but much to gain</p>
+                                    
+                                </div>
+                                <!-- Image -->
+                                <div class=" ">
+                                    <div class="max-w-md lg:max-w-sm  mx-auto">
+                                          <img src="https://quranmemorizationguide.com/cdn/shop/files/100-money-back-guarantee-red_540x.png?v=1613570836" alt="" class="max-w-full ">
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                       </div>
+                </div>
+        </section>
+
+        <!-- SECTION  - Bonusess -->
+         <section class="px-6 lg:px-10 bg-gray-100">
+          
+                <div id="" class="text-center lg:max-w-6xl mx-auto max-w-2xl  py-14 lg:py-20 xl:py-28">
+                        <!-- Content -->
+                        <div class="max-w-4xl mx-auto">
+                            <h2 class="text-2xl font-bold  lg:text-3xl">
+                              The Bonuses you get with this program
+                            </h2>
+                        </div>
+
+                      <div class="py-8 max-w-5xl mx-auto flex justify-center items-center">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 place-content-center place-items-center">
+                                <!-- Content -->
+                            
+                                <!-- Image -->
+                                <div class=" ">
+                                    <div class="max-w-md   mx-auto">
+                                          <img src="https://quranmemorizationguide.com/cdn/shop/files/eBook_Mockup_for_Coaches_Facebook_Post_1_540x.png?v=1671420333" alt="" class="max-w-full ">
+                                    </div>
+                                  
+                                </div>
+                                <div class=" ">
+                                    <div class="max-w-md   mx-auto">
+                                          <img src="https://quranmemorizationguide.com/cdn/shop/files/Square_eBook_Workbook_Mockup_for_Instagram_Post_540x.png?v=1660348219" alt="" class="max-w-full ">
+                                    </div>
+                                  
+                                </div>
+                                <div class=" ">
+                                    <div class="max-w-md   mx-auto">
+                                          <img src="https://quranmemorizationguide.com/cdn/shop/files/Beige_and_Maroon_Minimalist_Boho_Freebie_Giveaway_Instagram_Post_540x.png?v=1660480955" alt="" class="max-w-full ">
+                                    </div>
+                                  
+                                </div>
+                                <div class=" ">
+                                    <div class="max-w-md lg:max-w-sm  mx-auto">
+                                          <img src="https://quranmemorizationguide.com/cdn/shop/files/Apricot_And_Brown_Book_Recomendation_Instagram_Post_540x.png?v=1697828932" alt="" class="max-w-full ">
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                       </div>
+                </div>
+        </section>
+
+
+
+
         <!-- SECTION FOUR - CONTENT -->
-    <section class="px-6 lg:px-10 bg-gray-100">
+    <section class="px-6 lg:px-10">
              <?php if( have_rows('section_four') ): ?>
             <?php while( have_rows('section_four') ): the_row(); 
 
@@ -390,6 +478,88 @@
             <?php endwhile; ?>
             <?php endif; ?>
     </section>
+
+
+
+      <!-- SECTION  FAQ -->
+        <section class="px-6 lg:px-10 bg-gray-100">
+        
+            <div id="" class="text-center lg:max-w-6xl mx-auto max-w-2xl  py-14 lg:py-20 xl:py-28">
+                    <!-- Content -->
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="text-2xl font-bold  lg:text-3xl">
+                            Frequently Asked Questions
+                        </h2>
+                    </div>
+
+                    <div class="py-8 max-w-5xl mx-auto ">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 ">
+                            <!-- Content -->
+                            <div class="text-left">
+                                <h4 class="font-bold text-lg md:text-xl  py-2 mb-5"> Can the file be downloaded on mobile phones?</h4>
+                                <div class="space-y-5 font-medium  md:text-lg">
+                                    <p>
+                                    Yes once you make the payment, you will be directed to a page where you have an access to a download link where you can download the file.
+                                    </p>
+                                    <p>
+                                    You will also receive an email from us with the download link.
+                                    </p>
+                                    <p>
+                                    The eBook file (pdf) works on apple, android, pc and other smart devices.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-bold md:text-xl   py-2 mb-5"> Can the file be downloaded on mobile phones?</h4>
+                                <div class="space-y-5 font-medium  md:text-lg">
+                                    <p>
+                                    Yes once you make the payment, you will be directed to a page where you have an access to a download link where you can download the file.
+                                    </p>
+                                    <p>
+                                    You will also receive an email from us with the download link.
+                                    </p>
+                                    <p>
+                                    The eBook file (pdf) works on apple, android, pc and other smart devices.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-bold md:text-xl   py-2 mb-5"> Can the file be downloaded on mobile phones?</h4>
+                                <div class="space-y-5 font-medium  md:text-lg">
+                                    <p>
+                                    Yes once you make the payment, you will be directed to a page where you have an access to a download link where you can download the file.
+                                    </p>
+                                    <p>
+                                    You will also receive an email from us with the download link.
+                                    </p>
+                                    <p>
+                                    The eBook file (pdf) works on apple, android, pc and other smart devices.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-bold md:text-xl   py-2 mb-5"> Can the file be downloaded on mobile phones?</h4>
+                                <div class="space-y-5 font-medium  md:text-lg">
+                                    <p>
+                                    Yes once you make the payment, you will be directed to a page where you have an access to a download link where you can download the file.
+                                    </p>
+                                    <p>
+                                    You will also receive an email from us with the download link.
+                                    </p>
+                                    <p>
+                                    The eBook file (pdf) works on apple, android, pc and other smart devices.
+                                    </p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+            </div>
+    </section>
+
+
+
 
 
         <!-- SECTION FIVE - CONTENT -->
