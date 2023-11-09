@@ -307,7 +307,7 @@ add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);
 
 
 
-
+//BLOG BANNER CUSTOMIZER
 function custom_theme_customize_register($wp_customize) {
     $wp_customize->add_section('banner_section', array(
         'title' => __('Main Page Banner', 'custom-theme'),
@@ -337,3 +337,24 @@ function custom_theme_customize_register($wp_customize) {
 add_action('customize_register', 'custom_theme_customize_register');
 
 
+// Assuming Flutterwave sends the callback to http://yoursite.com/payment-callback
+add_action('init', 'process_flutterwave_callback');
+
+function process_flutterwave_callback() {
+    if (isset($_POST['tx_ref'])) {
+        // Process the callback data
+        $tx_ref = sanitize_text_field($_POST['tx_ref']);
+        $status = sanitize_text_field($_POST['status']);
+
+        // Check if payment is successful
+        if ($status === 'successful') {
+            // Redirect to a success page
+            wp_redirect(home_url('/payment-successful/'));
+            exit;
+        } else {
+            // Redirect to a failure page
+            wp_redirect(home_url('/payment-failed/'));
+            exit;
+        }
+    }
+}

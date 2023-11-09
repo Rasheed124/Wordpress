@@ -15,7 +15,10 @@
 
         <!-- SECTION ONE - BANNER -->
         <?php if (have_rows('section_one')) : ?>
-            <?php while (have_rows('section_one')) : the_row(); ?>
+            <?php while (have_rows('section_one')) : the_row();
+            
+                $id_section_one = get_sub_field('id_section_one');
+               if ($id_section_one) { ?>
 
                 <section id="<?php if ($id_section_one = get_sub_field('id_section_one')) : ?><?php echo esc_html($id_section_one); ?><?php endif; ?>"
                         class="overflow-x-hidden max-w-7xl mx-auto">
@@ -77,6 +80,21 @@
                                             <?php endif; ?>
                                         </div>
                                     </div>
+
+                                       <form action="" class="">
+                                <div class="flex mx-auto flex-col md:flex-row justify-center items-center gap-3">
+                                    <label for="email" class="w-full">
+                                        <input title="Email" type="text" placeholder="Your Email"
+                                            class="border-1 w-full outline-none focus:shadow-md focus:border-header-dark-overlay transition duration-500 p-2.5 rounded-md" />
+                                    </label>
+                                    <a href="#">
+                                        <button
+                                            class="py-2.5 text-lg hover:border-header-dark-overlay duration-500 transition px-8 border rounded-md border-transparent bg-header-dark-overlay sm:text-base block whitespace-nowrap font-medium">
+                                            Send
+                                        </button>
+                                    </a>
+                                </div>
+                            </form>
 
                                     <!-- Testimonials -->
                                     <div id="testimonials">
@@ -160,14 +178,19 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+                <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
-
 
 
         <!-- SECTION TWO - BENENEIT -->
         <?php if (have_rows('section_two')) : ?>
-            <?php while (have_rows('section_two')) : the_row(); ?>
+            <?php while (have_rows('section_two')) : the_row(); 
+            
+              $id_section_two = get_sub_field('id_section_two');
+               if ($id_section_two) { ?>
+
                 <section id="<?php if ($id_section_two = get_sub_field('id_section_two')) : ?><?php echo esc_html($id_section_two); ?><?php endif; ?>" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
                     <div class="text-center lg:max-w-7xl mx-auto max-w-2xl py-14 lg:py-20">
                         <!-- Title -->
@@ -229,13 +252,20 @@
 
                     </div>
                 </section>
-            <?php endwhile; ?>
+
+            <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
 
 
         <!-- SECTION THREE - INCLUDED -->
         <?php if (have_rows('section_three')) : ?>
-            <?php while (have_rows('section_three')) : the_row(); ?>
+            <?php while (have_rows('section_three')) : the_row(); 
+
+                $id_section_three = get_sub_field('id_section_three');
+               if ($id_section_three) { ?>
+
                 <section id="<?php if ($id_section_three = get_sub_field('id_section_three')) : ?><?php echo esc_html($id_section_three); ?><?php endif; ?>" class="px-6 lg:px-10 ">
 
                     <div class="text-center lg:max-w-7xl mx-auto max-w-2xl py-14 lg:py-20 xl:py-28">
@@ -308,7 +338,9 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+            <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
 
 
@@ -316,7 +348,10 @@
 
         <!-- SECTION FOUR - GUARANTEE -->
         <?php if (have_rows('section_eight')) : ?>
-            <?php while (have_rows('section_eight')) : the_row(); ?>
+            <?php while (have_rows('section_eight')) : the_row(); 
+            
+              $id_section_eight = get_sub_field('id_section_eight');
+               if ($id_section_eight) { ?>
                 <section id="<?php if ($id_section_eight = get_sub_field('id_section_eight')) : ?><?php echo esc_html($id_section_eight); ?><?php endif; ?>" class="px-6 lg:px-10 bg-gray-100">
 
                     <div class="text-center lg:max-w-6xl mx-auto max-w-2xl py-14 lg:py-20 xl:py-28">
@@ -374,14 +409,19 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+               <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
 
           
 
         <!-- SECTION FIVE - BONUSES -->
         <?php if (have_rows('section_nine')) : ?>
-            <?php while (have_rows('section_nine')) : the_row(); ?>
+            <?php while (have_rows('section_nine')) : the_row();
+
+              $id_section_nine = get_sub_field('id_section_nine');
+               if ($id_section_nine) { ?>
                 <section id="<?php if ($id_section_nine = get_sub_field('id_section_nine')) : ?><?php echo esc_html($id_section_nine); ?><?php endif; ?>" class="px-6 lg:px-10 bg-gray-100">
 
                     <div class="text-center lg:max-w-6xl mx-auto max-w-2xl py-14 lg:py-20 xl:py-28">
@@ -421,15 +461,19 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+             <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
-
 
 
 
         <!-- SECTION SIX - WHO BOOK IS FOR -->
         <?php if (have_rows('section_four')) : ?>
-            <?php while (have_rows('section_four')) : the_row(); ?>
+            <?php while (have_rows('section_four')) : the_row(); 
+            
+              $id_section_four = get_sub_field('id_section_four');
+               if ($id_section_four) { ?>
 
                 <section id="<?php if ($id_section_four = get_sub_field('id_section_four')) : ?><?php echo esc_html($id_section_four); ?><?php endif; ?>" class="px-6 lg:px-10">
 
@@ -491,14 +535,19 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+              <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
 
 
 
         <!-- SECTION SEVEN - FAQ -->
         <?php if (have_rows('section_ten')) : ?>
-            <?php while (have_rows('section_ten')) : the_row(); ?>
+            <?php while (have_rows('section_ten')) : the_row();
+            
+              $id_section_ten = get_sub_field('id_section_ten');
+               if ($id_section_ten) { ?>
 
                 <section id="<?php if ($id_section_ten = get_sub_field('id_section_ten')) : ?><?php echo esc_html($id_section_ten); ?><?php endif; ?>" class="px-6 lg:px-10 bg-gray-100">
 
@@ -538,13 +587,18 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+                 <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
 
 
         <!-- SECTION FIVE - FORM -->
         <?php if (have_rows('section_five')) : ?>
-            <?php while (have_rows('section_five')) : the_row(); ?>
+            <?php while (have_rows('section_five')) : the_row();
+            
+            $id_section_five = get_sub_field('id_section_five');
+               if ($id_section_five) { ?>
                 <section id="<?php if ($id_section_five = get_sub_field('id_section_five')) : ?><?php echo esc_html($id_section_five); ?><?php endif; ?>" class="px-6 lg:px-10">
 
                     <div class="text-center lg:max-w-6xl mx-auto max-w-lg xl:pb-10 py-14 lg:py-20 xl:py-28">
@@ -593,18 +647,23 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
-       <?php endif; ?>
+            <?php
+                 }
+            endwhile; ?>
+        <?php endif; ?>
 
 
          <!-- SECTION SIX - REVIEWS -->
         <?php if (have_rows('section_six')) : ?>
-            <?php while (have_rows('section_six')) : the_row(); ?>
+            <?php while (have_rows('section_six')) : the_row(); 
+            
+              $id_section_six = get_sub_field('id_section_six');
+               if ($id_section_six) { ?>
 
-                <section class="px-6 lg:px-10 bg-gray-100">
+                <section id="<?php if ($id_section_six = get_sub_field('id_section_six')) : ?><?php echo esc_html($id_section_six); ?><?php endif; ?>"     class="px-6 lg:px-10 bg-gray-100">
                     <!-- Content -->
 
-                    <div id="<?php if ($id_section_six = get_sub_field('id_section_six')) : ?><?php echo esc_html($id_section_six); ?><?php endif; ?>" class="text-center lg:max-w-6xl mx-auto py-14 lg:py-20 xl:py-28">
+                    <div class="text-center lg:max-w-6xl mx-auto py-14 lg:py-20 xl:py-28">
 
                         <div class="mx-auto pb-10 max-w-lg">
                             <?php if ($heading_section_six = get_sub_field('heading_section_six')) : ?>
@@ -691,17 +750,21 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+             <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
 
 
         <!-- SECTION SEVEN - Author -->
         <?php if (have_rows('section_seven')) : ?>
-            <?php while (have_rows('section_seven')) : the_row(); ?>
+            <?php while (have_rows('section_seven')) : the_row(); 
+            
+                $id_section_seven = get_sub_field('id_section_seven');
+               if ($id_section_seven) { ?>
+                <section  id="<?php if ($id_section_seven = get_sub_field('id_section_seven')) : ?><?php echo esc_html($id_section_seven); ?><?php endif; ?>" class="px-6 lg:px-10  text-black  ">
 
-                <section class="px-6 lg:px-10  text-black  ">
-
-                    <div id="<?php if ($id_section_seven = get_sub_field('id_section_seven')) : ?><?php echo esc_html($id_section_seven); ?><?php endif; ?>" class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
+                    <div class="text-center md:max-w-4xl mx-auto py-14 lg:py-20 xl:py-28">
                         <div class="py-8 w-full flex flex-col justify-center items-center">
                             <?php
                             $image_section_seven = get_sub_field('image_section_seven');
@@ -806,8 +869,35 @@
                     </div>
 
                 </section>
-            <?php endwhile; ?>
+             <?php
+                 }
+            endwhile; ?>
         <?php endif; ?>
+
+
+<?php if ( have_rows( 'count_down_section' ) ) : ?>
+    <?php while ( have_rows( 'count_down_section' ) ) : the_row(); 
+
+        // Get count_down_id
+        $count_down_id = get_sub_field('count_down_id');
+        if ($count_down_id) { ?>
+
+            <!-- Count Down Section -->
+            <section id="<?php if ( $count_down_id = get_sub_field( 'count_down_id' ) ) : ?><?php echo esc_html( $count_down_id ); ?><?php endif; ?>" class="px-6 lg:px-10 overflow-x-hidden bg-gray-100">
+                <div class="text-center lg:max-w-7xl mx-auto max-w-2xl py-14 lg:py-20">
+
+                    <!-- Display count_down content -->
+                    <?php if ( $count_down = get_sub_field( 'count_down' ) ) : ?>
+                        <?php echo $count_down; ?>
+                    <?php endif; ?>
+
+                </div>
+            </section>
+
+        <?php
+        } // End if $count_down_id exists
+    endwhile; ?>
+<?php endif; ?>
 
 
 
