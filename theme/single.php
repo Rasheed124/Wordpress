@@ -11,7 +11,7 @@
  get_header("landingpage");
  
 ?>
-    <main id="main">
+    <main id="main relative">
 
         <!-- SECTION ONE - BANNER -->
         <?php if (have_rows('section_one')) : ?>
@@ -81,7 +81,7 @@
                                         </div>
                                     </div>
 
-                                       <form action="" class="">
+                                       <!-- <form action="" class="">
                                 <div class="flex mx-auto flex-col md:flex-row justify-center items-center gap-3">
                                     <label for="email" class="w-full">
                                         <input title="Email" type="text" placeholder="Your Email"
@@ -94,7 +94,7 @@
                                         </button>
                                     </a>
                                 </div>
-                            </form>
+                            </form> -->
 
                                     <!-- Testimonials -->
                                     <div id="testimonials">

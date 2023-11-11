@@ -5,15 +5,31 @@
 const navHarburger = document.querySelector(".harmbuger ");
 const navMenu =  document.querySelector(".menu");
 
+
 // Toggle Nav
 
 navHarburger.addEventListener("click", () => {
     navMenu.classList.toggle("menu-active");
-
-  console.log("hello");
 });
 
 
+
+// Check Count Down Availabilty
+
+// Check if the last li contains a span with id "count-remove"
+const headerContainer = document.querySelector('#header-container');
+const lastLi = document.querySelector('#menu-container  li:last-child');
+const NotLastLi = document.querySelector(
+	'#menu-container  li:not(:last-of-type)'
+);
+const countRemoveSpan = lastLi.querySelector("span#count-remove");
+
+if (countRemoveSpan) {
+
+	headerContainer.classList.add('countDownAddedHeader');
+	NotLastLi.classList.add('countDownAddedLi');
+
+}
 
 
 // Page back to top button
@@ -71,3 +87,6 @@ var Swipes = new Swiper('.swiper', {
 		clickable: 'true',
 	},
 });
+
+// widget-6_wpdevart_countdown-3
+
