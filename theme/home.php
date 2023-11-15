@@ -106,7 +106,7 @@ if ( $page_index == 1 ) {
 					</h3>
                  
                     
-                      <p> <?php echo wp_trim_words(get_the_excerpt(), 16); ?></p> 
+                      <p> <?php echo wp_trim_words(get_the_excerpt() , 18); ?></p> 
                       <!-- <p class="text-base text-black/60">
                                <span class="block font-semibold">
                         Favid Rick

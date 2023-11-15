@@ -11,7 +11,33 @@
  get_header("landingpage");
  
 ?>
-    <main id="main relative">
+    <main id="main">
+
+    <!-- COUNT DOWN -->
+            <?php if ( have_rows( 'count_down_setting' ) ) : ?>
+            <?php while ( have_rows( 'count_down_setting' ) ) : the_row(); 
+
+                // Get count_down_id
+                $count_down_id = get_sub_field('count_down_id');
+                if ($count_down_id) { ?>
+
+                    <!-- Count Down Section -->
+                    <section  id="<?php if ( $count_down_id = get_sub_field( 'count_down_id' ) ) : ?><?php echo esc_html( $count_down_id ); ?><?php endif; ?>" class="px-6 fixed top-0 right-0 z-50">
+                        <div class="text-center ">
+
+                            <!-- Display count_down content -->
+                            <?php if ( $count_down = get_sub_field( 'count_down' ) ) : ?>
+                                <?php echo $count_down; ?>
+                            <?php endif; ?>
+
+                        </div>
+                    </section>
+
+                <?php
+                } // End if $count_down_id exists
+            endwhile; ?>
+        <?php endif; ?>
+
 
         <!-- SECTION ONE - BANNER -->
         <?php if (have_rows('section_one')) : ?>

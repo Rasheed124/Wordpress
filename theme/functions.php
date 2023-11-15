@@ -304,31 +304,6 @@ add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);
 
 
 
-add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
-
-function my_wp_nav_menu_objects( $items, $args ) {
-    
-    // loop
-    foreach( $items as &$item ) {
-        
-        // vars
-        $count_down = get_field('count_down_setting', $item);
-        
-        
-        // append count_down
-        if( $count_down ) {
-            
-            $item->title .= $count_down;
-            
-        }
-        
-    }
-    
-    
-    // return
-    return $items;
-    
-}
 
 
 

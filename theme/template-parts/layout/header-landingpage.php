@@ -36,7 +36,7 @@
           
             </a>
 
-            <ul id="menu-container" class="menu self-center flex justify-center items-center text-lg text-black ">
+            <ul id="menu-container" class="menu relative  top-0 lg:right-10 self-center hidden xl:flex justify-center items-center text-lg text-black ">
      
                  <!-- <ul id="menu-container" class="menu   text-base lg:text-lg gap-7 transform translate-y-[-1000px] transition-transform duration-500 absolute  w-full h-auto top-10 left-0  pt-6  px-6 lg:static lg:top-0 lg:py-0   lg:left-0 lg:flex lg:flex-row lg:justify-end  lg:-translate-y-0 lg:bg-transparent  bg-black shadow-lg lg:shadow-none  lg:space-y-0 text-white lg:text-black"> -->
                     <?php
@@ -47,7 +47,7 @@
                         'depth'         => 1,
                         'fallback_cb'   => false,
                         'add_li_class'  => 'pr-6 pb-6 lg:pb-0 nav_menu_link',
-                        'link_class' => ' lg:inline-block font-Antonio'
+                        'link_class' => ' lg:inline-block font-Sohne-Bold'
 
                     );
                     wp_nav_menu($args_menu);
