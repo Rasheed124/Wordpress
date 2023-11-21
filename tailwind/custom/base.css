@@ -1,0 +1,60 @@
+/**
+ * Custom styles to immediately follow Tailwind’s `base` layer
+ *
+ * “Add things like base typography styles [or] opinionated global resets.”
+ *
+ * — from https://tailwindcss.com/docs/plugins#adding-base-styles
+ */
+
+/**
+ * This uses the background and foreground colors declared in the
+ * `theme.json` file and is applied both to the frontend and in the block
+ * editor.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&display=swap');
+
+
+ 
+@font-face {
+    font-family: "Light-cursive";
+    /*Can be any text*/
+    src: local("sohne"),
+        url("../../fonts/sohne/test-soehne-buch-kursiv.woff2") format("truetype");
+}
+
+@font-face {
+    font-family: "Bold";
+    /*Can be any text*/
+    src: local("sohne"),
+        url("../../fonts/sohne/test-soehne-extrafett.woff2") format("truetype");
+}
+
+@font-face {
+    font-family: "Bold-light";
+    /*Can be any text*/
+    src: local("sohne"),
+        url("../../fonts/sohne/test-soehne-buch.woff2") format("truetype");
+}
+
+@font-face {
+    font-family: "migra-extraLight";
+    /*Can be any text*/
+    src: local("migra"),
+        url("../../fonts/FontsFree-Net-Migra-Extralight.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family: "Bold-thin";
+    /*Can be any text*/
+    src: local("sohne"),
+        url("../../fonts/sohne/test-soehne-extraleicht.woff2") format("truetype");
+}
+
+body {
+    @apply font-Sohne-Bold-light bg-light-white;
+} 
+
