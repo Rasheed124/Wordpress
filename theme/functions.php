@@ -262,25 +262,27 @@ function skills_settings() {
 add_action( 'init', 'skills_settings' );
 
 
-/** Project Settings */
-function project_settings() {
+
+
+// Data Analyst Settings
+function data_analyst_settings() {
 
     $labels = array(
-        'name'                  => _x( 'Projects', 'Post type general name', 'project' ),
-        'singular_name'         => _x( 'Project', 'Post type singular name', 'project' ),
-        'menu_name'             => _x( 'Projects', 'Admin Menu text', 'project' ),
-        'name_admin_bar'        => _x( 'Project', 'Add New on Toolbar', 'project' ),
+        'name'                  => _x( 'DataAnalysts', 'Post type general name', 'dataAnalyst' ),
+        'singular_name'         => _x( 'DataAnalyst', 'Post type singular name', 'dataAnalyst' ),
+        'menu_name'             => _x( 'DataAnalysts Project', 'Admin Menu text', 'dataAnalyst' ),
+        'name_admin_bar'        => _x( 'DataAnalyst', 'Add New on Toolbar', 'dataAnalyst' ),
        
     );     
     $args = array(
         'labels'             => $labels,
-        'description'        => 'Project custom post type.',
+        'description'        => 'DataAnalyst custom post type.',
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'project' ),
+        'rewrite'            => array( 'slug' => 'data_analyst' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -290,9 +292,109 @@ function project_settings() {
         'show_in_rest'       => true
     );
      
-    register_post_type( 'projects', $args );
+    register_post_type( 'dataAnalyst', $args );
 }
-add_action( 'init', 'project_settings' );
+add_action( 'init', 'data_analyst_settings' );
+
+
+// Digital Marketing Settings
+function digital_marketing_settings() {
+
+    $labels = array(
+        'name'                  => _x( 'DigitalMarketings', 'Post type general name', 'digitalMarketing' ),
+        'singular_name'         => _x( 'DigitalMarketing', 'Post type singular name', 'digitalMarketing' ),
+        'menu_name'             => _x( 'DigitalMarketing Project', 'Admin Menu text', 'digitalMarketing' ),
+        'name_admin_bar'        => _x( 'DigitalMarketing', 'Add New on Toolbar', 'digitalMarketing' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'DigitalMarketing custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'digital_marketing' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-open-folder',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'digitalMarketing', $args );
+}
+add_action( 'init', 'digital_marketing_settings' );
+
+
+// Graphics Settings
+function graphics_design_settings() {
+
+    $labels = array(
+        'name'                  => _x( 'Graphics', 'Post type general name', 'graphicsDesign' ),
+        'singular_name'         => _x( 'GraphicDesign', 'Post type singular name', 'graphicsDesign' ),
+        'menu_name'             => _x( 'GraphicsDesign Project', 'Admin Menu text', 'graphicsDesign' ),
+        'name_admin_bar'        => _x( 'GraphicDesign', 'Add New on Toolbar', 'graphicsDesign' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'GraphicsDesign custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'graphics-visual-design' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-open-folder',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'graphicsDesign', $args );
+}
+add_action( 'init', 'graphics_design_settings' );
+
+
+
+// Product Design Settings
+function product_design_settings() {
+
+    $labels = array(
+        'name'                  => _x( 'ProductsDesign', 'Post type general name', 'productDesign' ),
+        'singular_name'         => _x( 'ProductsDesign', 'Post type singular name', 'productDesign' ),
+        'menu_name'             => _x( 'ProductsDesign Project', 'Admin Menu text', 'productDesign' ),
+        'name_admin_bar'        => _x( 'ProductsDesign', 'Add New on Toolbar', 'productDesign' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Products custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'ui-ux-product-design' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-open-folder',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'productDesign', $args );
+}
+add_action( 'init', 'product_design_settings' );
 
 
 

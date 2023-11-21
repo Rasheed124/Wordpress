@@ -181,7 +181,9 @@ get_header();
 
       <!-- PROJECTS SECTION -->
       <section class="py-16 lg:py-20">
+
         <div class="flex flex-col max-w-6xl mx-auto">
+
           <div class="text-center mb-10 px-5">
             <h2 class="text-sm md:text-base pb-3 xl:mb-0">SELECT PROJECT</h2>
           </div>
@@ -189,14 +191,14 @@ get_header();
           <div class="grid grid-cols-1 w-full px-5">
           <!--  ANALYST -->
         
-            <div class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
+            <a href="/" class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
               <div class="flex flex-row">
                 <span class="self-start mr-3 mt-3">01</span>
                 <h4 class="font-Antonio font-bold text-6xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
                 Analyst 
                 </h4>
               </div>
-            </div>
+            </a>
         
             <!--  DIGITAL MARKETING -->
         
@@ -260,6 +262,7 @@ get_header();
           </div>
           </a>
         </div>
+
     </section>
 
 
