@@ -182,88 +182,123 @@ get_header();
       <!-- PROJECTS SECTION -->
       <section class="py-16 lg:py-20">
 
-        <div class="flex flex-col max-w-6xl mx-auto">
+              <?php if (have_rows('projects_section')) : ?>
+          <?php while (have_rows('projects_section')) : the_row();
 
-          <div class="text-center mb-10 px-5">
-            <h2 class="text-sm md:text-base pb-3 xl:mb-0">SELECT PROJECT</h2>
-          </div>
+            $id_projects_section = get_sub_field('id');
+            if ($id_projects_section) { ?>
 
-          <div class="grid grid-cols-1 w-full px-5">
-          <!--  ANALYST -->
-        
-            <a href="/" class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
-              <div class="flex flex-row">
-                <span class="self-start mr-3 mt-3">01</span>
-                <h4 class="font-Antonio font-bold text-6xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
-                Analyst 
-                </h4>
+          <div class="flex flex-col max-w-6xl mx-auto">
+
+            <div class="text-center mb-10 px-5">
+              <h2 class="text-sm md:text-base pb-3 xl:mb-0">
+                <?php if ($projects_section_heading = get_sub_field('heading')) : ?><?php echo esc_html($projects_section_heading); ?><?php endif; ?>
+              </h2>
+            </div>
+
+            <div class="grid grid-cols-1 w-full px-5">
+            <!--  ANALYST -->
+
+                    <?php
+                    if ($posts) :
+                      $projects = get_sub_field('projects');
+                        $counter = 1; // Initialize the counter
+                      foreach ($projects as $project) :
+                        setup_postdata($projects);
+                        $project_title = get_the_title($project->ID);
+                         $project_permalink = get_permalink($project->ID);
+                    ?>
+          
+              <a href="<?php echo esc_url($project_permalink); ?>" class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
+                <div class="flex flex-row">
+                   <span class="self-start mr-3 mt-3">0<?php echo $counter; ?></span>
+                  <h4 class="font-Antonio font-bold text-6xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
+                    <?php echo $project_title; ?>
+                  </h4>
+                </div>
+              </a>
+
+                       <?php 
+                            $counter++; // Increment the counter
+                       
+                       endforeach; ?>
+                    <?php wp_reset_postdata(); ?>
+                  <?php endif; ?>
+
+          
+          
+            </div>
+
+            <a href="/portfolio" class="self-center mt-10">
+            <div class="group cursor-pointer font-Antonio inline-flex">
+              <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
+              View more
               </div>
+              <div class="relative group-hover:text-header-dark-overlay self-end p-4 py-3 overflow-hidden font-medium transition duration-700 ease-out text-2xl">
+              <div class="">
+                <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
+                <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg">
+                  <span>
+                  &rarr;
+                  </span>
+                </div>
+                </span>
+                <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
+                <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
+                  <span>
+                  &rarr;
+                  </span>
+                </div>
+                </span>
+              </div>
+              </div>
+            </div>
             </a>
-        
-            <!--  DIGITAL MARKETING -->
-        
-            <div class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
-              <div class="flex flex-row">
-                <span class="self-start mr-3 mt-3">02</span>
-                <h4 class="font-Antonio font-bold text-7xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
-                Marketing 
-                </h4>
-              </div>
-            </div>
-        
-          <!--  DIGITAL GRAPHICS VISUAL DESIGN -->
-        
-            <div class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
-              <div class="flex flex-row">
-                <span class="self-start mr-3 mt-3">03</span>
-                <h4 class="font-Antonio font-bold text-7xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
-                Design 
-                </h4>
-              </div>
-            </div>
-        
-          <!--  PRODUCT DESIGN -->
-        
-            <div class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
-              <div class="flex flex-row">
-                <span class="self-start mr-3 mt-3">04</span>
-                <h4 class="font-Antonio font-bold text-4xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
-                Product  
-                </h4>
-              </div>
-            </div>
-        
-          <!-- Repeat similar blocks for other projects -->
           </div>
-
-          <a href="/portfolio" class="self-center mt-10">
-          <div class="group cursor-pointer font-Antonio inline-flex">
-            <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
-            View more
-            </div>
-            <div class="relative group-hover:text-header-dark-overlay self-end p-4 py-3 overflow-hidden font-medium transition duration-700 ease-out text-2xl">
-            <div class="">
-              <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
-              <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg">
-                <span>
-                &rarr;
-                </span>
-              </div>
-              </span>
-              <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
-              <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
-                <span>
-                &rarr;
-                </span>
-              </div>
-              </span>
-            </div>
-            </div>
-          </div>
-          </a>
-        </div>
-
+         <?php
+            }
+          endwhile; ?>
+        <?php endif; ?>
     </section>
+
+      <!-- TESTIMONIALS SECTION -->
+    <section class="py-16 lg:py-20" id="testimonials">
+      <div class="flex flex-col max-w-6xl mx-auto">
+        <div class="px-5">
+          <div class="swiper-container">
+            <div class="swiper-wrapper text-center flex flex-row justify-center items-center">
+              <!-- Testimonials -->
+              <div class="swiper-slide">
+                <div class="text-center">
+                  <h3 class="text-2xl uppercase font-bold font-Antonio">Testimonial Title 1</h3>
+                  <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
+                    <span class="block">
+                      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                      </svg>
+                    </span>
+                    <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">Testimonial description 1.</p>
+                    <span class="block">
+                      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                      </svg>
+                    </span>
+                  </div>
+                  <h4 class="capitalize">Testimonial Author 1</h4>
+                </div>
+              </div>
+
+              <!-- Repeat similar blocks for other testimonials -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+        </div>
+  </section>
+
 
 
     <?php endwhile; ?>
