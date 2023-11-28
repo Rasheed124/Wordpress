@@ -204,3 +204,111 @@ function durodola_abdulhad_html5_comment( $comment, $args, $depth ) {
 		</article><!-- .comment-body -->
 	<?php
 }
+
+
+
+
+
+//custom post (Grpahics)
+function graphicdesigns_post_type() {
+	$args = array (
+		'labels'      => array(
+			'name'          => 'GraphicDesigns',
+			'singular_name' => 'GraphicDesign',
+		),
+		'public'      => true,
+		'hierarchical' => true,
+		'has_archive' => true,
+		'rewrite'     => array( 'slug' => 'graphics-visual-design' ),
+		'supports' =>  array('title', 'editor', 'thumbnail', 'custom-fields'),
+		
+	);
+	register_post_type('graphicsdesign', $args );
+}
+add_action('init', 'graphicdesigns_post_type');
+
+//custom post (Product Design)
+function productdesign_post_type() {
+	$args = array (
+		'labels'      => array(
+			'name'          => 'ProductDesigns',
+			'singular_name' => 'ProductDesign',
+		),
+		'public'      => true,
+		'hierarchical' => true,
+		'has_archive' => true,
+		'rewrite'     => array( 'slug' => 'ui-ux-product-design' ),
+		'supports' =>  array('title', 'editor', 'thumbnail', 'custom-fields'),
+		
+	);
+	register_post_type('productdesigns', $args );
+}
+add_action('init', 'productdesign_post_type');
+
+
+
+/** Skill Settings */
+function skills_post_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Skills', 'Post type general name', 'skill' ),
+        'singular_name'         => _x( 'Skill', 'Post type singular name', 'skill' ),
+        'menu_name'             => _x( 'Skills', 'Admin Menu text', 'skill' ),
+        'name_admin_bar'        => _x( 'Skill', 'Add New on Toolbar', 'skill' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Skill custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'skill' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-hammer',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'Skills', $args );
+}
+add_action( 'init', 'skills_post_type' );
+
+
+/** Testimonials */
+function testimonial_post_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Testimonials', 'Post type general name', 'testimonial' ),
+        'singular_name'         => _x( 'Testimonial', 'Post type singular name', 'testimonial' ),
+        'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'testimonial' ),
+        'name_admin_bar'        => _x( 'Testimonial', 'Add New on Toolbar', 'testimonial' ),
+       
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Testimonial custom post type.',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'testimonial' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+		'menu_icon'   => 'dashicons-testimonial',
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
+        'show_in_rest'       => true
+    );
+     
+    register_post_type( 'testimonials', $args );
+}
+add_action( 'init', 'testimonial_post_type' );
+

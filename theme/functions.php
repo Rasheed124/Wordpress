@@ -217,6 +217,31 @@ function durodola_abdulhad_tinymce_add_class( $settings ) {
 }
 add_filter( 'tiny_mce_before_init', 'durodola_abdulhad_tinymce_add_class' );
 
+
+
+// Add class to each li and link tags
+function add_additional_class_on_li($classes, $item, $args_menu)
+{
+    if (isset($args_menu->add_li_class)) {
+        $classes[] = $args_menu->add_li_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+
+function add_menu_link_class($atts, $item, $args_menu)
+{
+    if (property_exists($args_menu, 'link_class')) {
+        $atts['class'] = $args_menu->link_class;
+    }
+    return $atts;
+}
+add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);
+
+
+
+
 /**
  * Custom template tags for this theme.
  */
@@ -228,232 +253,18 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 
-flush_rewrite_rules( false );
-
-
-/** Skill Settings */
-function skills_settings() {
-
-    $labels = array(
-        'name'                  => _x( 'Skills', 'Post type general name', 'skill' ),
-        'singular_name'         => _x( 'Skill', 'Post type singular name', 'skill' ),
-        'menu_name'             => _x( 'Skills', 'Admin Menu text', 'skill' ),
-        'name_admin_bar'        => _x( 'Skill', 'Add New on Toolbar', 'skill' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Skill custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'skill' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-hammer',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'Skills', $args );
-}
-add_action( 'init', 'skills_settings' );
-
-
-
-/** Testimonials */
-function testimonial_settings() {
-
-    $labels = array(
-        'name'                  => _x( 'Testimonials', 'Post type general name', 'testimonial' ),
-        'singular_name'         => _x( 'Testimonial', 'Post type singular name', 'testimonial' ),
-        'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'testimonial' ),
-        'name_admin_bar'        => _x( 'Testimonial', 'Add New on Toolbar', 'testimonial' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Testimonial custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'testimonial' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-testimonial',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'testimonials', $args );
-}
-add_action( 'init', 'testimonial_settings' );
-
-
-
-/** Design Settings */
-function graphics_visual_design_settings() {
-
-    $labels = array(
-        'name'                  => _x( 'Graphics Designs', 'Post type general name', 'graphicsDesign' ),
-        'singular_name'         => _x( 'Graphics Design', 'Post type singular name', 'graphicsDesign' ),
-        'menu_name'             => _x( 'Graphics Designs', 'Admin Menu text', 'graphicsDesign' ),
-        'name_admin_bar'        => _x( 'Graphics Design', 'Add New on Toolbar', 'graphicsDesign' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Design custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'graphics-visual-design' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-open-folder',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'graphics_design', $args );
-}
-add_action( 'init', 'graphics_visual_design_settings' );
-
-function product_design_settings() {
-
-    $labels = array(
-        'name'                  => _x( 'Product Designs', 'Post type general name', 'productDesign' ),
-        'singular_name'         => _x( 'Product Design', 'Post type singular name', 'productDesign' ),
-        'menu_name'             => _x( 'Product Designs', 'Admin Menu text', 'productDesign' ),
-        'name_admin_bar'        => _x( 'Product Design', 'Add New on Toolbar', 'productDesign' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Product Design custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'ui-ux-product-design' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-open-folder',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'product_design', $args );
-}
-add_action( 'init', 'product_design_settings' );
 
 
 
 
 
-// Marketing Settings
-function digitalMarketing_settings() {
-
-    $labels = array(
-        'name'                  => _x( 'Digital Marketings', 'Post type general name', 'digitalMarketing' ),
-        'singular_name'         => _x( 'Digital Marketing', 'Post type singular name', 'digitalMarketing' ),
-        'menu_name'             => _x( 'Digital Marketings', 'Admin Menu text', 'digitalMarketing' ),
-        'name_admin_bar'        => _x( 'Digital Marketing', 'Add New on Toolbar', 'digitalMarketing' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Digital Marketing custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'digital-marketing' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-open-folder',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'digital_marketing', $args );
-}
-add_action( 'init', 'digitalMarketing_settings' );
-
-function DataAnalyst_settings() {
-
-    $labels = array(
-        'name'                  => _x( 'Data Analysts', 'Post type general name', 'dataAnalyst' ),
-        'singular_name'         => _x( 'Data Analyst', 'Post type singular name', 'dataAnalyst' ),
-        'menu_name'             => _x( 'Data Analysts ', 'Admin Menu text', 'dataAnalyst' ),
-        'name_admin_bar'        => _x( 'Data Analyst', 'Add New on Toolbar', 'dataAnalyst' ),
-       
-    );     
-    $args = array(
-        'labels'             => $labels,
-        'description'        => 'Data Analyst custom post type.',
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'data-analyst' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-		'menu_icon'   => 'dashicons-open-folder',
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields' ),
-        'show_in_rest'       => true
-    );
-     
-    register_post_type( 'data_analyst', $args );
-}
-add_action( 'init', 'DataAnalyst_settings' );
 
 
 
 
 
-// Add links to each li and link tags
-
-function add_additional_class_on_li($classes, $item, $args_menu)
-{
-    if (isset($args_menu->add_li_class)) {
-        $classes[] = $args_menu->add_li_class;
-    }
-    return $classes;
-}
-add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
 
-
-function add_menu_link_class($atts, $item, $args_menu)
-{
-    if (property_exists($args_menu, 'link_class')) {
-        $atts['class'] = $args_menu->link_class;
-    }
-    return $atts;
-}
-add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);
 
 
 

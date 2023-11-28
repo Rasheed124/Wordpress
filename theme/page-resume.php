@@ -1,9 +1,5 @@
 <?php
 /*
-Template Name: Contact
-
-
-
 
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -21,7 +17,7 @@ get_header("main");
 	<section id="primary">
 		<main id="main">
 
-		  <h2>About page</h2>
+		  <h2>Resume page</h2>
 		
 
 		</main><!-- #main -->

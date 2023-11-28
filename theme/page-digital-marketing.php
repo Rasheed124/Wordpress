@@ -1,8 +1,5 @@
 <?php
 /*
-Template Name: Resume
-
-
 
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -16,15 +13,11 @@ Template Name: Resume
 
 get_header("main");
 ?>
+<main class="pt-10">
 
-	<section id="primary">
-		<main id="main">
+        <h2>Welcome to DIgital Marketing</h2>
+</main><!-- #main -->
 
-		  <h2>Resume page</h2>
-		
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
 
 <?php
 get_footer();
