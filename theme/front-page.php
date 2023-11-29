@@ -267,50 +267,80 @@ get_header();
           $id_testimonial_section = get_sub_field('id');
           if ($id_testimonial_section) { ?>
 
-            <div class="flex flex-col max-w-6xl mx-auto">
-              <div class="px-5">
-                <div class="swiper-container">
-                  <div class="swiper-wrapper text-center flex flex-row justify-center items-center">
-
-                    <?php
-                    if ($posts) :
-                      $testimonials = get_sub_field('testimonial');
-                      foreach ($testimonials as $testimonial) :
-                        setup_postdata($testimonials);
-                        $testimonial_title = get_the_title($testimonial->ID);
-                        $testimonial_role_field = get_field('testimonial_role', $testimonial->ID);
-                    ?>
-                        <!-- Testimonials -->
-                        <div class="swiper-slide">
+            <div class="flex flex-col max-w-6xl mx-auto px-5">
+               <div class="swiper  grid grid-cols-1 place-content-center place-items-center">
+                  <div class="swiper-wrapper">
+           
+                      <div class="swiper-slide">
                           <div class="text-center">
-                            <h3 class="text-2xl uppercase font-bold font-Antonio"> <?php echo $testimonial_title; ?></h3>
+                            <h3 class="text-2xl uppercase font-bold font-Antonio"> Durodola</h3>
                             <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
                               <span class="block">
                                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
                                 </svg>
                               </span>
-                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  <?php echo $testimonial->post_content; ?></p>
+                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione beatae vero, eaque corrupti laborum magnam fuga quam optio suscipit provident!
+                                
+                              </p>
                               <span class="block">
                                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                                 </svg>
                               </span>
                             </div>
-                            <h4 class="capitalize"> <?php echo esc_html($testimonial_role_field); ?></h4>
+                            <h4 class="capitalize"> Adeola</h4>
                           </div>
-                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                          <div class="text-center">
+                            <h3 class="text-2xl uppercase font-bold font-Antonio"> Durodola</h3>
+                            <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
+                              <span class="block">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                              </span>
+                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione beatae vero, eaque corrupti laborum magnam fuga quam optio suscipit provident!
 
-                    <?php endforeach; ?>
-                    <?php wp_reset_postdata(); ?>
-                  <?php endif; ?>
+                              </p>
+                              <span class="block">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                              </span>
+                            </div>
+                            <h4 class="capitalize"> Adeola</h4>
+                          </div>
+                      </div>
+                      <div class="swiper-slide">
+                          <div class="text-center">
+                            <h3 class="text-2xl uppercase font-bold font-Antonio"> Durodola</h3>
+                            <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
+                              <span class="block">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                              </span>
+                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione beatae vero, eaque corrupti laborum magnam fuga quam optio suscipit provident!
 
+                              </p>
+                              <span class="block">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                              </span>
+                            </div>
+                            <h4 class="capitalize"> Adeola</h4>
+                          </div>
+                      </div>
+                
+               
                   </div>
-                  <div class="swiper-pagination"></div>
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
-                </div>
+               <div class="swiper-button-prev"></div>
+             <div class="swiper-button-next"></div>
               </div>
+
             </div>
 
           <?php
