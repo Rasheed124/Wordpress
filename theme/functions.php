@@ -152,9 +152,9 @@ function durodola_abdulhad_scripts() {
 	//wp_enqueue_script( 'durodola-abdulhad-swiper-script', get_template_directory_uri() . '/js/swiper.min.js',   array(), true, 'all');
 	wp_enqueue_script( 'durodola-abdulhad-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
 	
-   //wp_enqueue_script('swiper');
-	wp_enqueue_style( 'durodola-abdulhad-style', get_stylesheet_uri(), array(), DURODOLA_ABDULHAD_VERSION );
-	wp_enqueue_style( 'durodola-abdulhad-custom-style', get_template_directory_uri(), '/css/style.css', array(), false, 'all' );
+
+   wp_enqueue_style( 'durodola-abdulhad-style', get_stylesheet_uri(), array(), DURODOLA_ABDULHAD_VERSION );
+   wp_enqueue_style( 'durodola-abdulhad', get_template_directory_uri(), '/css/style.css', array(), false, 'all' );
    //wp_enqueue_style( 'durodola-abdulhad-swiper-style', get_template_directory_uri(), '/css/swiper.min.css', array(), false, 'all' );
 
 

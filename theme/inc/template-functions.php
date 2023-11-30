@@ -209,6 +209,73 @@ function durodola_abdulhad_html5_comment( $comment, $args, $depth ) {
 
 
 
+// Register Sidebars
+function durodola_abdulhad_sidebars()
+{
+
+    register_sidebar(
+
+        array(
+            'name'          => esc_html__('home-footer', 'durodola_abdulhad'),
+            'id'            => 'home-footer',
+	
+        )
+    );
+
+    register_sidebar(
+
+        array(
+            'name'          => esc_html__('footer-menu-1', 'durodola_abdulhad'),
+            'id'            => 'footer-menu-1',
+		     'before_title'  => '<span class="list-none">',
+            'after_title'   => '</span>',
+        )
+    );
+
+    register_sidebar(
+
+        array(
+
+            'name'          => esc_html__('footer-menu-2', 'durodola_abdulhad'),
+            'id'            => 'footer-menu-2',
+            'before_title'  => '<p>',
+            'after_title'   => '</p>',
+
+
+        )
+    );
+
+    register_sidebar(
+
+        array(
+
+            'name'          => esc_html__('footer-menu-3', 'durodola_abdulhad'),
+            'id'            => 'footer-menu-3',
+           'before_title'  => '<div>',
+            'after_title'   => '</div>',
+
+        )
+    );
+    register_sidebar(
+
+        array(
+
+            'name'          => esc_html__('footer-menu-4', 'durodola_abdulhad'),
+            'id'            => 'footer-menu-4',
+           'before_title'  => '<span class="block">',
+            'after_title'   => '</span>',
+
+        )
+    );
+
+}
+add_action('widgets_init', 'durodola_abdulhad_sidebars');
+
+
+
+
+
+
 //custom post (Grpahics)
 function graphicdesigns_post_type() {
 	$args = array (
@@ -311,4 +378,6 @@ function testimonial_post_type() {
     register_post_type( 'testimonials', $args );
 }
 add_action( 'init', 'testimonial_post_type' );
+
+
 

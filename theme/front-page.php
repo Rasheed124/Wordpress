@@ -146,7 +146,7 @@ get_header();
                   </div>
                 </div>
 
-                <a href="/contact" class="self-center mt-10">
+                <a href="<?php echo get_home_url();?>/contact" class="self-center mt-10">
                   <div class="group cursor-pointer font-Antonio inline-flex">
                     <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
                       Get in touch
@@ -155,16 +155,14 @@ get_header();
                       <div class="">
                         <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
                           <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg">
-                            <span>
-                              &rarr;
-                            </span>
+                              <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
+
                           </div>
                         </span>
                         <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
                           <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
-                            <span>
-                              &rarr;
-                            </span>
+                             <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
+
                           </div>
                         </span>
                       </div>
@@ -226,7 +224,7 @@ get_header();
 
                 </div>
 
-                <a href="/portfolio" class="self-center mt-10">
+                <a href="<?php echo get_home_url();?>/portfolio" class="self-center mt-10">
                   <div class="group cursor-pointer font-Antonio inline-flex">
                     <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
                       View more
@@ -235,16 +233,12 @@ get_header();
                       <div class="">
                         <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
                           <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg">
-                            <span>
-                              &rarr;
-                            </span>
+                              <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
                           </div>
                         </span>
                         <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
                           <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
-                            <span>
-                              &rarr;
-                            </span>
+                            <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
                           </div>
                         </span>
                       </div>
@@ -270,71 +264,39 @@ get_header();
             <div class="flex flex-col max-w-6xl mx-auto px-5">
                <div class="swiper  grid grid-cols-1 place-content-center place-items-center">
                   <div class="swiper-wrapper">
-           
-                      <div class="swiper-slide">
-                          <div class="text-center">
-                            <h3 class="text-2xl uppercase font-bold font-Antonio"> Durodola</h3>
-                            <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
-                              <span class="block">
-                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                                </svg>
-                              </span>
-                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione beatae vero, eaque corrupti laborum magnam fuga quam optio suscipit provident!
-                                
-                              </p>
-                              <span class="block">
-                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                                </svg>
-                              </span>
-                            </div>
-                            <h4 class="capitalize"> Adeola</h4>
-                          </div>
-                      </div>
-                      <div class="swiper-slide">
-                          <div class="text-center">
-                            <h3 class="text-2xl uppercase font-bold font-Antonio"> Durodola</h3>
-                            <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
-                              <span class="block">
-                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                                </svg>
-                              </span>
-                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione beatae vero, eaque corrupti laborum magnam fuga quam optio suscipit provident!
 
-                              </p>
-                              <span class="block">
-                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                                </svg>
-                              </span>
-                            </div>
-                            <h4 class="capitalize"> Adeola</h4>
-                          </div>
-                      </div>
+
+                    <?php
+                    if ($posts) :
+                      $testimonials = get_sub_field('testimonial');
+                      foreach ($testimonials as $testimonial) :
+                        setup_postdata($testimonials);
+                        $testimonial_title = get_the_title($testimonial->ID);
+                        $testimonial_role_field = get_field('testimonial_role', $testimonial->ID);
+                    ?>
                       <div class="swiper-slide">
-                          <div class="text-center">
-                            <h3 class="text-2xl uppercase font-bold font-Antonio"> Durodola</h3>
+                         <div class="text-center">
+                            <h3 class="text-2xl uppercase font-bold font-Antonio"> <?php echo $testimonial_title; ?></h3>
                             <div class="max-w-4xl mx-auto flex flex-col justify-center items-center my-7">
                               <span class="block">
                                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
                                 </svg>
                               </span>
-                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione beatae vero, eaque corrupti laborum magnam fuga quam optio suscipit provident!
-
-                              </p>
+                              <p class="font-libre-baskerville px-3 lg:px-10 my-10 text-2xl">  <?php echo $testimonial->post_content; ?></p>
                               <span class="block">
                                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                                 </svg>
                               </span>
                             </div>
-                            <h4 class="capitalize"> Adeola</h4>
+                            <h4 class="capitalize"> <?php echo esc_html($testimonial_role_field); ?></h4>
                           </div>
                       </div>
-                
+                     
+                    <?php endforeach; ?>
+                    <?php wp_reset_postdata(); ?>
+                  <?php endif; ?>
                
                   </div>
                <div class="swiper-button-prev"></div>
@@ -508,22 +470,7 @@ get_header();
                       </span>
                       <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
                         <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
-                          <span>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              class="text-3xl text-white group-hover:text-header-dark-overlay"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                              ></path>
-                            </svg>
-                          </span>
+                            <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
                         </div>
                       </span>
                     </div>
@@ -621,7 +568,7 @@ get_header();
                       </div>
 
                       <div class="flex justify-center items-center mr-5">
-                        <a href="/post/your-post-slug">
+                        <a href="<?php echo get_home_url();?>/post/your-post-slug">
                           <div class="flex justify-center items-center transition-colors hover:duration-700 hover:text-header-dark-overlay ">
                             <span class="mr-2">
                               <svg
@@ -686,42 +633,12 @@ get_header();
                 <div class="">
                   <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
                     <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg ">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          class="text-3xl text-white group-hover:text-header-dark-overlay"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          ></path>
-                        </svg>
-                      </span>
+                       <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
                     </div>
                   </span>
                   <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%]  bg-transparent group-hover:translate-x-0 ease">
                     <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          class="text-3xl text-white group-hover:text-header-dark-overlay"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          ></path>
-                        </svg>
-                      </span>
+                       <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
                     </div>
                   </span>
                 </div>
@@ -740,11 +657,94 @@ get_header();
 
 
 
+    <footer class="py-16 lg:py-20">
+   
+
+         <div class="flex flex-col max-w-6xl mx-auto px-5">
+
+              <?php if (have_rows('home_footer')) : ?>
+    <?php while (have_rows('home_footer')) : the_row(); 
+
+    
+            $id_home_footer = get_sub_field('id');
+            if ($id_home_footer) { ?>
 
 
+          <div class="px-5 text-center">
+            <h4 class="font-migra-light text-7xl xl:text-[6rem]">
+               <?php if ($footer_heading = get_sub_field('footer_heading')) : ?><?php echo esc_html($footer_heading); ?><?php endif; ?>
 
-    <?php endwhile; ?>
+            </h4>
+          </div>
+
+          <a href="<?php echo get_home_url();?>/contact" class="self-center mt-10">
+            <div class="group cursor-pointer font-Antonio inline-flex">
+              <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
+                Get in touch
+              </div>
+              <div class="relative group-hover:text-header-dark-overlay self-end p-4 py-3 overflow-hidden font-medium transition duration-700 ease-out text-2xl">
+            
+                <div class="">
+                  <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
+                    <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg">
+                      <span>
+                    
+                        <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
+                      </span>
+                    </div>
+                  </span>
+                  <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
+                    <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
+                      <span>
+                    
+                     <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
+                      </span>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <div class="flex uppercase flex-col lg:flex-row justify-center lg:justify-between items-center mt-16 space-y-3">
+            <div>
+        
+                  <?php
+                        $custom_logo_id = get_theme_mod( 'custom_logo' );
+                  $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                  if ( has_custom_logo() ) {
+                    echo '<img class="w-20 h-20" src="' . esc_url( $logo[0] ) . '" alt="' . get_bloginfo( 'name' ) . '">';
+                  } else {
+                    echo '<h1 class="text-xl font-bold font-Antonio">' . get_bloginfo('name') . '</h1>';
+                  }
+                    ?>
+             
+            </div>
+            <div class="flex justify-center items-center">
+              <h3 class="text-xl text-center font-bold font-Antonio">
+                   <?php if ($footer_info = get_sub_field('footer_info')) : ?><?php echo esc_html($footer_info); ?><?php endif; ?>
+
+              </h3>
+            </div>
+          </div>
+
+                  <?php
+            }
+          endwhile; ?>
+        <?php endif; ?>
+
+
+           <?php endwhile; ?>
   <?php endif; ?>
+       </div>
+
+         <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed bottom-10 right-10 h-14 w-14 lg:w-24 lg:h-24  p-10 z-10 rounded-full justify-center items-center flex-col shadow-lg bg-white text-deep-black text-xl font-Antonio font-extrabold cursor-pointer transition-all duration-700">
+      Top
+    </button>
+
+
+    </footer>
+ 
 
 </main><!-- #main -->
 

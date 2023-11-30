@@ -18,4 +18,4 @@ get_header("main");
 	</section><!-- #primary -->
 
 <?php
-get_footer();
+get_footer("main");

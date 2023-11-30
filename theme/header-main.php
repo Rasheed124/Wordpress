@@ -30,4 +30,4 @@
 
 	<?php get_template_part( 'template-parts/layout/header', 'mainContent' ); ?>
 
-	<div id="content">
+

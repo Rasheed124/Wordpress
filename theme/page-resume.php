@@ -1,27 +1,61 @@
 <?php
-/*
-
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no `home.php` file exists.
+/**
+ * The header for our theme
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * This is the template that displays the `head` element and everything up
+ * until the `#content` element.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Durodola_Abdulhad
  */
 
-get_header("main");
-?>
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<section id="primary">
-		<main id="main">
 
-		  <h2>Resume page</h2>
-		
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<?php wp_head(); ?>
+</head>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+<body >
 
-<?php
-get_footer();
+<?php wp_body_open(); ?>
+
+
+
+<section>
+    <?php if (have_rows('resume_page_settings')) : ?>
+        <?php while (have_rows('resume_page_settings')) : the_row(); ?>
+
+            <?php
+            $id_resume_page_settings = get_sub_field('id');
+            if ($id_resume_page_settings) :
+            ?>
+
+                <div class="overflow-y-hidden w-full h-full">
+                    <?php
+                    $file = get_sub_field('resume');
+                    if ($file) :
+                    ?>
+                        <iframe class="overflow-y-hidden" src="<?php echo esc_url($file['url']); ?>" width="100%" height="800px"></iframe>
+                    <?php endif; ?>
+                </div>
+
+            <?php endif; ?>
+
+        <?php endwhile; ?>
+    <?php endif; ?>
+</section>
+
+
+
+
+
+
+
+</body>
+</html>

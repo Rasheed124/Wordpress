@@ -49,4 +49,4 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
-get_footer();
+get_footer("main");
