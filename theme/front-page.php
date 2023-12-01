@@ -518,10 +518,15 @@ get_header();
                         setup_postdata($blog_posts);
                         $blog_post_title = get_the_title($blog_post->ID);
                       $blog_post_permalink = get_permalink($blog_post->ID);
+                          $post_reading_time_field = get_field('post_reading_time', $blog_post->ID);
+
+                      
+           
+                        $post_comments = get_comments_number($blog_post->ID);
 
                     ?>
             <!-- Recent Post -->
-              <div class="flex flex-col justify-center text-left">
+              <div class="flex flex-col justify-start text-left">
 
                 <div class="grid grid-cols-1 gap-5">
                   <div class="pb-4">
@@ -536,10 +541,10 @@ get_header();
                   <div class="">
                     <div class="border-b pb-5">
                       <div class="flex gap-8 mb-5">
-                        <span>Your Date</span>
-                        <span>Your Read Time min reads</span>
+                        <span><?php echo get_the_date('F j, Y');?></span>
+                        <span> <?php echo esc_html($post_reading_time_field); ?></span>
                       </div>
-                      <a href="/post/your-post-slug">
+                      <a href="<?php echo esc_url($blog_post_permalink); ?>">
                         <h3 class="text-xl md:text-2xl  font-Antonio transition-colors hover:duration-700 hover:text-header-dark-overlay">
                            <?php echo $blog_post_title; ?>
                         </h3>
@@ -549,71 +554,23 @@ get_header();
                     <div class="flex w-full  mt-5">
                       <div class="flex justify-center items-center mr-5 transition-colors hover:duration-700 hover:text-header-dark-overlay">
                         <span class="mr-2">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            class="text-3xl text-white group-hover:text-header-dark-overlay"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M9 5l7 7-7 7"
-                            ></path>
-                          </svg>
+                            <i class="fa-regular fa-eye"></i>
                         </span>
-                        <span>Your Views views</span>
+                        <span><?= gt_get_post_view(); ?></span>
                       </div>
 
                       <div class="flex justify-center items-center mr-5">
-                        <a href="<?php echo get_home_url();?>/post/your-post-slug">
+                        <a href="<?php echo esc_url($blog_post_permalink); ?>">
                           <div class="flex justify-center items-center transition-colors hover:duration-700 hover:text-header-dark-overlay ">
                             <span class="mr-2">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                class="text-3xl text-white group-hover:text-header-dark-overlay"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M9 5l7 7-7 7"
-                                ></path>
-                              </svg>
+                              <i class="fa-regular fa-comment"></i>
                             </span>
-                            <span class="block">Your Comment</span>
+                            <span class="block"><?php echo esc_html($post_comments); ?></span>
                           </div>
                         </a>
                       </div>
 
-                      <div class="flex justify-center items-center self-end ">
-                        <a href="/post/your-post-slug">
-                          <div class="flex justify-center items-center transition-colors hover:duration-700 hover:text-header-dark-overlay ">
-                            <span class="mr-2  transition-colors hover:duration-700 hover:text-header-dark-overlay">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                class="text-3xl text-white"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M9 5l7 7-7 7"
-                                ></path>
-                              </svg>
-                            </span>
-                            <span>Your Likes</span>
-                          </div>
-                        </a>
-                      </div>
+                  
                     </div>
                   </div>
                 </div>
@@ -624,7 +581,7 @@ get_header();
                   <?php endif; ?>
           </div>
 
-          <a href="/blog" class="self-center mt-10">
+          <a href="<?php echo get_home_url();?>/blog" class="self-center mt-10">
             <div class="group cursor-pointer font-Antonio inline-flex">
               <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
                 View more

@@ -313,6 +313,32 @@ function productdesign_post_type() {
 add_action('init', 'productdesign_post_type');
 
 
+//custom post (Awards)
+function award_post_type() {
+	$args = array (
+		'labels'      => array(
+			'name'          => 'Awards',
+			'singular_name' => 'award',
+		),
+		'public'      => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+		'hierarchical' => true,
+		'has_archive' => true,
+		'menu_icon'   => 'dashicons-awards',
+		'rewrite'     => array( 'slug' => 'award' ),
+		'capability_type'    => 'post',
+		'supports' =>  array('title', 'editor', 'thumbnail', 'custom-fields'),
+		 'show_in_rest'       => true
+		
+	);
+	register_post_type('awards', $args );
+}
+add_action('init', 'award_post_type');
+
+
 
 /** Skill Settings */
 function skills_post_type() {
@@ -380,4 +406,67 @@ function testimonial_post_type() {
 add_action( 'init', 'testimonial_post_type' );
 
 
+function gt_get_post_view() {
 
+
+    $count = get_post_meta( get_the_ID(), 'post_views_count', true );
+
+
+    return "$count views";
+
+
+}
+
+
+function gt_set_post_view() {
+
+
+    $key = 'post_views_count';
+
+
+    $post_id = get_the_ID();
+
+
+    $count = (int) get_post_meta( $post_id, $key, true );
+
+
+    $count++;
+
+
+    update_post_meta( $post_id, $key, $count );
+
+
+}
+
+
+function gt_posts_column_views( $columns ) {
+
+
+    $columns['post_views'] = 'Views';
+
+
+    return $columns;
+
+
+}
+
+
+function gt_posts_custom_column_views( $column ) {
+
+
+    if ( $column === 'post_views') {
+
+
+        echo gt_get_post_view();
+
+
+    }
+
+
+}
+
+
+add_filter( 'manage_posts_columns', 'gt_posts_column_views' );
+
+
+add_action( 'manage_posts_custom_column', 'gt_posts_custom_column_views' );

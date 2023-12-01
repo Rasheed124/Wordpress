@@ -32,6 +32,62 @@ get_header("main");
 					</div>
 				</header>
 
+							
+        <?php if (have_rows('uiux_design_settings')) : ?>
+          <?php while (have_rows('uiux_design_settings')) : the_row();
+
+            $id_uiux_design_settings = get_sub_field('id');
+            if ($id_uiux_design_settings) { ?>
+
+			<div class="">
+				<div class="bg-white px-5 py-8 text-light-white ">
+			
+					<div class="grid grid-cols-1 gap-9 md:grid-cols-2 lg:grid-cols-3 ">
+					
+			
+                  <?php
+                  if ($posts) :
+                    $uiux_design = get_sub_field('uiux_design');
+             
+                    foreach ($uiux_design as $uiux_design) :
+                      setup_postdata($uiux_design);
+                      $uiux_design_title = get_the_title($uiux_design->ID);
+                      $uiux_design_permalink = get_permalink($uiux_design->ID);
+                  ?>
+
+
+				
+				  	<!--  DIGITAL GRAPHICS VISUAL DESIGN -->
+					<a href="<?php echo esc_url($uiux_design_permalink); ?>" class="block">
+						<div style="background-image: url('<?php echo get_the_post_thumbnail_url($uiux_design->ID, 'thumbnail'); ?>'); background-size: cover; background-position: center;" class="min-h-screen z-10 cursor-pointer overflow-hidden  relative bg-cover  transition duration-700 bg-no-repeat bg-center bg-black bg-blend-overlay bg-opacity-40 hover:bg-opacity-30">
+							<div class="absolute z-10 left-10 bottom-10 ">
+								<h1 class="font-Antonio uppercase text-2xl transition-all duration-500 hover:underline font-bold">
+								 <?php echo $uiux_design_title; ?>
+								</h1>
+							</div>
+						</div>
+					</a>
+
+
+                 
+
+                  <?php
+                    
+                    endforeach; ?>
+                    <?php wp_reset_postdata(); ?>
+                  <?php endif; ?>
+
+					
+				
+					</div>
+				</div>
+			
+			</div>
+		
+			       <?php
+            }
+          endwhile; ?>
+        <?php endif; ?>
 				
     
 		</section>

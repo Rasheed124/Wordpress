@@ -37,7 +37,7 @@ get_header("main");
             $id_graphics_design_settings = get_sub_field('id');
             if ($id_graphics_design_settings) { ?>
 
-			<div class="py-8">
+			<div class="">
 				<div class="bg-white px-5 py-8 text-light-white ">
 			
 					<div class="grid grid-cols-1 gap-9 md:grid-cols-2 lg:grid-cols-3 ">

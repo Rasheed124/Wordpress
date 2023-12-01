@@ -11,11 +11,10 @@
 
 ?>
 
-	</div><!-- #content -->
 
 	<?php get_template_part( 'template-parts/layout/footer', 'mainContent' ); ?>
 
-</div><!-- #page -->
+
 
 <?php wp_footer(); ?>
 

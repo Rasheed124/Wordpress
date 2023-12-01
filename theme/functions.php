@@ -153,8 +153,8 @@ function durodola_abdulhad_scripts() {
 	wp_enqueue_script( 'durodola-abdulhad-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
 	
 
-   wp_enqueue_style( 'durodola-abdulhad-style', get_stylesheet_uri(), array(), DURODOLA_ABDULHAD_VERSION );
-   wp_enqueue_style( 'durodola-abdulhad', get_template_directory_uri(), '/css/style.css', array(), false, 'all' );
+   wp_enqueue_style( 'durodola-abdulhad-custom', get_stylesheet_uri(), array(), DURODOLA_ABDULHAD_VERSION );
+   wp_enqueue_style( 'durodola-abdulhad-style', get_template_directory_uri(), '/css/style.css', array(), false, 'all' );
    //wp_enqueue_style( 'durodola-abdulhad-swiper-style', get_template_directory_uri(), '/css/swiper.min.css', array(), false, 'all' );
 
 
@@ -217,27 +217,6 @@ function durodola_abdulhad_tinymce_add_class( $settings ) {
 }
 add_filter( 'tiny_mce_before_init', 'durodola_abdulhad_tinymce_add_class' );
 
-
-
-// Add class to each li and link tags
-function add_additional_class_on_li($classes, $item, $args_menu)
-{
-    if (isset($args_menu->add_li_class)) {
-        $classes[] = $args_menu->add_li_class;
-    }
-    return $classes;
-}
-add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
-
-
-function add_menu_link_class($atts, $item, $args_menu)
-{
-    if (property_exists($args_menu, 'link_class')) {
-        $atts['class'] = $args_menu->link_class;
-    }
-    return $atts;
-}
-add_filter('nav_menu_css_class', 'add_menu_link_class', 1, 3);
 
 
 
