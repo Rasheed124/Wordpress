@@ -13,91 +13,79 @@
 
 get_header("main");
 ?>
-<main class="pt-10">
+<main class="pt-10 overflow-x-hidden">
   <section class="pt-24 bg-light-white">
 
     <?php if (have_rows('contact_page_settings')) : ?>
       <?php while (have_rows('contact_page_settings')) : the_row(); ?>
 
+        <?php if (have_rows('conatct_me_section')) : ?>
+          <?php while (have_rows('conatct_me_section')) : the_row();
 
-	      <?php if (have_rows('conatct_me_section')) : ?>
-            <?php while (have_rows('conatct_me_section')) : the_row();
+            $conatct_me_section_id = get_sub_field('id');
+            if ($conatct_me_section_id) { ?>
+              <div class="max-w-6xl px-5 mx-auto text-left grid grid-cols-1 md:grid-cols-2 gap-10 pb-24">
+                <div class="flex flex-col">
 
-              $conatct_me_section_id = get_sub_field('id');
-              if ($conatct_me_section_id) { ?>
-					<div class="max-w-6xl px-5 mx-auto text-left grid grid-cols-1 md:grid-cols-2 gap-10 pb-24">
+                  <?php if (have_rows('contact_content')) : ?>
+                    <?php while (have_rows('contact_content')) : the_row(); ?>
 
-				
+                      <h2 class="font-Antonio text-5xl font-bold mb-10 lg:mb-16 max-w-[455px] md:text-7xl uppercase leading-[3.4rem]">
+                        <!-- Replace with your dynamic title -->
+                        <?php if ($contact_content_heading = get_sub_field('heading')) : ?><?php echo esc_html($contact_content_heading); ?><?php endif; ?>
+                      </h2>
 
-							<div class="flex flex-col">
+                      <?php if (have_rows('contact_content_links')) : ?>
+                        <?php while (have_rows('contact_content_links')) : the_row(); ?>
 
-							<?php if (have_rows('contact_content')) : ?>
-								<?php while (have_rows('contact_content')) : the_row(); ?>
+                          <?php
+                          $contact_content_link = get_sub_field('link');
+                          if ($contact_content_link) :
+                            $contact_content_link_url = $contact_content_link['url'];
+                            $contact_content_link_title = $contact_content_link['title'];
+                            $contact_content_link_target = $contact_content_link['target'] ? $contact_content_link['target'] : '_self';
+                          ?>
 
-								<h2 class="font-Antonio text-5xl font-bold mb-10 lg:mb-16 max-w-[455px] md:text-7xl uppercase leading-[3.4rem]">
-									<!-- Replace with your dynamic title -->
-									<?php if ($contact_content_heading = get_sub_field('heading')) : ?><?php echo esc_html($contact_content_heading); ?><?php endif; ?>
-								</h2>
+                            <div class="space-y-2">
+                              <!-- Social links -->
+                              <span class="font-Sohne-Bold text-xs uppercase block">
+                                <!-- Email link -->
+                                <a class="underline" href="<?php echo esc_url($contact_content_link_url); ?>" target="<?php echo esc_attr($contact_content_link_target); ?>">
+                                  <span><?php echo esc_html($contact_content_link_title); ?></span>
+                                </a>
+                              </span>
+                            </div>
 
-								<?php if (have_rows('contact_content_links')) : ?>
-									<?php while (have_rows('contact_content_links')) : the_row(); ?>
+                          <?php endif; ?>
 
-									<?php
-									$contact_content_link = get_sub_field('link');
-									if ($contact_content_link) :
-										$contact_content_link_url = $contact_content_link['url'];
-										$contact_content_link_title = $contact_content_link['title'];
-										$contact_content_link_target = $contact_content_link['target'] ? $contact_content_link['target'] : '_self';
-									?>
+                        <?php endwhile; ?>
+                      <?php endif; ?>
 
-										<div class="space-y-2">
-										<!-- Social links -->
-										<span class="font-Sohne-Bold text-xs uppercase block">
-											<!-- Email link -->
-											<a class="underline" href="<?php echo esc_url($contact_content_link_url); ?>" target="<?php echo esc_attr($contact_content_link_target); ?>">
-											<span><?php echo esc_html($contact_content_link_title); ?></span>
-											</a>
-										</span>
-										</div>
+                    <?php endwhile; ?>
+                  <?php endif; ?>
+                </div>
 
-									<?php endif; ?>
+                <?php if (have_rows('contact_form')) : ?>
+                  <?php while (have_rows('contact_form')) : the_row(); ?>
+                    <div class=" p-4">
+                      <?php if ($contact_form = get_sub_field('form')) : ?><?php echo $contact_form; ?><?php endif; ?>
+                    </div>
+                  <?php endwhile; ?>
+                <?php endif; ?>
+              </div>
 
-									<?php endwhile; ?>
-								<?php endif; ?>
-
-								<?php endwhile; ?>
-							<?php endif; ?>
-							</div>
-
-							<?php if (have_rows('contact_form')) : ?>
-							<?php while (have_rows('contact_form')) : the_row(); ?>
-								<div class="border p-4">
-								<?php if ($contact_form = get_sub_field('form')) : ?><?php echo $contact_form; ?><?php endif; ?>
-								</div>
-							<?php endwhile; ?>
-							<?php endif; ?>
-
-					
-
-					</div>
-
-			
-						<div class="py-2 bg-white">
-						<!-- Marquee section -->
-							<marquee class="flex space-x-[0.2]  font-semibold whitespace-nowrap">
-						         <?php if ($contact_marquee = get_sub_field('contact_marquee')) : ?>
-								    <?php echo $contact_marquee; ?>	
-						         <?php endif; ?>
-								
-							</marquee>
-						</div>
-				
-
-
-		     <?php
-              }
-            endwhile; ?>
-          <?php endif; ?>
+              <div class="py-2 bg-white">
+                <!-- Marquee section -->
+                <marquee class="flex space-x-[0.2]  font-semibold whitespace-nowrap">
+                  <?php if ($contact_marquee = get_sub_field('contact_marquee')) : ?>
+                    <?php echo $contact_marquee; ?>
+                  <?php endif; ?>
+                </marquee>
+              </div>
+            <?php
+            }
+          endwhile; ?>
+        <?php endif; ?>
 
       <?php endwhile; ?>
     <?php endif; ?>

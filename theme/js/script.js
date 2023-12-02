@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 // Navbar Meny Toggle
 
 const toggleMenuOpen = document.getElementById('toggleMenuOpen');
@@ -76,22 +69,16 @@ var Swipes = new Swiper('.swiper', {
 
 
 
-const navbar = document.querySelector('#headerAbout');
-window.onscroll = () => {
-	if (window.scrollY > 300) {
-		navbar.classList.add('scrolled-down');
-	} else {
-		navbar.classList.remove('scrolled-down');
-	}
-};
-
 
 // Page back to top button
 const toTopBtn = document.getElementById('to-top-button');
+const headerAboutNavbar = document.querySelector('#headerAbout');
+const headerMainNavbar = document.getElementById('headerMain');
 
-if (toTopBtn) {
-	// On scroll event, toggle button visibility based on scroll position
+if (toTopBtn ) {
+	// On scroll event, handle both functionalities
 	window.onscroll = function () {
+		// Toggle button visibility based on scroll position
 		if (
 			document.body.scrollTop > 600 ||
 			document.documentElement.scrollTop > 600
@@ -99,6 +86,15 @@ if (toTopBtn) {
 			toTopBtn.classList.remove('hidden');
 		} else {
 			toTopBtn.classList.add('hidden');
+		}
+
+		// Change headerAboutNavbar class based on scroll position
+		if (window.scrollY > 200) {
+			headerAboutNavbar.classList.add('header-about-scrolled-down');
+		
+		} else {
+			headerAboutNavbar.classList.remove('header-about-scrolled-down');
+		
 		}
 	};
 
@@ -110,3 +106,21 @@ if (toTopBtn) {
 		});
 	};
 }
+
+
+
+// About Nav
+
+
+
+// const headerMainNavbar = document.querySelector('#headerMain');
+// window.onscroll = () => {
+// 	if (window.scrollY > 200) {
+// 		headerMainNavbar.classList.add('header-main-scrolled-down');
+		
+// 	} else {
+
+// 		headerMainNavbar.classList.remove('header-main-scrolled-down');
+// 	}
+// };
+

@@ -10,14 +10,17 @@
 ?>
 
 
-
-
 <footer id="footer-main" class="pb-14 bg-contact-dark-overlay text-deep-black relative">
   <div class="flex flex-col w-full">
     <div class="pb-5">
       <div class="px-4 pt-14">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10">
           <div class="md:order-2 max-w-2xl">
+
+           <?php if (is_active_sidebar('footer-menu-5')) : ?>
+                  <?php dynamic_sidebar('footer-menu-5'); ?>
+            <?php endif; ?>
+
             <!-- Replace with actual content or remove if not applicable -->
             <div class="mb-6">
                     <?php if (is_active_sidebar('footer-menu-2')) : ?>

@@ -118,7 +118,7 @@ get_header("main");
             </div>
             <div class="pagination bg-white flex justify-center items-center py-5">
 
-            <div class="p-4 rounded-full bg-header-dark-overlay">
+            <div class="p-4 rounded-full font-Sohne-Bold bg-header-dark-overlay">
                          <?php
                 echo paginate_links(array(
                     'total'   => $latest_posts->max_num_pages,

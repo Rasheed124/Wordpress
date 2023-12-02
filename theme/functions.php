@@ -149,19 +149,17 @@ add_action( 'widgets_init', 'durodola_abdulhad_widgets_init' );
 
 
 function durodola_abdulhad_scripts() {
-	//wp_enqueue_script( 'durodola-abdulhad-swiper-script', get_template_directory_uri() . '/js/swiper.min.js',   array(), true, 'all');
-	wp_enqueue_script( 'durodola-abdulhad-custom-script', get_template_directory_uri() . '/js/script.js',   array(), true, 'all');
-	
+    // Enqueue scripts
+    wp_enqueue_script( 'durodola-abdulhad-custom-script', get_template_directory_uri() . '/js/script.js', array(), true, true);
 
-   wp_enqueue_style( 'durodola-abdulhad-custom', get_stylesheet_uri(), array(), DURODOLA_ABDULHAD_VERSION );
-   wp_enqueue_style( 'durodola-abdulhad-style', get_template_directory_uri(), '/css/style.css', array(), false, 'all' );
-   //wp_enqueue_style( 'durodola-abdulhad-swiper-style', get_template_directory_uri(), '/css/swiper.min.css', array(), false, 'all' );
+    // Enqueue styles
+    wp_enqueue_style( 'durodola-abdulhad-custom', get_stylesheet_uri(), array(), DURODOLA_ABDULHAD_VERSION );
+    wp_enqueue_style( 'durodola-abdulhad-style', get_stylesheet_directory_uri() . '/css/style.css', array(), false, 'all' );
+    wp_enqueue_style( 'durodola-abdulhad-custom-font-style', get_stylesheet_directory_uri() . '/css/custom.font.css', array(), false, 'all' );
 
-
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'durodola_abdulhad_scripts' );
 

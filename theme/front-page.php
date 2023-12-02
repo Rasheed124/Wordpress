@@ -106,18 +106,18 @@ get_header();
 
             $id_skills_section = get_sub_field('id');
             if ($id_skills_section) { ?>
-              <div class="flex flex-col max-w-6xl mx-auto">
+              <div class="flex flex-col ">
                 <div class="text-center py-7 px-5">
                   <h2 class="font-Sohne-Bold text-lg pb-3 mb-5 xl:mb-0 uppercase">
                     <?php if ($skills_section_heading = get_sub_field('heading')) : ?><?php echo esc_html($skills_section_heading); ?><?php endif; ?>
                   </h2>
-                  <div class="hidden xl:block xl:mb-16 xl:px-2">
+                  <div class="hidden xl:block xl:mb-16 xl:px-10 max-w-screen-xl mx-auto">
                     <h3 class="font-migra-light italic font-thin text-3xl xl:text-6xl">
-                      <?php if ($skills_section_sub_heading = get_sub_field('sub_heading')) : ?><?php echo esc_html($skills_section_sub_heading); ?><?php endif; ?>
+                      <?php if ($skills_section_sub_heading = get_sub_field('sub_heading')) : ?><?php echo $skills_section_sub_heading; ?><?php endif; ?>
                     </h3>
                   </div>
 
-                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-10 w-full px-5">
+                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-10 w-full px-5 max-w-6xl mx-auto">
 
                     <?php
                     if ($posts) :
@@ -695,10 +695,7 @@ get_header();
   <?php endif; ?>
        </div>
 
-         <button id="to-top-button" onclick="goToTop()" title="Go To Top" class="hidden fixed bottom-10 right-10 h-14 w-14 lg:w-24 lg:h-24  p-10 z-10 rounded-full justify-center items-center flex-col shadow-lg bg-white text-deep-black text-xl font-Antonio font-extrabold cursor-pointer transition-all duration-700">
-      Top
-    </button>
-
+ 
 
     </footer>
  

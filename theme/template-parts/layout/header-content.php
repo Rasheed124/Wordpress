@@ -120,7 +120,7 @@
 
                     <!-- Portfolio DropDown Content -->
                     <div class="py-2.5 hidden transition-all duration-700 ease-linear" id="dropdownMenu2">
-                        <ul class="space-y-1 px-5">
+                        <ul class="space-y-1 px-5 ">
                             <!-- Portfolio DropDown Items -->
                             <li>
                                 <a href="/graphics-visual-design">Graphics & Visual Design</a>
@@ -166,7 +166,7 @@
 				
 				</div>
 				</a>
-				<div class="relative font-Sohne-Bold hidden transition-all duration-500 group-hover:block hover:block">
+				<div class="relative font-Sohne-Bold-light hidden transition-all duration-500 group-hover:block hover:block">
 				<ul class="space-y-1 absolute flex flex-col flex-grow top-0 left-0 py-5 px-5 bg-deep-overlay-black">
 					<!-- Submenu items -->
 					<li class="flex flex-col">
@@ -192,7 +192,7 @@
 					</span>
 				</div>
 				</a>
-				  <div class="relative font-Sohne-Bold hidden transition-all duration-500 group-hover:block hover:block">
+				  <div class="relative font-Sohne-Bold-light hidden transition-all duration-500 group-hover:block hover:block">
             <ul class="space-y-1 absolute flex flex-col flex-grow top-0 left-0 py-5 px-5 bg-deep-overlay-black">
                 <li class="flex flex-col">
                     <a href="<?php echo get_home_url();?>/graphics-design" class="self-start whitespace-nowrap block relative after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-0.5">

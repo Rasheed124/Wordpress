@@ -12,6 +12,8 @@
 <header id="">
 
 <nav class="bg-deep-black fixed w-full top-0 z-[80] text-light-white transition duration-200 translate-y-0">
+<!-- <nav id="headerMain" class="bg-white fixed w-full top-0 z-[80] text-deep-black border-b border-deep-black transition duration-200 translate-y-0"> -->
+
   <div class="border-0 py-6 px-3">
     <div class="flex justify-between items-center px-5 relative">
 
@@ -174,7 +176,7 @@
                 </span>
               </div>
             </a>
-            <div class="relative font-Sohne-Bold hidden transition-all duration-500 group-hover:block hover:block">
+            <div class="relative font-Sohne-Bold-light hidden transition-all duration-500 group-hover:block hover:block">
               <ul class="text-light-white space-y-1 absolute flex flex-col flex-grow top-1 left-0 py-5 px-5 bg-deep-overlay-black">
                 <li class="flex flex-col">
                   <a href="<?php echo get_home_url();?>/blog"  class="self-start whitespace-nowrap block relative after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-0.5">
@@ -201,7 +203,7 @@
                 </span>
               </div>
             </a>
-            <div class="z-50 relative font-Sohne-Bold hidden transition-all duration-500 group-hover:block hover:block">
+            <div class="z-50  relative font-Sohne-Bold-light hidden transition-all duration-500 group-hover:block hover:block">
               <ul class="space-y-1 absolute flex flex-col flex-grow top-1 -left-24 py-5 px-5 bg-deep-overlay-black text-light-white">
                 <li class="flex flex-col">
                   <a href="<?php echo get_home_url();?>/graphics-design" class="self-start whitespace-nowrap block relative after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-0.5">

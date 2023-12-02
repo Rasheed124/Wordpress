@@ -267,6 +267,15 @@ function durodola_abdulhad_sidebars()
 
         )
     );
+    register_sidebar(
+
+        array(
+
+            'name'          => esc_html__('footer-menu-5', 'durodola_abdulhad'),
+            'id'            => 'footer-menu-5',
+
+        )
+    );
 
 }
 add_action('widgets_init', 'durodola_abdulhad_sidebars');
