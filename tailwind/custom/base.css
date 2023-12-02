@@ -17,3 +17,11 @@ body {
     @apply font-Sohne-Bold-light bg-light-white;
 } 
 
+/* html body::selection {
+    @apply bg-deep-overlay text-deep-black;
+} */
+
+
+#testimonials .swiper-button-next, #testimonials .swiper-button-prev {
+     @apply text-light-white;
+}

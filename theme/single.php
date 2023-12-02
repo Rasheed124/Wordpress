@@ -21,8 +21,8 @@ get_header("main");
 						if (!empty($categories)) :
 							foreach ($categories as $cat) :
 						?>
-							<p class="mb-4 text-base font-semibold tracking-wider text-orange uppercase rounded-full">
-								<a href="<?php echo get_tag_link($cat->term_id); ?>"><?php echo $cat->name; ?></a>
+							<p class="mb-4 text-base cursor-pointer font-semibold tracking-wider text-orange uppercase rounded-full">
+								<?php echo $cat->name; ?>
 							</p>
 						<?php endforeach;
 						endif; ?>
@@ -87,8 +87,8 @@ get_header("main");
 							if (!empty($categories)) :
 							foreach ($categories as $cat) :
 							?>
-								<p class="mb-3 text-xs font-semibold tracking-wide uppercase">
-								<a href="<?php echo get_tag_link($cat->term_id); ?>"><?php echo $cat->name; ?></a>
+								<p class="mb-3 cursor-pointer text-xs font-semibold tracking-wide uppercase">
+								<?php echo $cat->name; ?>
 								<span class="text-gray-600">— <?php echo get_the_date('jS F, Y'); ?></span>
 								</p>
 							<?php endforeach;

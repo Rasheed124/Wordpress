@@ -54,13 +54,11 @@ var Swipes = new Swiper('.swiper', {
 	},
 	effect: 'crossfade',
 	grabCursor: true,
-	// Navigation arrows
 	navigation: {
 		nextEl: '.swiper-button-next',
 		prevEl: '.swiper-button-prev',
 	},
 	speed: 1000,
-	navigation: true,
 	spaceBetween: 100,
 	slidesPerView: 1,
 });
@@ -109,18 +107,7 @@ if (toTopBtn ) {
 
 
 
-// About Nav
 
 
 
-// const headerMainNavbar = document.querySelector('#headerMain');
-// window.onscroll = () => {
-// 	if (window.scrollY > 200) {
-// 		headerMainNavbar.classList.add('header-main-scrolled-down');
-		
-// 	} else {
-
-// 		headerMainNavbar.classList.remove('header-main-scrolled-down');
-// 	}
-// };
 

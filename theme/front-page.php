@@ -195,34 +195,34 @@ get_header();
                 </div>
 
                 <div class="grid grid-cols-1 place-content-center place-items-center w-full px-5">
-                  <!-- ANALYST -->
+                        <!-- ANALYST -->
 
-                  <?php
-                  if ($posts) :
-                    $projects = get_sub_field('projects');
-                    $counter = 1; // Initialize the counter
-                    foreach ($projects as $project) :
-                      setup_postdata($projects);
-                      $project_title = get_the_title($project->ID);
-                      $project_permalink = get_permalink($project->ID);
-                  ?>
+                        <?php
+                        $projects = get_sub_field('projects');
+                        $counter = 1; // Initialize the counter
+                        foreach ($projects as $project) :
+                          setup_postdata($project);
+                          $project_title = get_the_title($project->ID);
+                          $project_permalink = get_permalink($project->ID);
 
-                      <a href="<?php echo esc_url($project_permalink); ?>" class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
-                        <div class="flex flex-row">
-                          <span class="self-start mr-3 mt-3">0<?php echo $counter; ?></span>
-                          <h4 class="font-Antonio font-bold text-6xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
-                            <?php echo $project_title; ?>
-                          </h4>
-                        </div>
-                      </a>
+                          // Display only 6 posts
+                          if ($counter <= 6) :
+                        ?>
+                            <a href="<?php echo esc_url($project_permalink); ?>" class="mb-5 md:flex md:flex-col md:justify-center md:items-center">
+                              <div class="flex flex-row">
+                                <span class="self-start mr-3 mt-3">0<?php echo $counter; ?></span>
+                                <h4 class="font-Antonio font-bold text-6xl lg:text-8xl uppercase relative after:content-[''] after:absolute after:-bottom-4 after:left-0 after:w-0 after:h-0 after:transition-all after:duration-700 after:bg-light-white hover:after:w-full hover:after:h-1">
+                                  <?php echo $project_title; ?>
+                                </h4>
+                              </div>
+                            </a>
+                        <?php
+                          endif;
 
-                  <?php
-                      $counter++; // Increment the counter
-                    endforeach; ?>
-                    <?php wp_reset_postdata(); ?>
-                  <?php endif; ?>
-
-                </div>
+                          $counter++; // Increment the counter
+                        endforeach; ?>
+                        <?php wp_reset_postdata(); ?>
+                      </div>
 
                 <a href="<?php echo get_home_url();?>/portfolio" class="self-center mt-10">
                   <div class="group cursor-pointer font-Antonio inline-flex">
@@ -262,7 +262,7 @@ get_header();
           if ($id_testimonial_section) { ?>
 
             <div class="flex flex-col max-w-6xl mx-auto px-5">
-               <div class="swiper  grid grid-cols-1 place-content-center place-items-center">
+               <div id="testimonials" class="swiper  grid grid-cols-1 place-content-center place-items-center">
                   <div class="swiper-wrapper">
 
 

@@ -321,27 +321,57 @@ function productdesign_post_type() {
 }
 add_action('init', 'productdesign_post_type');
 
+//custom post (Data Analyst )
+function data_post_type() {
+	$args = array (
+		'labels'      => array(
+			'name'          => 'DataAnalysts',
+			'singular_name' => 'DataAnalyst',
+		),
+		'public'      => true,
+		'hierarchical' => true,
+		'has_archive' => true,
+		//'rewrite'     => array( 'slug' => 'ui-ux-product-design' ),
+		'supports' =>  array('title', 'editor', 'thumbnail', 'custom-fields'),
+		
+	);
+	register_post_type('data', $args );
+}
+add_action('init', 'data_post_type');
+
+
+//custom post (Digital Marketing )
+function marketing_post_type() {
+	$args = array (
+		'labels'      => array(
+			'name'          => 'DigitalMarketings',
+			'singular_name' => 'DigitalMarketing',
+		),
+		'public'      => true,
+		'hierarchical' => true,
+		'has_archive' => true,
+		//'rewrite'     => array( 'slug' => 'ui-ux-product-design' ),
+		'supports' =>  array('title', 'editor', 'thumbnail', 'custom-fields'),
+		
+	);
+	register_post_type('marketing', $args );
+}
+add_action('init', 'marketing_post_type');
+
 
 //custom post (Awards)
 function award_post_type() {
 	$args = array (
 		'labels'      => array(
 			'name'          => 'Awards',
-			'singular_name' => 'award',
+			'singular_name' => 'Award',
 		),
 		'public'      => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => true,
 		'hierarchical' => true,
 		'has_archive' => true,
 		'menu_icon'   => 'dashicons-awards',
-		'rewrite'     => array( 'slug' => 'award' ),
-		'capability_type'    => 'post',
+		//'rewrite'     => array( 'slug' => 'award' ),
 		'supports' =>  array('title', 'editor', 'thumbnail', 'custom-fields'),
-		 'show_in_rest'       => true
-		
 	);
 	register_post_type('awards', $args );
 }
@@ -415,6 +445,8 @@ function testimonial_post_type() {
 add_action( 'init', 'testimonial_post_type' );
 
 
+
+//Setting Post Views 
 function gt_get_post_view() {
 
 
@@ -425,7 +457,6 @@ function gt_get_post_view() {
 
 
 }
-
 
 function gt_set_post_view() {
 
@@ -447,7 +478,6 @@ function gt_set_post_view() {
 
 }
 
-
 function gt_posts_column_views( $columns ) {
 
 
@@ -458,7 +488,6 @@ function gt_posts_column_views( $columns ) {
 
 
 }
-
 
 function gt_posts_custom_column_views( $column ) {
 
@@ -474,8 +503,5 @@ function gt_posts_custom_column_views( $column ) {
 
 }
 
-
 add_filter( 'manage_posts_columns', 'gt_posts_column_views' );
-
-
 add_action( 'manage_posts_custom_column', 'gt_posts_custom_column_views' );
