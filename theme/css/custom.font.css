@@ -1,26 +1,26 @@
 @font-face {
     font-family: "Light-cursive";
     /*Can be any text*/
-    src:  url("../../theme/fonts/sohne/test-soehne-buch-kursiv.woff2") format("woff2");
-        /* url("../../fonts/sohne/test-soehne-buch-kursiv.woff2") format("woff2"); */
+    src:  url("../../fonts/sohne/test-soehne-buch-kursiv.woff2") format("woff2");
+    /* src:  url("../../theme/fonts/sohne/test-soehne-buch-kursiv.woff2") format("woff2"); */
 }
 
 @font-face {
     font-family: "Bold";
     /*Can be any text*/
-    src: url("../../theme/fonts/sohne/test-soehne-extrafett.woff2") format("woff2");
+    src: url("../../fonts/sohne/test-soehne-extrafett.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Bold-light";
     /*Can be any text*/
-    src: url("../../theme/fonts/sohne/test-soehne-buch.woff2") format("woff2");
+    src: url("../../fonts/sohne/test-soehne-buch.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "migra-extraLight";
     /*Can be any text*/
-    src:  url("../../theme/fonts/FontsFree-Net-Migra-Extralight.ttf") format("truetype");
+    src:  url("../../fonts/FontsFree-Net-Migra-Extralight.ttf") format("truetype");
 }
 
 
@@ -28,5 +28,5 @@
     font-family: "Bold-thin";
     /*Can be any text*/
     src: local("sohne"),
-        url("../../theme/fonts/sohne/test-soehne-extraleicht.woff2") format("woff2");
+        url("../../fonts/sohne/test-soehne-extraleicht.woff2") format("woff2");
 }
