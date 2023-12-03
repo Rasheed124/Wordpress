@@ -107,16 +107,7 @@ if ( $page_index == 1 ) {
                  
                     
                       <p> <?php echo wp_trim_words(get_the_excerpt() , 18); ?></p> 
-                      <!-- <p class="text-base text-black/60">
-                               <span class="block font-semibold">
-                        Favid Rick
-
-                        </span>
-                      <span class="block text-sm font-medium">
-                        Dec 12 · 5 min read
-                      </span> 
-                      
-                      </p> -->
+                   
 
 					  	<p class="mt-3 text-xs font-semibold tracking-wide uppercase">
 										<?php

@@ -165,7 +165,6 @@ function durotheme_scripts() {
 
     // Enqueue Swiper.js library
     //wp_enqueue_script('swiper');
-
     // Load Swiper CSS (optional)
   	wp_enqueue_style( 'durotheme-style', get_stylesheet_uri(), array(), DUROTHEME_VERSION );
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css', array(), false, 'all');
