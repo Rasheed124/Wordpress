@@ -9,57 +9,82 @@
 
 get_header("main");
 ?>
-	<section class="py-20 bg-white ">
+	<section class="py-20 md:py-32 bg-white ">
 		
-			<div class="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+			<div class="px-4 py-10 mx-auto sm:max-w-2xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+				<div class="flex gap-10 lg:gap-16">
 					<!-- <div class="flex flex-col items-center justify-between lg:flex-row"> -->
 
-					<div class="">
-						<!-- <div class="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0"> -->
+					<div class="flex-1 text-center lg:text-left">
+							<div class="max-w-xl mx-auto mb-6">
+									<div class="space-x-2">
+										<?php
+										$categories = get_the_category();
+										if (!empty($categories)) :
+											foreach ($categories as $cat) :
+										?>
+											<p class="inline-block text-base cursor-pointer font-semibold tracking-wider text-orange uppercase rounded-full">
+												<?php echo $cat->name; ?>
+											</p>
+										<?php endforeach;
+										endif; ?>
+									</div>
 
-						<div class="max-w-xl mb-6">
-							<div class="space-x-2">
-								<?php
-								$categories = get_the_category();
-								if (!empty($categories)) :
-									foreach ($categories as $cat) :
-								?>
-									<p class="inline-block text-base cursor-pointer font-semibold tracking-wider text-orange uppercase rounded-full">
-										<?php echo $cat->name; ?>
+									<h2 class="lg:max-w-xl   mb-6 text-5xl font-bold font-Antonio  sm:text-7xl sm:leading-[70px]">
+										<?php the_title(); ?>
+									</h2>
+									<p class="text-base md:text-lg font-normal hidden lg:block">
+										    <?php echo wp_trim_words(get_the_excerpt(), 21, '...'); ?>
 									</p>
-								<?php endforeach;
-								endif; ?>
+
+							</div>
+						
+							<div class="hidden lg:block">
+								<?php
+								$author_id = get_the_author_meta('ID');
+								$author_image = get_avatar_url($author_id);
+								$author_name = get_the_author_meta('display_name');
+								echo $author_name;
+								?>
+								<?php $author_id = $post->post_author; ?>
+								<div class="flex flex-col  items-center md:flex-row">
+									<img class="object-cover w-16 h-16 rounded-full" src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
+									<div class="flex flex-col text-center lg:text-left space-y-1 ml-3">
+										<p class="text-sm leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
+										<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>
+									</div>
+								</div>
 							</div>
 
-							<h2 class="max-w-lg mb-6 text-3xl font-bold font-Antonio tracking-tight text-blue sm:text-5xl sm:leading-[58px]">
-							<?php the_title(); ?>
-							</h2>
+
+						<div class="lg:hidden  space-y-10 py-10">
+							<img class="max-w-full mx-auto" src="<?php the_post_thumbnail_url(); ?>" alt="" />
+
 							<p class="text-base md:text-lg font-normal">
-							<?php echo wp_trim_words(get_the_excerpt(), 20); ?>
+								    <?php echo wp_trim_words(get_the_excerpt(), 21, '...'); ?>
 							</p>
 
-						</div>
-
-						<?php
-						$author_id = get_the_author_meta('ID');
-						$author_image = get_avatar_url($author_id);
-						$author_name = get_the_author_meta('display_name');
-						echo $author_name;
-						?>
-						<?php $author_id = $post->post_author; ?>
-						<div class="flex flex-col  items-center md:flex-row">
-							<img class="object-cover w-16 h-16 rounded-full" src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
-							<div class="flex flex-col text-center lg:text-left space-y-1 ml-3">
-								<p class="text-sm leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
-								<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>
+							<?php
+							$author_id = get_the_author_meta('ID');
+							$author_image = get_avatar_url($author_id);
+							$author_name = get_the_author_meta('display_name');
+							echo $author_name;
+							?>
+							<?php $author_id = $post->post_author; ?>
+							<div class="flex flex-col  items-center lg:flex-row">
+								<img class="object-cover w-16 h-16 rounded-full" src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
+								<div class="flex flex-col text-center lg:text-left space-y-1 ml-3">
+									<p class="text-sm leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
+									<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>
+								</div>
 							</div>
+							
 						</div>
 						
 					</div>
 
-					<div class="">
-						<img class="max-w-full" src="<?php the_post_thumbnail_url(); ?>" alt="" />
+					<div class="flex-1 hidden lg:block">
+						<img class="w-full h-full object-cover" src="<?php the_post_thumbnail_url(); ?>" alt="" />
 						<!-- <img class="object-cover w-full h-56 sm:h-96 lg:h-[calc(100vh-30vh)]" src="" alt="" /> -->
 					</div>
 
