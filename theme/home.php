@@ -16,6 +16,7 @@ get_header("main");
 	
 	<main>
 		<section class=" ">
+            
 				<header class="px-5 py-16  bg-light-white ">
 					<div class=" max-w-6xl mx-auto mt-24 lg:mt-16 xl:mt-32 ">
 					<h2 class="uppercase max-w-2xl font-extrabold font-Antonio text-5xl lg:text-6xl mb-1 ">

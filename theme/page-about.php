@@ -17,7 +17,7 @@ get_header("about");
 <main class="">
 
 
-		<section class="min-h-screen bg-cover bg-no-repeat bg-center bg-deep-black bg-blend-overlay bg-opacity-10" style="background-image: url('<?php
+		<section class="min-h-screen bg-cover bg-no-repeat bg-[45%_50%] sm:bg-cover  sm:bg-no-repeat sm:bg-[100%_50%] bg-deep-black bg-blend-overlay bg-opacity-10" style="background-image: url('<?php
 			// Check if the current page has a featured image
 			if (has_post_thumbnail()) {
 				// Get the featured image HTML
@@ -45,7 +45,7 @@ get_header("about");
 						<?php while (have_rows('about_me_section')) : the_row();
 							$id_about_me_section = get_sub_field('id');
 							if ($id_about_me_section) { ?>
-								<div class="max-w-6xl px-5 mx-auto text-left grid grid-cols-1 lg:grid-cols-3 gap-10">
+								<div class="max-w-6xl  px-5 mx-auto text-left grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-32">
 									<div class="lg:col-start-1 lg:col-end-3">
 										<?php if (have_rows('about_content')) : ?>
 											<?php while (have_rows('about_content')) : the_row(); ?>

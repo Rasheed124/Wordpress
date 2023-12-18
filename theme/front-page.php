@@ -443,38 +443,14 @@ get_header();
                       <a class="self-start" href="<?php echo esc_url($product_section_link_url); ?>" target="<?php echo esc_attr($product_section_link_target); ?>">
                            
                 <div class="group cursor-pointer font-Antonio inline-flex">
-                  <div class="mr-2 uppercase text-xl transition duration-700 group-hover:text-header-dark-overlay">
-                         <?php echo esc_html($product_section_link_title); ?>
-                  </div>
-                  <div class="relative group-hover:text-header-dark-overlay self-end p-4 py-3 overflow-hidden font-medium transition duration-700 ease-out text-2xl">
-                    <div class="">
-                      <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 group-hover:translate-x-[100%] bg-transparent -translate-x-[20%] ease">
-                        <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg">
-                          <span>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              class="text-3xl text-white group-hover:text-header-dark-overlay"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                              ></path>
-                            </svg>
-                          </span>
-                        </div>
-                      </span>
-                      <span class="absolute inset-0 flex items-center justify-end w-full h-full text-white duration-500 -translate-x-[100%] bg-transparent group-hover:translate-x-0 ease">
-                        <div class="relative btn overflow-x-hidden flex justify-center items-center gap-3 text-lg font-Antonio">
-                            <span><i class="fa-solid fa-arrow-right text-2xl"></i></span>
-                        </div>
-                      </span>
-                    </div>
-                  </div>
+               
+                   <a
+                      href="#"
+                      class="inline-block rounded bg-header-dark-overlay px-12 py-3 text-[17px] text-white  bg-transparent border border-header-dark-overlay font-medium hover:text-deep-black transition duration-300 hover:bg-header-dark-overlay "
+                    >
+                      Get Started Today
+                    </a>
+                 
                 </div>
           
 
