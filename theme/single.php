@@ -23,14 +23,14 @@ get_header("main");
 										if (!empty($categories)) :
 											foreach ($categories as $cat) :
 										?>
-											<p class="inline-block text-base cursor-pointer font-semibold tracking-wider text-orange uppercase rounded-full">
+											<p class="inline-block mt-3 text-base cursor-pointer font-semibold tracking-wider text-orange uppercase rounded-full">
 												<?php echo $cat->name; ?>
 											</p>
 										<?php endforeach;
 										endif; ?>
 									</div>
 
-									<h2 class="lg:max-w-xl   mb-6 text-5xl font-bold font-Antonio  sm:text-7xl sm:leading-[70px]">
+									<h2 class="lg:max-w-xl   mb-6 text-6xl font-bold font-Antonio  sm:text-7xl sm:leading-[70px]">
 										<?php the_title(); ?>
 									</h2>
 									<p class="text-base md:text-lg font-normal hidden lg:block">
@@ -50,8 +50,15 @@ get_header("main");
 								<div class="flex flex-col  items-center md:flex-row">
 									<img class="object-cover w-16 h-16 rounded-full" src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
 									<div class="flex flex-col text-center lg:text-left space-y-1 ml-3">
-										<p class="text-sm leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
-										<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>
+										<p class="text-sm font-semibold leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
+										<em class="">
+										<?php if ($post_reading = get_field('post_reading_time')) : ?>
+											<?php echo $post_reading; ?>
+										<?php endif; ?>
+										</em>
+										<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>.
+									
+							
 									</div>
 								</div>
 							</div>
@@ -73,9 +80,15 @@ get_header("main");
 							<?php $author_id = $post->post_author; ?>
 							<div class="flex flex-col  items-center lg:flex-row">
 								<img class="object-cover w-16 h-16 rounded-full" src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
-								<div class="flex flex-col text-center lg:text-left space-y-1 ml-3">
-									<p class="text-sm leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
-									<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>
+								<div class="flex flex-col text-center lg:text-left space-y-1  ml-3">
+										<p class="text-sm font-semibold leading-relaxed">Written by <?php echo the_author_meta('first_name', $author_id); ?></p>
+										<em class="">
+										<?php if ($post_reading = get_field('post_reading_time')) : ?>
+											<?php echo $post_reading; ?>
+										<?php endif; ?>
+										</em>
+										<span class="text-sm leading-relaxed"><?php echo get_the_date('jS F, Y'); ?></span>.
+									
 								</div>
 							</div>
 							
@@ -84,14 +97,14 @@ get_header("main");
 					</div>
 
 					<div class="flex-1 hidden lg:block">
-						<img class="w-full h-full object-cover" src="<?php the_post_thumbnail_url(); ?>" alt="" />
-						<!-- <img class="object-cover w-full h-56 sm:h-96 lg:h-[calc(100vh-30vh)]" src="" alt="" /> -->
+						<img class="w-full h-[calc(100vh-35vh)] object-center " src="<?php the_post_thumbnail_url(); ?>" alt="" />
+						
 					</div>
 
 				</div>
 			</div>
 
-			<div class="max-w-[900px] mx-auto p-5 px-10">
+			<div class="max-w-[900px] mx-auto p-5 text-lg px-10">
 				<?php the_content(); ?>
 			</div>
 

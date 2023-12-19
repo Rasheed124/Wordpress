@@ -51,15 +51,16 @@ get_header("main");
                         while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
                        
 
-                                <div class="flex flex-col gap-8 lg:flex-row justify-start text-left">
-                                    <div class="w-full">
+                                <div class="flex flex-col gap-8 md:flex-row justify-start text-left">
+
+                                    <div class="flex-1 w-full">
                                         <a href="<?php the_permalink(); ?>" class="block">
                                             <div class="w-full ">
                                                 <?php
                                                 if (has_post_thumbnail()) {
                                                     $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                                 ?>
-                                                    <img class="object-cover w-full object-center " src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title_attribute(); ?>" />
+                                                    <img class="w-full md:h-[45vh] object-contain   " src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title_attribute(); ?>" />
                                                 <?php
                                                 }
                                                 ?>
@@ -67,16 +68,27 @@ get_header("main");
                                         </a>
                                     </div>
 
-                                    <div class="text-deep-black w-full">
+                                    <div class="flex-1 text-deep-black w-full">
                                         <div class="border-b pb-5">
-                                            <div class="flex gap-8 mb-5">
-                                                <span><?php echo get_the_date(); ?></span>
+                                            <div class="flex justify-between gap-8 mb-5">
+                                                <span><?php echo get_the_date(); ?></span> 
+                                               <em class="">
+										<?php if ($post_reading = get_field('post_reading_time')) : ?>
+											<?php echo $post_reading; ?>
+										<?php endif; ?>
+										</em>
                                             </div>
-
+                                         
                                             <a href="<?php the_permalink(); ?>">
                                                 <h3 class="text-xl md:text-2xl font-Antonio transition-colors hover:duration-700 hover:text-header-dark-overlay">
                                                     <?php the_title(); ?>
                                                 </h3>
+
+                                                  <p class="mt-3">
+                                                          <?php echo wp_trim_words(get_the_excerpt(), 21, '...'); ?>
+                                                   </p>
+                                       
+                                             
                                             </a>
                                         </div>
 
