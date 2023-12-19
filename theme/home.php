@@ -60,7 +60,7 @@ get_header("main");
                                                 if (has_post_thumbnail()) {
                                                     $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                                 ?>
-                                                    <img class="w-full md:h-[45vh] object-contain   " src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title_attribute(); ?>" />
+                                                    <img class="w-full md:h-[50vh]  object-center " src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php the_title_attribute(); ?>" />
                                                 <?php
                                                 }
                                                 ?>
