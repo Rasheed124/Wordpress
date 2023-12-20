@@ -32,7 +32,7 @@ get_header("main");
 												endif; ?>
 											</div>
 
-											<h2 class="lg:max-w-xl   mb-6 text-6xl font-bold font-Antonio  sm:text-7xl sm:leading-[70px]">
+											<h2 class="lg:max-w-xl   mb-6 text-6xl font-bold font-Antonio  sm:text-[5.5rem] ">
 												<?php the_title(); ?>
 											</h2>
 											<p class="text-base md:text-lg font-normal hidden lg:block">
@@ -230,7 +230,7 @@ get_header("main");
 						$author_id = get_the_author_meta('ID');
 						$author_image = get_avatar_url($author_id);
 						?>
-						<img class="rounded-full  border-2 border-header-dark-overlay " src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
+						<img class="rounded-full " src="<?php echo $author_image; ?>" alt="<?php echo the_author_meta('first_name', $author_id); ?>" />
 					</div>
 
 					<!-- Column for Author Name, Social Links, and Bio -->
