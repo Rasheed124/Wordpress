@@ -19,7 +19,7 @@ get_header("main");
 
 					
 									<div class="max-w-xl  mx-auto mb-4">
-											<div class="flex justify-center lg:justify-start gap-3  ml-3">
+											<div class="flex justify-center lg:justify-start gap-2  ml-3">
 												<?php
 												$categories = get_the_category();
 												if (!empty($categories)) :
@@ -111,7 +111,7 @@ get_header("main");
 				</div>
 			</div>
 
-			<div class="max-w-[900px] mx-auto p-5 text-lg px-10">
+			<div class="max-w-[900px] mx-auto p-5 text-xl px-10 space-y-3">
 				<?php the_content(); ?>
 			</div>
 

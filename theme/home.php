@@ -129,17 +129,18 @@ get_header("main");
                     </div>
                 </div>
             </div>
+            
             <div class="pagination bg-white flex justify-center items-center py-5">
-
-            <div class="p-4 rounded-full font-Sohne-Bold bg-header-dark-overlay">
-                         <?php
-                echo paginate_links(array(
-                    'total'   => $latest_posts->max_num_pages,
-                    'current' => max(1, get_query_var('paged')),
-                ));
-                ?>
-            </div>
-       
+                <?php if ($latest_posts->max_num_pages > 1 && $latest_posts->found_posts > 3) : ?>
+                    <div class="p-4 rounded-full font-Sohne-Bold bg-header-dark-overlay">
+                        <?php
+                        echo paginate_links(array(
+                            'total'   => $latest_posts->max_num_pages,
+                            'current' => max(1, get_query_var('paged')),
+                        ));
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
 <?php wp_reset_query(); ?>
