@@ -32,6 +32,7 @@ module.exports = {
 				"Sohne-Bold-light": "Bold-light",
 				"Sohne-Bold": "Bold",
 				"migra-light": "migra",
+				"roboto" : "roboto"
 			},
 
 			maxWidth: {

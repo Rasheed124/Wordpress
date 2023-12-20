@@ -68,15 +68,15 @@ get_header("main");
                                         </a>
                                     </div>
 
-                                    <div class="flex-1 text-deep-black w-full">
+                                    <div class="flex flex-col justify-between flex-1 text-deep-black w-full">
                                         <div class="border-b pb-5">
                                             <div class="flex justify-between gap-8 mb-5">
                                                 <span><?php echo get_the_date(); ?></span> 
-                                               <em class="">
-										<?php if ($post_reading = get_field('post_reading_time')) : ?>
-											<?php echo $post_reading; ?>
-										<?php endif; ?>
-										</em>
+                                                    <em class="">
+                                                <?php if ($post_reading = get_field('post_reading_time')) : ?>
+                                                    <?php echo $post_reading; ?>
+                                                <?php endif; ?>
+                                                </em>
                                             </div>
                                          
                                             <a href="<?php the_permalink(); ?>">
@@ -85,7 +85,7 @@ get_header("main");
                                                 </h3>
 
                                                   <p class="mt-3">
-                                                          <?php echo wp_trim_words(get_the_excerpt(), 21, '...'); ?>
+                                                     <?php echo wp_trim_words(get_the_excerpt(), 60, '...'); ?>
                                                    </p>
                                        
                                              

@@ -1,5 +1,5 @@
 	<!-- About Header Template -->
-    <div id="headerAbout" class="bg-transparent border-b border-deep-black   fixed w-full z-[80] top-0 text-deep-black transition duration-300 translate-y-0">
+    <div id="headerAbout" class="bg-transparent border-b text-light-white border-deep-black   fixed w-full z-[80] top-0 transition duration-300 translate-y-0">
 			<!-- <div id="headerAbout" class="bg-deep-black  fixed w-full z-[80] top-0 text-light-white transition duration-700 translate-y-0"> -->
 				<div class="border-0 py-6 px-5">
 					<div class="flex justify-between items-center">
