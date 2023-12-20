@@ -178,14 +178,17 @@ get_header("main");
 									'post__not_in' => array($post->ID)
 								)
 							);
-							if ($related)
+							  if (!empty($related)) :
 								foreach ($related as $post) {
 									setup_postdata($post);
 							?>
-								<h3 class="text-lg font-Antonio hover:underline hover:text-header-dark-overlay transition font-semibold"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<?php
+									<h3 class="text-lg font-Antonio hover:underline hover:text-header-dark-overlay transition font-semibold"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+								<?php
 								}
-							wp_reset_postdata();
+								wp_reset_postdata();
+							else :
+								echo '<p>No related posts found.</p>';
+							endif;
 							?>
 						</div>
 					</div>
@@ -201,15 +204,17 @@ get_header("main");
 									'post__not_in' => array($post->ID)
 								)
 							);
-							if ($latest_posts)
+							 if (!empty($latest_posts)) :
 								foreach ($latest_posts as $post) {
 									setup_postdata($post);
 							?>
-							<h3 class="text-lg font-Antonio font-semibold hover:underline hover:text-header-dark-overlay transition "><a  href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								
-							<?php
+									<h3 class="text-lg font-Antonio font-semibold hover:underline hover:text-header-dark-overlay transition "><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+								<?php
 								}
-							wp_reset_postdata();
+								wp_reset_postdata();
+							else :
+								echo '<p>No latest posts found.</p>';
+							endif;
 							?>
 						</div>
 					</div>
